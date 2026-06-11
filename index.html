@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08080c">
+    <meta name="color-scheme" content="dark">
     <title>Weidler Studio</title>
-    <link rel="icon" href="logoweidlerstudio.png" type="image/png">
+    <link rel="icon" href="assets/favicon.png" type="image/png" sizes="48x48">
     <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -13,7 +15,7 @@
         <div class="header-top">
             <div class="header-brand">
                 <a href="index.html" class="logo-link">
-                    <img src="logoweidlerstudio.png" alt="" class="logo-icon" width="36" height="36">
+                    <img src="assets/logo-nav.png" alt="" class="logo-icon" width="36" height="36">
                     <span class="logo-text">Weidler <span>Studio</span></span>
                 </a>
                 <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
@@ -50,7 +52,10 @@
 
     <main>
         <section class="home-hero">
-            <img src="logoweidlerstudio.png" alt="Weidler Studio" class="home-logo" width="320" height="320">
+            <picture>
+                <source srcset="assets/logo-hero.webp" type="image/webp">
+                <img src="assets/logo-hero.jpg" alt="Weidler Studio" class="home-logo" width="320" height="320" fetchpriority="high">
+            </picture>
             <h1 class="home-tagline" data-translate><em>Créer.</em> <em>Solutionner.</em> <em>Connecter.</em></h1>
             <p class="home-lead" data-translate>Je conçois des expériences et des outils qui tiennent debout — jeux, simulations, applications. De l'idée au produit fini.</p>
         </section>

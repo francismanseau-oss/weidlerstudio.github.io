@@ -147,7 +147,8 @@ img, video, svg { max-width: 100%; height: auto; }
     background: none;
     border: none;
     color: var(--text-muted);
-    padding: 2px 0;
+    padding: 6px 8px;
+    min-height: 36px;
     font-family: inherit;
     font-size: inherit;
     font-weight: 500;
@@ -155,7 +156,9 @@ img, video, svg { max-width: 100%; height: auto; }
     text-transform: inherit;
     cursor: pointer;
     white-space: nowrap;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, background 0.2s ease;
+    border-radius: 6px;
+    -webkit-tap-highlight-color: transparent;
 }
 .lang-btn .lang-native {
     font-weight: 400;
@@ -408,6 +411,11 @@ main {
     object-position: center;
     display: block;
 }
+.preview-box picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .preview-box.contain img { object-fit: contain; padding: 16px; }
 
 .btn-primary {
@@ -624,7 +632,7 @@ textarea { resize: vertical; min-height: 100px; }
 }
 
 @media (max-width: 768px) {
-    :root { --header-h: 56px; }
+    :root { --header-h: 56px; --lang-bar-h: auto; }
     body { padding-top: 0; }
     .site-header { position: relative; }
     .header-top { min-height: 56px; }
@@ -642,18 +650,38 @@ textarea { resize: vertical; min-height: 100px; }
     .main-nav a {
         display: block;
         width: 100%;
-        padding: 12px 0;
+        padding: 14px 0;
         border-bottom: 1px solid var(--border);
     }
     .main-nav a:last-child { border-bottom: none; }
-    .lang-bar { justify-content: center; padding-bottom: 12px; }
-    .lang-switcher { justify-content: center; }
+    .lang-bar {
+        justify-content: center;
+        padding: 10px clamp(12px, 3vw, 24px) 14px;
+    }
+    .lang-switcher {
+        justify-content: center;
+        gap: 8px;
+        font-size: 0.78rem;
+    }
+    .lang-sep { display: none; }
+    .lang-btn {
+        padding: 12px 14px;
+        min-height: 44px;
+        min-width: 44px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+    .lang-btn.active {
+        background: var(--accent-soft);
+        border-color: rgba(184, 58, 92, 0.45);
+    }
     main { padding-top: 24px; }
 }
 
 @media (max-width: 400px) {
-    .lang-sep { margin: 0 6px; }
-    .lang-switcher { font-size: 0.65rem; }
+    .lang-switcher { font-size: 0.72rem; gap: 6px; }
+    .lang-btn { padding: 10px 12px; min-width: 40px; }
     .btn-submit, .btn-primary { width: 100%; }
 }
 
