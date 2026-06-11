@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crible+ | Weidler Studio</title>
+    <link rel="icon" href="../logoweidlerstudio.png" type="image/png">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../logoweidlerstudio.png" alt="" class="logo-icon" width="36" height="36">
+                    <span class="logo-text">Weidler <span>Studio</span></span>
+                </a>
+                <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+            </div>
+            <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+                <a href="../index.html" data-translate>Accueil</a>
+                <a href="../kios/index.html">Kios</a>
+                <a href="index.html" class="active">Crible+</a>
+                <a href="../haven/index.html">Haven</a>
+                <a href="../nexus-bridge/index.html">Nexus Bridge</a>
+            </nav>
+        </div>
+        <div class="lang-bar">
+            <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
+            <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="de">DE</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="es">ES</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="it">IT</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="zh-CN">ZH</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="ja">JA</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="pt">PT</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div>
+                <span class="badge badge-available" data-translate>Disponible</span>
+                <h1>Crible+</h1>
+                <p class="lead" data-translate>Crible+ revisite le cribbage pour Android : parties rapides, mode hors ligne, règles claires. Un jeu de cartes pensé pour jouer partout, sans compte ni connexion.</p>
+                <a href="../downloads/cribleplus/CriblePlus-1.6-release.apk" class="btn-primary" download data-translate>Télécharger v1.6 (Android)</a>
+                <p class="note-muted" data-translate>Installation : autorisez les sources inconnues dans les paramètres Android si demandé. APK signé — com.weidlerstudio.cribleplus.</p>
+            </div>
+            <div class="preview-box contain">
+                <img src="../assets/cribleplus.png" alt="Crible+" width="400" height="400"
+                     onerror="this.src='../logoweidlerstudio.png'">
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="features-title" data-translate>Ce qui distingue Crible+</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Hors ligne</h3>
+                    <p data-translate>Jouez sans connexion. Idéal en déplacement ou sans données mobiles.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Adversaire intégré</h3>
+                    <p data-translate>Affrontez l'ordinateur à votre rythme, avec plusieurs niveaux de difficulté.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Multilingue</h3>
+                    <p data-translate>Interface disponible en plusieurs langues pour un accès plus large.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" data-translate>&copy; 2026 Weidler Studio. Tous droits réservés.</footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "studioName": "Weidler Studio",
+  "nav": {
+    "home": "Inicio",
+    "projects": "Nuestros Proyectos",
+    "services": "Servicios",
+    "gallery": "Galería",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Juego destacado",
+    "title": "Terre Libre",
+    "description": "Un juego de simulación, autonomía y permacultura. Cultiva tu tierra, gestiona un clima dinámico y modifica el terreno a tu gusto en un mundo vivo e inmersivo.",
+    "cta": "Descargar la demo",
+    "visualLabel": "Terre Libre — Vista previa"
+  },
+  "discussion": {
+    "title": "Discusión comunitaria",
+    "subtitle": "Comparte tus ideas — no se requiere registro.",
+    "pseudonymLabel": "Seudónimo",
+    "pseudonymPlaceholder": "Tu apodo",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje…",
+    "noImages": "No está disponible la subida de imágenes.",
+    "submit": "Publicar comentario",
+    "empty": "Aún no hay comentarios. ¡Sé el primero!",
+    "translate": "Traducir",
+    "translating": "Traduciendo…",
+    "translatedLabel": "Traducción:"
+  },
+  "footer": {
+    "copyright": "© 2026 Weidler Studio. Todos los derechos reservados."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "studioName": "Weidler Studio",
+  "tagline": "Créer. Solutionner. Connecter.",
+  "nav": {
+    "home": "Accueil",
+    "kios": "Kios",
+    "cribleplus": "Crible+",
+    "haven": "Haven",
+    "nexusBridge": "Nexus Bridge"
+  },
+  "pillars": {
+    "create": "Créer",
+    "solve": "Solutionner",
+    "connect": "Connecter"
+  },
+  "status": {
+    "available": "Disponible",
+    "development": "En développement",
+    "soon": "Bientôt",
+    "tool": "Outil"
+  },
+  "kios": {
+    "title": "Kios",
+    "demoSoon": "Démo bientôt disponible"
+  },
+  "cribleplus": {
+    "title": "Crible+",
+    "download": "Télécharger v1.6 (Android)"
+  },
+  "haven": {
+    "title": "Haven"
+  },
+  "nexusBridge": {
+    "title": "Nexus Bridge",
+    "download": "Télécharger (Windows)"
+  },
+  "discussion": {
+    "title": "Retours bêta Kios",
+    "subtitle": "Partagez vos impressions — aucune inscription requise.",
+    "empty": "Aucun commentaire pour l'instant. Soyez le premier !"
+  },
+  "footer": {
+    "copyright": "© 2026 Weidler Studio. Tous droits réservés."
+  }
+}
