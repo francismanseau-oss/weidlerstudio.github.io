@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weidler Studio</title>
+    <link rel="icon" href="logoweidlerstudio.png" type="image/png">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="logoweidlerstudio.png" alt="" class="logo-icon" width="36" height="36">
+                    <span class="logo-text">Weidler <span>Studio</span></span>
+                </a>
+                <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+            </div>
+            <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+                <a href="index.html" class="active" data-translate>Accueil</a>
+                <a href="kios/index.html" data-translate>Kios</a>
+                <a href="cribleplus/index.html">Crible+</a>
+                <a href="haven/index.html">Haven</a>
+                <a href="nexus-bridge/index.html">Nexus Bridge</a>
+            </nav>
+        </div>
+        <div class="lang-bar">
+            <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
+            <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
+                <button type="button" class="lang-btn" data-lang="en" title="English">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn active" data-lang="fr" title="Français">FR</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="de" title="Deutsch">DE</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="es" title="Español">ES</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="it" title="Italiano">IT</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="zh-CN" title="中文">ZH</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="ja" title="日本語">JA</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="pt" title="Português">PT</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="home-hero">
+            <img src="logoweidlerstudio.png" alt="Weidler Studio" class="home-logo" width="320" height="320">
+            <h1 class="home-tagline" data-translate><em>Créer.</em> <em>Solutionner.</em> <em>Connecter.</em></h1>
+            <p class="home-lead" data-translate>Je conçois des expériences et des outils qui tiennent debout — jeux, simulations, applications. De l'idée au produit fini.</p>
+        </section>
+
+        <p class="about-block" data-translate>Créateur indépendant derrière Weidler Studio. Je m'intéresse aux systèmes vivants, aux jeux qui respirent, et aux outils qui accélèrent le travail. Chaque projet part d'une idée, passe par la résolution concrète, et aboutit à quelque chose de livrable.</p>
+
+        <div class="pillars">
+            <article class="pillar-card">
+                <h3 data-translate>Créer</h3>
+                <p data-translate>Imaginer des mondes, des règles, des interfaces — donner forme à une idée.</p>
+            </article>
+            <article class="pillar-card">
+                <h3 data-translate>Solutionner</h3>
+                <p data-translate>Comprendre le vrai problème, tester, ajuster — jusqu'à ce que ça fonctionne.</p>
+            </article>
+            <article class="pillar-card">
+                <h3 data-translate>Connecter</h3>
+                <p data-translate>Relier la vision au produit fini : code, gameplay, outils — quelque chose qu'on peut utiliser.</p>
+            </article>
+        </div>
+
+        <p class="section-label" data-translate>Mes créations</p>
+        <div class="products-grid">
+            <a href="cribleplus/index.html" class="product-card">
+                <span class="badge badge-available" data-translate>Disponible</span>
+                <h3>Crible+</h3>
+                <p data-translate>Jeu de cribbage revisité pour Android. Hors ligne, rapide, sans inscription.</p>
+                <span class="card-arrow" data-translate>Découvrir →</span>
+            </a>
+            <a href="kios/index.html" class="product-card">
+                <span class="badge badge-dev" data-translate>En développement</span>
+                <h3>Kios</h3>
+                <p data-translate>Simulation pure : un écosystème vivant sans interface artificielle.</p>
+                <span class="card-arrow" data-translate>Découvrir →</span>
+            </a>
+            <a href="haven/index.html" class="product-card">
+                <span class="badge badge-soon" data-translate>Bientôt</span>
+                <h3>Haven</h3>
+                <p data-translate>Prochain projet Android — en préparation.</p>
+                <span class="card-arrow" data-translate>En savoir plus →</span>
+            </a>
+            <a href="nexus-bridge/index.html" class="product-card">
+                <span class="badge badge-tool" data-translate>Outil</span>
+                <h3>Nexus Bridge</h3>
+                <p data-translate>Pont Discord ↔ Cursor : envoyez des prompts depuis votre cellulaire, recevez les réponses dans Discord.</p>
+                <span class="card-arrow" data-translate>Découvrir →</span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="site-footer" data-translate>&copy; 2026 Weidler Studio. Tous droits réservés.</footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+</html>
