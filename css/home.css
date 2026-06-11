@@ -1,0 +1,204 @@
+/* ── Accueil uniquement (index.html) ── */
+
+.page-home {
+    --home-bg: #14121a;
+    --home-surface: #1c1824;
+    --home-card: #221e2c;
+    --home-border: #342e42;
+    --home-text: #eceaf0;
+    --home-muted: #a39aad;
+    --home-accent: #c23a66;
+    --home-accent-soft: rgba(194, 58, 102, 0.14);
+
+    background-color: var(--home-bg);
+    color: var(--home-text);
+}
+
+.page-home .site-header {
+    background: rgba(20, 18, 26, 0.96);
+    border-bottom-color: var(--home-border);
+}
+
+.page-home .logo-text span,
+.page-home .main-nav a.active,
+.page-home .lang-btn.active,
+.page-home .section-label,
+.page-home .pillar-card h3,
+.page-home .product-card .card-arrow {
+    color: var(--home-accent);
+}
+
+.page-home .lang-btn.active {
+    background: var(--home-accent-soft);
+    border-color: rgba(194, 58, 102, 0.4);
+}
+
+.page-home .site-footer {
+    border-top-color: var(--home-border);
+    color: var(--home-muted);
+}
+
+/* ── Hero ── */
+.page-home .home-hero {
+    text-align: center;
+    margin-bottom: clamp(36px, 7vw, 56px);
+    padding: clamp(8px, 2vw, 16px) 0 0;
+}
+
+.page-home .home-title {
+    font-size: clamp(2rem, 6.5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--home-text);
+    margin-bottom: clamp(12px, 3vw, 18px);
+    line-height: 1.15;
+}
+
+.page-home .home-slogan {
+    font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+    font-weight: 600;
+    color: var(--home-accent);
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    margin-bottom: clamp(18px, 4vw, 24px);
+    max-width: 28ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-home .home-lead {
+    color: var(--home-muted);
+    font-size: clamp(0.98rem, 2.6vw, 1.08rem);
+    max-width: 58ch;
+    margin: 0 auto;
+    line-height: 1.72;
+}
+
+/* ── Piliers ── */
+.page-home .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: clamp(14px, 3vw, 20px);
+    margin-bottom: clamp(40px, 7vw, 64px);
+}
+
+.page-home .pillar-card {
+    background: var(--home-surface);
+    border: 1px solid var(--home-border);
+    border-radius: var(--radius);
+    padding: clamp(20px, 4vw, 28px);
+    text-align: center;
+}
+
+.page-home .pillar-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.page-home .pillar-card p {
+    color: var(--home-muted);
+    font-size: clamp(0.9rem, 2.2vw, 0.95rem);
+    line-height: 1.6;
+}
+
+/* ── Produits ── */
+.page-home .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-home .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: clamp(14px, 3vw, 20px);
+}
+
+.page-home .product-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--home-surface);
+    border: 1px solid var(--home-border);
+    border-radius: var(--radius);
+    padding: clamp(20px, 4vw, 26px);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    min-width: 0;
+}
+
+.page-home .product-card:hover {
+    border-color: rgba(194, 58, 102, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+.page-home .product-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    color: var(--home-text);
+}
+
+.page-home .product-card p {
+    color: var(--home-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: 14px;
+}
+
+.page-home .badge-available {
+    background: var(--home-accent-soft);
+    color: var(--home-accent);
+}
+
+/* ── Mobile first (Android) ── */
+@media (max-width: 768px) {
+    .page-home main {
+        padding-top: 16px;
+        padding-bottom: 28px;
+    }
+
+    .page-home .home-hero {
+        margin-bottom: 28px;
+        padding-top: 4px;
+    }
+
+    .page-home .home-title {
+        font-size: clamp(1.85rem, 8vw, 2.2rem);
+        margin-bottom: 10px;
+    }
+
+    .page-home .home-slogan {
+        font-size: clamp(1rem, 4.2vw, 1.12rem);
+        margin-bottom: 14px;
+    }
+
+    .page-home .home-lead {
+        font-size: 0.95rem;
+        line-height: 1.68;
+        text-align: left;
+    }
+
+    .page-home .pillars {
+        margin-bottom: 32px;
+    }
+
+    .page-home .pillar-card {
+        text-align: left;
+        padding: 18px 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .page-home .home-lead {
+        font-size: 0.92rem;
+    }
+}
