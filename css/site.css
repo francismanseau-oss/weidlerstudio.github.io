@@ -4,14 +4,14 @@
     --bg-card: #18181f;
     --border: #2a2a35;
     --text: #e8e8ed;
-    --text-muted: #8888a0;
-    --accent: #b83a5c;
-    --accent-dim: #8f2d48;
-    --accent-glow: rgba(184, 58, 92, 0.18);
-    --accent-soft: rgba(184, 58, 92, 0.1);
-    --badge-dev: #c9a227;
-    --badge-soon: #6b6b7a;
-    --badge-tool: #4a7eb8;
+    --text-muted: #c4beb4;
+    --accent: #e0b83d;
+    --accent-dim: #c9a227;
+    --accent-glow: rgba(224, 184, 61, 0.22);
+    --accent-soft: rgba(224, 184, 61, 0.14);
+    --badge-dev: #e8c547;
+    --badge-soon: #9a9590;
+    --badge-tool: #e0b83d;
     --radius: 10px;
     --header-h: 64px;
     --lang-bar-h: 34px;
@@ -36,6 +36,73 @@ body {
 }
 
 img, video, svg { max-width: 100%; height: auto; }
+
+/* Évite le bleu par défaut des liens navigateur */
+a {
+    color: inherit;
+}
+a:visited {
+    color: inherit;
+}
+a.home-contact-email,
+a.home-contact-email:visited {
+    color: var(--accent);
+    text-decoration: none;
+}
+a.site-footer-email,
+a.site-footer-email:visited {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+a.site-footer-email:hover {
+    color: var(--accent);
+}
+a:not(.btn-primary):not(.btn-download-nexus):not(.product-card):not(.logo-link):hover {
+    color: var(--accent);
+}
+
+/* Contact accueil — filet si home.css absent ou pas à jour */
+.home-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: clamp(48px, 8vw, 72px);
+    padding: clamp(28px, 5vw, 36px) clamp(20px, 4vw, 32px);
+    text-align: center;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-sizing: border-box;
+}
+.home-contact-lead {
+    color: var(--text-muted);
+    font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+    line-height: 1.65;
+    max-width: 42ch;
+    width: 100%;
+    margin: 0 auto 16px;
+    text-align: center;
+}
+.home-contact-email {
+    display: inline-block;
+    font-size: clamp(1rem, 2.6vw, 1.12rem);
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(224, 184, 61, 0.4);
+    background: var(--accent-soft);
+}
+.site-footer--home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
 
 /* ── Header ── */
 .site-header {
@@ -238,7 +305,7 @@ main {
     color: var(--badge-soon);
 }
 .badge-tool {
-    background: rgba(74, 126, 184, 0.15);
+    background: rgba(224, 184, 61, 0.18);
     color: var(--badge-tool);
 }
 
@@ -268,7 +335,7 @@ main {
 
 .preview-box {
     background: var(--bg-surface);
-    border: 1px solid rgba(184, 58, 92, 0.3);
+    border: 1px solid rgba(224, 184, 61, 0.35);
     border-radius: var(--radius);
     aspect-ratio: 16 / 10;
     min-height: 160px;
@@ -290,10 +357,99 @@ main {
 }
 .preview-box.contain img { object-fit: contain; padding: 16px; }
 
+.nexus-bridge-preview img {
+    object-fit: contain;
+    object-position: center;
+    padding: 16px;
+}
+.hero-app-shot {
+    margin: 0 0 clamp(40px, 8vw, 64px);
+    padding: 0;
+    background: var(--bg-surface);
+    border: 1px solid rgba(224, 184, 61, 0.35);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 0 24px var(--accent-glow);
+    width: 100%;
+}
+.hero-app-shot--full {
+    line-height: 0;
+}
+.hero-app-shot--full img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    vertical-align: top;
+}
+
+.hero-download-cta {
+    margin: 28px 0 8px;
+    max-width: 420px;
+}
+.btn-download-nexus {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 22px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+    color: #1a1810;
+    border-radius: var(--radius);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px var(--accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-download-nexus:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px var(--accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #1a1810;
+}
+.btn-download-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.btn-download-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    text-align: left;
+}
+.btn-download-label strong {
+    font-size: clamp(1rem, 2.4vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+.btn-download-label small {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.88;
+}
+.hero-download-note {
+    margin: 14px 0 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    max-width: 54ch;
+}
+.hero-download-note strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
 .btn-primary {
     display: inline-block;
     background: var(--accent);
-    color: #fff;
+    color: #1a1810;
     padding: 12px 22px;
     border-radius: var(--radius);
     font-weight: 600;
@@ -546,7 +702,7 @@ textarea { resize: vertical; min-height: 100px; }
     }
     .lang-btn.active {
         background: var(--accent-soft);
-        border-color: rgba(184, 58, 92, 0.45);
+        border-color: rgba(224, 184, 61, 0.45);
     }
     main { padding-top: 24px; }
 }

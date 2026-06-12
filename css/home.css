@@ -6,9 +6,9 @@
     --home-card: #221e2c;
     --home-border: #342e42;
     --home-text: #eceaf0;
-    --home-muted: #a39aad;
-    --home-accent: #c23a66;
-    --home-accent-soft: rgba(194, 58, 102, 0.14);
+    --home-muted: #c4beb4;
+    --home-accent: #e0b83d;
+    --home-accent-soft: rgba(224, 184, 61, 0.14);
 
     background-color: var(--home-bg);
     color: var(--home-text);
@@ -30,7 +30,7 @@
 
 .page-home .lang-btn.active {
     background: var(--home-accent-soft);
-    border-color: rgba(194, 58, 102, 0.4);
+    border-color: rgba(224, 184, 61, 0.4);
 }
 
 .page-home .site-footer {
@@ -133,7 +133,7 @@
 }
 
 .page-home .product-card:hover {
-    border-color: rgba(194, 58, 102, 0.45);
+    border-color: rgba(224, 184, 61, 0.45);
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
 }
@@ -157,6 +157,71 @@
 .page-home .badge-available {
     background: var(--home-accent-soft);
     color: var(--home-accent);
+}
+
+/* ── Contact ── */
+.page-home .home-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: clamp(48px, 8vw, 72px);
+    padding: clamp(28px, 5vw, 36px) clamp(20px, 4vw, 32px);
+    text-align: center;
+    background: var(--home-surface);
+    border: 1px solid var(--home-border);
+    border-radius: var(--radius);
+    box-sizing: border-box;
+}
+
+.page-home .home-contact-lead {
+    color: var(--home-muted);
+    font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+    line-height: 1.65;
+    max-width: 42ch;
+    width: 100%;
+    margin: 0 auto 16px;
+    text-align: center;
+}
+
+.page-home .home-contact-email,
+.page-home .home-contact-email:visited {
+    display: inline-block;
+    font-size: clamp(1rem, 2.6vw, 1.12rem);
+    font-weight: 600;
+    color: var(--home-accent);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(224, 184, 61, 0.4);
+    background: var(--home-accent-soft);
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.page-home .home-contact-email:hover {
+    background: rgba(224, 184, 61, 0.22);
+    border-color: rgba(224, 184, 61, 0.55);
+    transform: translateY(-1px);
+}
+
+.page-home .site-footer--home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding-top: clamp(24px, 5vw, 32px);
+}
+.page-home .site-footer-email,
+.page-home .site-footer-email:visited {
+    font-size: 0.82rem;
+    color: var(--home-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.page-home .site-footer-email:hover {
+    color: var(--home-accent);
+    text-decoration: underline;
 }
 
 /* ── Mobile first (Android) ── */
@@ -194,6 +259,15 @@
     .page-home .pillar-card {
         text-align: left;
         padding: 18px 20px;
+    }
+
+    .page-home .home-contact {
+        align-items: center;
+        text-align: center;
+    }
+
+    .page-home .home-contact-lead {
+        text-align: center;
     }
 }
 
