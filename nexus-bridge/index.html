@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08080c">
+    <meta name="color-scheme" content="dark">
+    <title>Nexus Bridge | Weidler Studio</title>
+    <link rel="icon" href="../logo%20weidlerstudio.png" type="image/png">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../logo weidlerstudio.png" alt="" class="logo-icon" width="36" height="36">
+                    <span class="logo-text">Weidler <span>Studio</span></span>
+                </a>
+                <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+            </div>
+            <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+                <a href="../index.html" data-translate>Accueil</a>
+                <a href="../kios/index.html">Kios</a>
+                <a href="../cribleplus/index.html">Crible+</a>
+                <a href="../haven/index.html">Haven</a>
+                <a href="index.html" class="active">Nexus Bridge</a>
+            </nav>
+        </div>
+        <div class="lang-bar">
+            <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
+            <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="de">DE</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="es">ES</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="it">IT</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="zh-CN">ZH</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="ja">JA</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="pt">PT</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div>
+                <span class="badge badge-tool" data-translate>Outil</span>
+                <h1>Nexus Bridge</h1>
+                <p class="lead" data-translate>Nexus Bridge fait le pont entre Discord et Cursor. Envoyez des demandes de prompt depuis votre cellulaire : la commande arrive dans Cursor, qui exécute le travail et vous répond en retour — en cours, complété ou erreur, avec les informations pertinentes. Une connexion bidirectionnelle entre votre téléphone et votre IDE.</p>
+                <div class="hero-download-cta">
+                    <a href="https://raw.githubusercontent.com/francismanseau-oss/Nexus_Bridge/main/NexusBridge.zip"
+                       class="btn-download-nexus"
+                       rel="noopener noreferrer"
+                       target="_blank">
+                        <span class="btn-download-icon" aria-hidden="true">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="btn-download-label">
+                            <strong data-translate>Télécharger Nexus Bridge</strong>
+                            <small data-translate>Windows · fichier ZIP · gratuit</small>
+                        </span>
+                    </a>
+                    <p class="hero-download-note" data-translate>Dézippez le fichier, puis double-cliquez sur <strong>NexusBridge.exe</strong>. Un guide de démarrage est intégré dans l'application.</p>
+                </div>
+            </div>
+            <div class="preview-box contain nexus-bridge-preview">
+                <img src="nexusbridgelogo.png" alt="Nexus Bridge" loading="lazy" decoding="async">
+            </div>
+        </section>
+
+        <figure class="hero-app-shot hero-app-shot--full">
+            <img src="nexusbridge.png" alt="Nexus Bridge — interface du centre de contrôle" loading="lazy" decoding="async">
+        </figure>
+
+        <section class="features-section">
+            <h2 class="features-title" data-translate>Comment ça fonctionne</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Depuis le cellulaire</h3>
+                    <p data-translate>Rédigez et envoyez vos prompts via Discord, où que vous soyez — pas besoin d'être devant votre PC.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Vers Cursor</h3>
+                    <p data-translate>La demande est transmise à Cursor sur votre machine, qui prend le relais et traite la commande.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Réponse en retour</h3>
+                    <p data-translate>Cursor vous répond sur Discord : traitement en cours, tâche complétée ou erreur — avec le détail utile à chaque étape.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="features-title" data-translate>Pourquoi Nexus Bridge ?</h2>
+            <p class="discussion-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;" data-translate>Nexus Bridge transforme Discord en passerelle entre votre téléphone et votre environnement de développement. Envoyez une demande, laissez votre machine travailler et recevez le résultat où que vous soyez.</p>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Travail à distance</h3>
+                    <p data-translate>Continuez à utiliser Cursor même lorsque vous êtes loin de votre ordinateur.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Automatisation</h3>
+                    <p data-translate>Lancez des tâches, corrections ou générations de code depuis votre téléphone.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Retour instantané</h3>
+                    <p data-translate>Recevez automatiquement les résultats, statuts et erreurs directement dans Discord.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Historique centralisé</h3>
+                    <p data-translate>Conservez toutes les demandes et réponses au même endroit pour un suivi facile.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" data-translate>&copy; 2026 Weidler Studio. Tous droits réservés.</footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>
