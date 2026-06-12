@@ -446,6 +446,28 @@ main {
     font-weight: 600;
 }
 
+.hero-download-smartscreen {
+    margin-top: 18px;
+    padding: 14px 16px;
+    max-width: 54ch;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: #e8c547;
+    background: rgba(201, 162, 39, 0.12);
+    border: 1px solid rgba(201, 162, 39, 0.35);
+    border-radius: var(--radius);
+}
+.hero-download-smartscreen strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #f0d060;
+    font-weight: 700;
+}
+.hero-download-smartscreen p {
+    margin: 0;
+    color: #ddd5b8;
+}
+
 .btn-primary {
     display: inline-block;
     background: var(--accent);
