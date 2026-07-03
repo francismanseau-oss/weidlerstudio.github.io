@@ -1,0 +1,180 @@
+/* ── Page À propos ── */
+
+.page-about main {
+    max-width: min(920px, 100%);
+}
+
+.about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
+    grid-template-areas:
+        "title title"
+        "portrait story";
+    gap: clamp(28px, 5vw, 48px);
+    align-items: start;
+    margin-bottom: clamp(48px, 8vw, 72px);
+    padding-right: clamp(20px, 5vw, 52px);
+}
+
+.about-hero__title {
+    grid-area: title;
+    text-align: center;
+    font-size: clamp(1.55rem, 5vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: clamp(4px, 1vw, 8px);
+    color: var(--text);
+    line-height: 1.22;
+}
+
+.about-portrait {
+    grid-area: portrait;
+    margin: 0;
+    justify-self: center;
+    width: 100%;
+    max-width: 157px;
+}
+
+.about-story {
+    grid-area: story;
+    width: 100%;
+    max-width: min(58ch, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    justify-self: center;
+}
+
+.about-portrait__ring {
+    padding: clamp(5px, 1.2vw, 7px);
+    border-radius: 50%;
+    background: linear-gradient(
+        145deg,
+        rgba(34, 211, 238, 0.42) 0%,
+        rgba(56, 80, 120, 0.35) 45%,
+        rgba(139, 92, 246, 0.38) 100%
+    );
+    box-shadow:
+        0 0 28px rgba(34, 211, 238, 0.1),
+        0 8px 24px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px rgba(240, 244, 255, 0.06);
+}
+
+.about-portrait__frame {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: clamp(4px, 1vw, 5px);
+    background: linear-gradient(180deg, rgba(14, 20, 36, 0.95) 0%, rgba(6, 8, 16, 0.98) 100%);
+    border: 1px solid rgba(56, 80, 120, 0.45);
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.about-portrait__frame::before {
+    content: "";
+    position: absolute;
+    inset: clamp(4px, 1vw, 5px);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 28%, rgba(34, 211, 238, 0.12) 0%, transparent 52%),
+        radial-gradient(circle at 68% 72%, rgba(139, 92, 246, 0.1) 0%, transparent 48%),
+        linear-gradient(165deg, rgba(20, 28, 48, 0.92) 0%, rgba(10, 14, 26, 0.96) 100%);
+    z-index: 0;
+}
+
+.about-portrait__photo {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.about-portrait__photo.about-portrait__photo--missing {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.about-story p {
+    color: var(--lead-color);
+    font-size: clamp(0.95rem, 2.4vw, 1.06rem);
+    line-height: 1.75;
+    margin-bottom: clamp(16px, 3vw, 22px);
+}
+
+.about-story p:last-child {
+    margin-bottom: 0;
+}
+
+.about-quote {
+    margin: clamp(18px, 3.5vw, 26px) 0;
+    padding: clamp(14px, 3vw, 20px) clamp(16px, 3.5vw, 22px);
+    border-left: 3px solid rgba(34, 211, 238, 0.55);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: rgba(14, 20, 36, 0.52);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.05);
+    color: var(--text-muted-soft);
+    font-size: clamp(0.92rem, 2.3vw, 1.02rem);
+    font-style: italic;
+    line-height: 1.68;
+}
+
+.about-principles {
+    margin: clamp(18px, 3.5vw, 26px) 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-principles li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: clamp(10px, 2vw, 14px);
+    color: var(--lead-color);
+    font-size: clamp(0.95rem, 2.4vw, 1.06rem);
+    line-height: 1.68;
+}
+
+.about-principles li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.35);
+}
+
+.about-principles li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "portrait"
+            "story";
+        padding-right: 0;
+        justify-items: center;
+    }
+
+    .about-story {
+        max-width: 62ch;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-portrait {
+        max-width: min(134px, 72vw);
+    }
+}

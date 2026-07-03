@@ -1,0 +1,111 @@
+<div class="home-bg-deco" aria-hidden="true">
+    <div class="home-bg-side home-bg-side--left">
+        <pre class="home-bg-block"><span class="code-kw">suspend fun</span> diagnose()
+    <span class="code-kw">val</span> flow = repo
+        .observe()
+        .catch { e -> log(e) }
+<span class="code-tag">COROUTINE</span> <span class="code-tag">FLOW</span></pre>
+        <pre class="home-bg-block"><span class="code-kw">import</span> asyncio
+<span class="code-kw">async def</span> fix(<span class="code-var">bug</span>):
+    root = await trace(bug)
+    <span class="code-kw">return</span> root.patch()</pre>
+        <pre class="home-bg-block"><span class="code-log">DEBUG</span>  D/MainActivity: onCreate
+<span class="code-log">TRACE</span>  stack depth=6
+<span class="code-err">ERROR</span>  NullPointerException
+<span class="code-warn">WARNING</span> retry 2/3
+<span class="code-ok">FIXED</span>  patch applied
+<span class="code-ok">BUILD SUCCESSFUL</span></pre>
+        <pre class="home-bg-block"><span class="code-kw">dependencies</span> {
+    implementation(<span class="code-str">"kotlinx-coroutines"</span>)
+}
+<span class="code-tag">REPOSITORY</span> mavenCentral()
+<span class="code-ok">COMPILE</span> OK</pre>
+        <pre class="home-bg-block">&lt;<span class="code-kw">service</span> <span class="code-var">android:name</span>=<span class="code-str">".Engine"</span>&gt;
+  &lt;<span class="code-kw">intent-filter</span> /&gt;
+&lt;/<span class="code-kw">service</span>&gt;</pre>
+        <pre class="home-bg-block">$ ./gradlew assembleDebug
+<span class="code-log">DEBUG</span> task graph ready
+<span class="code-ok">TESTS PASSED</span> 48/48
+$ adb logcat -s Engine</pre>
+        <pre class="home-bg-block home-bg-block--symbols"><span class="code-sym">{ }</span>  <span class="code-sym">[ ]</span>  <span class="code-sym">( )</span>
+<span class="code-sym">&lt; &gt;</span>  <span class="code-sym">==</span>  <span class="code-sym">!=</span>
+<span class="code-sym">&amp;&amp;</span>  <span class="code-sym">||</span></pre>
+    </div>
+    <div class="home-bg-side home-bg-side--right">
+        <pre class="home-bg-block"><span class="code-kw">const</span> resolve = (<span class="code-var">ctx</span>) =&gt; {
+  <span class="code-kw">if</span> (ctx.error) <span class="code-kw">throw</span> ctx.error;
+  <span class="code-kw">return</span> ctx.fix();
+};</pre>
+        <pre class="home-bg-block">{
+  <span class="code-str">"status"</span>: <span class="code-str">"ok"</span>,
+  <span class="code-str">"code"</span>: 200,
+  <span class="code-str">"trace"</span>: <span class="code-kw">null</span>
+}
+<span class="code-tag">HTTP 200</span> <span class="code-tag">API</span></pre>
+        <pre class="home-bg-block">$ git status
+$ git add -p
+$ git commit -m <span class="code-str">"fix: root cause"</span>
+<span class="code-ok">COMMIT</span> a3f2c1d
+<span class="code-log">TRACE</span> diff --stat</pre>
+        <pre class="home-bg-block"><span class="code-kw">SELECT</span> id, name <span class="code-kw">FROM</span> users
+<span class="code-kw">WHERE</span> active = <span class="code-var">true</span>
+<span class="code-kw">INSERT INTO</span> logs (msg)
+<span class="code-kw">UPDATE</span> config <span class="code-kw">SET</span> v=2
+<span class="code-ok">QUERY OK</span></pre>
+        <pre class="home-bg-block"><span class="code-err">EXCEPTION</span> in thread main
+<span class="code-err">STACK TRACE</span> at Engine.run
+<span class="code-kw">NULL</span> ref @ 0x7fff
+<span class="code-warn">ROLLBACK</span> tx #441
+<span class="code-ok">FIXED</span> — redeploy</pre>
+        <pre class="home-bg-block">&lt;!DOCTYPE html&gt;
+&lt;<span class="code-kw">main</span> <span class="code-var">class</span>=<span class="code-str">"app"</span>&gt;
+  &lt;<span class="code-kw">section</span> id=<span class="code-str">"diag"</span>&gt;&lt;/<span class="code-kw">section</span>&gt;
+&lt;/<span class="code-kw">main</span>&gt;</pre>
+        <pre class="home-bg-block">.<span class="code-var">card</span> {
+  <span class="code-kw">border</span>: 1px solid <span class="code-str">#1e293b</span>;
+  <span class="code-kw">box-shadow</span>: 0 0 20px rgba(34,211,238,.12);
+}
+<span class="code-tag">HTTP 404</span> <span class="code-tag">HTTP 500</span></pre>
+    </div>
+    <div class="home-bg-edge home-bg-edge--bottom">
+        <pre class="home-bg-block">01001001 00110000 01001111 01010100 01000101 01001110 01010100 01001001 01001101 01000101</pre>
+        <pre class="home-bg-block">01110111 01100101 01101001 01100100 01101100 01100101 01110010 00101110 01110011 01110100</pre>
+    </div>
+    <div class="home-bg-scatter">
+        <span class="home-bg-kw code-log">DEBUG</span>
+        <span class="home-bg-kw code-err">ERROR</span>
+        <span class="home-bg-kw code-warn">WARNING</span>
+        <span class="home-bg-kw code-ok">FIXED</span>
+        <span class="home-bg-kw code-ok">BUILD SUCCESSFUL</span>
+        <span class="home-bg-kw code-ok">TESTS PASSED</span>
+        <span class="home-bg-kw code-log">TRACE</span>
+        <span class="home-bg-kw code-var">NULL</span>
+        <span class="home-bg-kw code-err">STACK TRACE</span>
+        <span class="home-bg-kw code-err">EXCEPTION</span>
+        <span class="home-bg-kw code-ok">COMPILE</span>
+        <span class="home-bg-kw code-tag">API</span>
+        <span class="home-bg-kw code-tag">REPOSITORY</span>
+        <span class="home-bg-kw code-tag">COROUTINE</span>
+        <span class="home-bg-kw code-tag">FLOW</span>
+        <span class="home-bg-kw code-kw">SELECT *</span>
+        <span class="home-bg-kw code-kw">INSERT</span>
+        <span class="home-bg-kw code-kw">UPDATE</span>
+        <span class="home-bg-kw code-ok">COMMIT</span>
+        <span class="home-bg-kw code-warn">ROLLBACK</span>
+        <span class="home-bg-kw code-tag">HTTP 200</span>
+        <span class="home-bg-kw code-tag">HTTP 404</span>
+        <span class="home-bg-kw code-tag">HTTP 500</span>
+        <span class="home-bg-sym">{</span>
+        <span class="home-bg-sym">}</span>
+        <span class="home-bg-sym">[</span>
+        <span class="home-bg-sym">]</span>
+        <span class="home-bg-sym">(</span>
+        <span class="home-bg-sym">)</span>
+        <span class="home-bg-sym">&lt;</span>
+        <span class="home-bg-sym">&gt;</span>
+        <span class="home-bg-sym">==</span>
+        <span class="home-bg-sym">!=</span>
+        <span class="home-bg-sym">&amp;&amp;</span>
+        <span class="home-bg-sym">||</span>
+    </div>
+</div>

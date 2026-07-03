@@ -1,0 +1,70 @@
+{
+  "product": "Crible+",
+  "documentType": "privacy",
+  "documentTitle": "Politique de confidentialité",
+  "version": "1.0",
+  "updated": "26 juin 2026",
+  "metaDescription": "Politique de confidentialité de Crible+, jeu de cribbage Android édité par Weidler Studio. Données locales, Google Analytics et achats intégrés.",
+  "sections": [
+    {
+      "id": "who-we-are",
+      "title": "Qui sommes-nous ?",
+      "body": "<p><strong>Weidler Studio</strong> est l'éditeur de <strong>Crible+</strong>, une application mobile de jeu de cribbage pour Android. Notre objectif est de proposer une expérience de jeu hors ligne, fluide et respectueuse de la vie privée.</p><p>Cette politique décrit la manière dont Crible+ traite les informations lorsque vous utilisez l'application.</p>"
+    },
+    {
+      "id": "personal-data",
+      "title": "Crible+ collecte-t-il des données personnelles ?",
+      "body": "<p><strong>Non.</strong> Crible+ ne collecte pas volontairement d'informations personnelles identifiables, telles que votre nom, votre adresse courriel ou votre numéro de téléphone.</p><p>L'application peut toutefois recueillir des <strong>statistiques d'utilisation anonymes</strong> via Google Analytics (voir la section correspondante). Les scores, préférences et statistiques de jeu sont enregistrés <strong>localement sur votre appareil</strong>.</p><p>Aucune donnée personnelle n'est vendue.</p>"
+    },
+    {
+      "id": "offline",
+      "title": "Puis-je utiliser Crible+ sans connexion Internet ?",
+      "body": "<p><strong>Oui.</strong> Crible+ est conçu pour être joué hors ligne. Vous pouvez lancer des parties, consulter vos statistiques et utiliser les fonctionnalités principales du jeu sans connexion Internet.</p><p>Une connexion peut être nécessaire dans les cas suivants :</p><ul><li>effectuer un achat intégré optionnel (soutien via Google Play) ;</li><li>envoyer des statistiques anonymes à Google Analytics lorsque l'appareil est en ligne ;</li><li>télécharger des mises à jour depuis le Google Play Store.</li></ul>"
+    },
+    {
+      "id": "local-storage",
+      "title": "Quelles informations sont enregistrées sur votre appareil ?",
+      "body": "<p>Sur votre appareil, Crible+ peut enregistrer notamment :</p><ul><li>scores et résultats de parties ;</li><li>records personnels et médailles ;</li><li>statistiques de jeu (parties jouées, modes utilisés, etc.) ;</li><li>préférences (langue, thème, paramètres de comptage, etc.).</li></ul><p>Ces informations restent sur votre appareil et ne sont pas vendues. Elles peuvent être supprimées si vous effacez les données de l'application ou si vous la désinstallez.</p>"
+    },
+    {
+      "id": "analytics",
+      "title": "Pourquoi utilisons-nous Google Analytics ?",
+      "body": "<p>Crible+ utilise <strong>Google Analytics (GA4)</strong> afin de recueillir des statistiques anonymes sur l'utilisation de l'application, par exemple :</p><ul><li>ouvertures de l'application ;</li><li>parties jouées ;</li><li>modes de jeu utilisés ;</li><li>records personnels ;</li><li>médailles obtenues.</li></ul><p>Ces informations servent uniquement à améliorer l'expérience de jeu, équilibrer les niveaux de difficulté et corriger d'éventuels problèmes.</p><p>Aucune information permettant d'identifier personnellement un utilisateur n'est volontairement collectée par Crible+.</p>"
+    },
+    {
+      "id": "in-app-purchases",
+      "title": "Les achats intégrés sont-ils sécurisés ?",
+      "body": "<p>Crible+ propose des <strong>achats intégrés optionnels</strong> (soutien) via <strong>Google Play Billing</strong>. Les paiements sont entièrement traités par Google ; Weidler Studio ne reçoit jamais vos coordonnées bancaires.</p><p>Les transactions sont soumises aux politiques et mesures de sécurité de Google Play.</p>"
+    },
+    {
+      "id": "advertising",
+      "title": "Crible+ affiche-t-il des publicités ?",
+      "body": "<p><strong>Non.</strong> Crible+ n'affiche pas de publicités tierces.</p><p>L'application n'utilise pas l'identifiant publicitaire Android (AD_ID) à des fins de profilage publicitaire, ne diffuse pas de bannières publicitaires et ne participe pas à des réseaux publicitaires comportementaux.</p>"
+    },
+    {
+      "id": "third-parties",
+      "title": "Mes données sont-elles partagées avec des tiers ?",
+      "body": "<p>Weidler Studio <strong>ne vend pas</strong> vos données personnelles.</p><p>Les seuls échanges avec des tiers concernent :</p><ul><li><strong>Google Analytics</strong> — statistiques d'utilisation anonymes ;</li><li><strong>Google Play</strong> — traitement des achats intégrés optionnels.</li></ul><p>Crible+ ne partage pas vos données avec des annonceurs ni avec des courtiers en données.</p>"
+    },
+    {
+      "id": "delete-data",
+      "title": "Comment puis-je supprimer mes données ?",
+      "body": "<p>Pour supprimer les données locales enregistrées par Crible+ sur votre appareil :</p><ul><li>allez dans les <strong>paramètres Android</strong> → <strong>Applications</strong> → <strong>Crible+</strong> → <strong>Effacer les données</strong> ou <strong>Effacer le stockage</strong> ;</li><li>ou <strong>désinstallez</strong> l'application.</li></ul><p>Les statistiques anonymes déjà transmises à Google Analytics sont régies par les politiques de Google. Vous pouvez consulter les paramètres de confidentialité de votre compte Google pour en savoir plus.</p>"
+    },
+    {
+      "id": "children",
+      "title": "Les enfants peuvent-ils utiliser Crible+ ?",
+      "body": "<p>Crible+ est un jeu destiné au grand public et <strong>n'est pas spécifiquement conçu pour les enfants de moins de 13 ans</strong>.</p><p>Nous encourageons les parents et tuteurs à superviser l'utilisation des applications sur les appareils des jeunes utilisateurs.</p>"
+    },
+    {
+      "id": "policy-changes",
+      "title": "Cette politique peut-elle évoluer ?",
+      "body": "<p>Oui. Weidler Studio se réserve le droit de mettre à jour cette politique de confidentialité.</p><p>En cas de modification importante, la version et la date de mise à jour seront actualisées sur cette page. Une nouvelle version pourra également vous être présentée dans l'application.</p><p>Nous vous invitons à consulter cette page périodiquement.</p>"
+    },
+    {
+      "id": "contact",
+      "title": "Comment nous contacter ?",
+      "body": "<p>Pour toute question relative à cette politique ou à la confidentialité dans Crible+ :</p><p><strong>Weidler Studio</strong><br>Courriel : <a href=\"mailto:contact@weidlerstudio.com\">contact@weidlerstudio.com</a><br>Site web : <a href=\"https://weidlerstudio.com\" rel=\"noopener noreferrer\">weidlerstudio.com</a></p>"
+    }
+  ]
+}

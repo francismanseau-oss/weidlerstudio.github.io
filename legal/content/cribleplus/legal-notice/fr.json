@@ -1,0 +1,60 @@
+{
+  "product": "Crible+",
+  "documentType": "legal-notice",
+  "documentTitle": "Mentions légales",
+  "version": "1.0",
+  "updated": "26 juin 2026",
+  "metaDescription": "Mentions légales de Crible+, application éditée par Weidler Studio, Canada.",
+  "sections": [
+    {
+      "id": "about-weidler",
+      "title": "À propos de Weidler Studio",
+      "body": "<p><strong>Weidler Studio</strong> est un studio de développement logiciel basé au <strong>Canada</strong>. Il conçoit et publie des applications, dont <strong>Crible+</strong>, jeu de cribbage pour Android.</p><p>Les présentes mentions légales informent les utilisateurs sur l'éditeur et le cadre juridique de l'application.</p>"
+    },
+    {
+      "id": "publisher",
+      "title": "Éditeur de l'application",
+      "body": "<p>Application : <strong>Crible+</strong><br>Éditeur : <strong>Weidler Studio</strong><br>Territoire : <strong>Canada</strong></p><p>Crible+ est distribuée via les canaux de publication Android applicables.</p>"
+    },
+    {
+      "id": "territory",
+      "title": "Territoire : Canada",
+      "body": "<p>Weidler Studio exerce ses activités depuis le <strong>Canada</strong>. Les présentes mentions et les documents juridiques associés sont rédigés dans ce contexte.</p>"
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "body": "<p>Pour toute question relative à Crible+ ou à Weidler Studio :</p><p><strong>Weidler Studio</strong><br>Canada<br>Courriel : <a href=\"mailto:contact@weidlerstudio.com\">contact@weidlerstudio.com</a><br>Site web : <a href=\"https://weidlerstudio.com\" rel=\"noopener noreferrer\">weidlerstudio.com</a></p>"
+    },
+    {
+      "id": "copyright",
+      "title": "Copyright",
+      "body": "<p>L'ensemble des éléments composant Crible+ (interface, textes, visuels, code, marque et logo) est protégé par le droit d'auteur.</p><p><strong>© 2026 Weidler Studio.</strong> Tous droits réservés, sauf mention contraire.</p>"
+    },
+    {
+      "id": "trademarks",
+      "title": "Marques commerciales",
+      "body": "<p><strong>Crible+</strong> et <strong>Weidler Studio</strong> sont des identifiants associés aux produits édités par Weidler Studio.</p><p>Toute reproduction ou utilisation non autorisée de ces identifiants est interdite.</p>"
+    },
+    {
+      "id": "intellectual-property",
+      "title": "Propriété intellectuelle",
+      "body": "<p>Weidler Studio conserve l'ensemble des droits de propriété intellectuelle relatifs à Crible+, incluant notamment le logiciel, le design, les textes et les éléments graphiques.</p><p>Aucune disposition des documents juridiques ne transfère de droits de propriété à l'utilisateur.</p>"
+    },
+    {
+      "id": "libraries",
+      "title": "Logiciels et bibliothèques utilisés",
+      "body": "<p>Crible+ s'appuie sur la plateforme <strong>Android</strong> et peut intégrer des composants système ou des services tiers standards nécessaires à son fonctionnement, notamment pour la distribution via Google Play et l'analyse anonyme d'utilisation décrite dans la Politique de confidentialité.</p><p>Ces composants restent soumis à leurs propres conditions et licences respectives.</p>"
+    },
+    {
+      "id": "liability",
+      "title": "Responsabilité",
+      "body": "<p>Weidler Studio s'efforce de fournir des informations exactes sur cette page et dans l'application. Toutefois, des erreurs ou omissions peuvent survenir.</p><p>Dans les limites permises par la loi, Weidler Studio décline toute responsabilité pour les dommages résultant de l'utilisation des informations publiées ici, hors faute lourde ou disposition légale impérative contraire.</p>"
+    },
+    {
+      "id": "changes",
+      "title": "Modifications des mentions légales",
+      "body": "<p>Weidler Studio peut mettre à jour les présentes mentions légales à tout moment. La version et la date de mise à jour seront indiquées en haut de cette page.</p><p>Nous vous invitons à consulter cette page périodiquement.</p>"
+    }
+  ]
+}

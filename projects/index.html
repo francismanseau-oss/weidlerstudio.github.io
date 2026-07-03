@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Projets Weidler Studio : Crible+, Haven, Nexus Bridge, Project Inspector et Kios.">
+<title>Projets | Weidler Studio</title>
+<link rel="icon" href="../assets/logo/favicon.png" type="image/png">
+<link rel="stylesheet" href="../css/site.css">
+
+<style>
+:root {
+    --bg-deep: #060810;
+    --bg-top: #0c1222;
+    --bg-surface: rgba(14, 20, 36, 0.72);
+    --bg-card: rgba(12, 18, 32, 0.85);
+    --border: rgba(56, 80, 120, 0.35);
+    --text: #f0f4ff;
+    --text-muted: #94a3b8;
+    --text-muted-soft: #b4c1d3;
+    --lead-color: #cbd5e1;
+    --accent: #22d3ee;
+    --accent-violet: #8b5cf6;
+    --accent-soft: rgba(34, 211, 238, 0.1);
+    --glow-cyan: 0 0 20px rgba(34, 211, 238, 0.18), 0 0 40px rgba(34, 211, 238, 0.06);
+    --glow-violet: 0 0 20px rgba(139, 92, 246, 0.18), 0 0 40px rgba(139, 92, 246, 0.06);
+    --glow-blue: 0 0 20px rgba(59, 130, 246, 0.18), 0 0 40px rgba(59, 130, 246, 0.06);
+    --badge-soon: #64748b;
+    --badge-tool: #3b82f6;
+    --radius: 10px;
+    --btn-radius: 15px;
+    --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+figure {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-deep) 55%, #040608 100%);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.5;
+    overflow-x: hidden;
+    padding-top: var(--header-h);
+    position: relative;
+    isolation: isolate;
+}
+
+main.page-projects {
+    max-width: min(1100px, 100%);
+}
+
+.page-projects .page-intro {
+    margin-bottom: clamp(48px, 8vw, 72px);
+}
+
+.projects-carousel {
+    text-align: center;
+}
+
+.carousel {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: min(760px, 92%);
+    margin: 0 auto;
+}
+
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: max-content;
+}
+
+.carousel-item {
+    width: 190px;
+    height: 190px;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    opacity: .75;
+    flex-shrink: 0;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transform: none;
+}
+
+.carousel-item.active {
+    transform: scale(1.05);
+    opacity: 1;
+    border-color: var(--accent);
+    box-shadow: 0 0 22px rgba(34, 211, 238, 0.32);
+}
+
+.carousel-item.active img {
+    transform: scale(1.12);
+}
+
+/* Correction ciblée : les images Project Inspector et Kios ont du noir dans les coins.
+   On zoome seulement ces deux images pour cacher les contours internes. */
+.carousel-item--project-inspector img,
+.carousel-item--kios img {
+    transform: scale(1.18);
+}
+
+.carousel-item--project-inspector.active img,
+.carousel-item--kios.active img {
+    transform: scale(1.22);
+}
+
+.carousel-arrow {
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(34, 211, 238, 0.34);
+    border-radius: 50%;
+    background: rgba(12, 18, 32, 0.92);
+    color: #eaf2ff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.10);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(16, 28, 48, 0.98);
+    border-color: rgba(34, 211, 238, 0.62);
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.24);
+    transform: translateY(-1px) scale(1.04);
+}
+
+.carousel-arrow:active {
+    transform: scale(0.96);
+}
+
+.carousel-dots {
+    margin-top: 24px;
+}
+
+.dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: rgba(148, 163, 184, 0.42);
+}
+
+.dot.active {
+    background: var(--accent);
+}
+
+.project-detail {
+    width: min(760px, 92%);
+    margin: 42px auto 0;
+    opacity: 1;
+    transition: opacity .3s ease;
+    text-align: left;
+}
+
+.project-back-top {
+    display: flex;
+    justify-content: center;
+    margin: clamp(32px, 6vw, 48px) auto 0;
+}
+
+.project-back-top button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(34, 211, 238, 0.38);
+    background: rgba(12, 18, 32, 0.92);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.10);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.project-back-top button:hover {
+    background: rgba(16, 28, 48, 0.98);
+    border-color: rgba(34, 211, 238, 0.62);
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.24);
+    transform: translateY(-1px);
+}
+
+.page-hero,
+.features-section,
+.screenshots-section {
+    margin-top: 32px;
+    padding: 32px;
+    border-radius: var(--radius);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--glow-cyan);
+}
+
+.cribleplus-hero-content {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 32px;
+    align-items: center;
+}
+
+.cribleplus-hero-content--single {
+    grid-template-columns: 1fr;
+}
+
+.badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.project-card-badges {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.project-card-badges__cell {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.project-card-badges .badge {
+    margin-bottom: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    padding: 4px 10px;
+}
+
+.badge-cat-type {
+    background: rgba(139, 92, 246, 0.18);
+    color: var(--accent-violet);
+}
+
+.badge-cat-platform {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--badge-tool);
+}
+
+.badge-dev {
+    background: rgba(201, 162, 39, 0.18);
+    color: #c9a227;
+}
+
+.badge-available {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.badge-soon {
+    background: rgba(100, 116, 139, 0.2);
+    color: var(--badge-soon);
+}
+
+.badge-tool {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--badge-tool);
+}
+
+.cribleplus-hero-intro h1,
+.features-title,
+.screenshots-title {
+    margin: 0 0 16px;
+}
+
+.features-title,
+.screenshots-title {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: .82rem;
+}
+
+.lead {
+    margin: 0;
+    color: var(--lead-color);
+    line-height: 1.75;
+    font-size: 1.05rem;
+}
+
+.cribleplus-hero-actions {
+    text-align: center;
+}
+
+.cribleplus-app-logo {
+    display: block;
+    margin: 0 auto 18px;
+    border-radius: 22px;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 22px;
+    border-radius: var(--btn-radius);
+    background: linear-gradient(180deg, rgba(16, 38, 68, 0.92) 0%, rgba(10, 24, 46, 0.96) 100%);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(34, 211, 238, 0.52);
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.12), 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+.note-muted {
+    margin: 14px 0 0;
+    color: var(--text-muted-soft);
+    font-size: .9rem;
+    line-height: 1.65;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.nexus-advantages-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.feature-card {
+    padding: 20px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.06);
+}
+
+.feature-card h3 {
+    margin: 0 0 10px;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--text-muted-soft);
+    line-height: 1.65;
+}
+
+.features-grid .feature-card:nth-child(4n + 1) {
+    border-color: rgba(139, 92, 246, 0.28);
+    box-shadow: var(--glow-violet);
+}
+
+.features-grid .feature-card:nth-child(4n + 2) {
+    border-color: rgba(59, 130, 246, 0.28);
+    box-shadow: var(--glow-blue);
+}
+
+.features-grid .feature-card:nth-child(4n + 3) {
+    border-color: rgba(34, 211, 238, 0.28);
+    box-shadow: var(--glow-cyan);
+}
+
+.features-grid .feature-card:nth-child(4n + 4) {
+    border-color: rgba(139, 92, 246, 0.28);
+    box-shadow: var(--glow-violet);
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 3vw, 20px);
+}
+
+.screenshot-card {
+    margin: 0;
+    overflow: hidden;
+}
+
+.screenshot-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
+
+.screenshot-card figcaption {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    color: var(--text-muted-soft);
+    text-align: center;
+    line-height: 1.65;
+    border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.haven-hero {
+    display: block;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.haven-intro {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.haven-summary-box {
+    width: 100%;
+    margin: 0 auto clamp(48px, 8vw, 72px);
+    padding: 32px;
+    border-radius: var(--radius);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--glow-cyan);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.haven-summary-box .badge {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.haven-summary-box h1 {
+    margin: 0 0 16px;
+}
+
+.haven-summary-box .haven-subtitle {
+    margin-bottom: 20px;
+}
+
+.haven-summary-box .lead {
+    margin-bottom: 18px;
+}
+
+.haven-summary-box .lead:last-child {
+    margin-bottom: 0;
+}
+
+.haven-intro .haven-subtitle {
+    margin-bottom: 20px;
+}
+
+.haven-intro .lead {
+    margin-bottom: 18px;
+}
+
+.haven-shots-section {
+    margin-bottom: clamp(48px, 8vw, 72px);
+    display: flex;
+    justify-content: center;
+}
+
+.haven-shots {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.haven-shot {
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 0;
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    margin: 0 0 0 -1px;
+    background: var(--bg-card);
+    box-shadow: var(--glow-cyan);
+}
+
+.haven-shot:first-child {
+    margin-left: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.haven-shot:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.haven-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.haven-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 24px);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.haven-benefits .feature-card {
+    text-align: left;
+}
+
+.haven-benefits-grid .feature-card:nth-child(4n + 1),
+.haven-benefits-grid .feature-card:nth-child(4n + 4),
+.nexus-advantages-grid .feature-card:nth-child(4n + 1),
+.nexus-advantages-grid .feature-card:nth-child(4n + 4) {
+    border-color: rgba(139, 92, 246, 0.28);
+    box-shadow: var(--glow-violet);
+}
+
+.haven-benefits-grid .feature-card:nth-child(4n + 2),
+.nexus-advantages-grid .feature-card:nth-child(4n + 2) {
+    border-color: rgba(59, 130, 246, 0.28);
+    box-shadow: var(--glow-blue);
+}
+
+.haven-benefits-grid .feature-card:nth-child(4n + 3),
+.nexus-advantages-grid .feature-card:nth-child(4n + 3) {
+    border-color: rgba(34, 211, 238, 0.28);
+    box-shadow: var(--glow-cyan);
+}
+
+.haven-hero.page-hero,
+.haven-benefits.features-section {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.haven-benefits.features-section {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.cribleplus-benefits.features-section {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Nexus Bridge — contenu fusionné */
+.nexus-bridge-hero {
+    display: block;
+}
+
+.preview-box {
+    background: var(--bg-card);
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    border-radius: 10px;
+    aspect-ratio: 16 / 10;
+    min-height: 160px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.18), 0 0 40px rgba(34, 211, 238, 0.06);
+}
+
+.preview-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.preview-box.contain img {
+    object-fit: contain;
+    padding: 16px;
+}
+
+.nexus-bridge-preview img {
+    object-fit: contain;
+    object-position: center;
+    padding: 16px;
+}
+
+
+.hero-app-shot {
+    margin: 0 0 clamp(40px, 8vw, 64px);
+    padding: 0;
+    background: var(--bg-card);
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.18), 0 0 40px rgba(34, 211, 238, 0.06);
+    width: 100%;
+}
+
+.hero-app-shot--full {
+    line-height: 0;
+}
+
+.hero-app-shot--full img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    vertical-align: top;
+}
+
+.discussion-subtitle {
+    color: rgba(248,250,252,.72);
+    font-size: clamp(0.88rem, 2.4vw, 0.95rem);
+    margin-bottom: 24px;
+    line-height: 1.68;
+    max-width: 60ch;
+}
+
+@media (max-width: 992px) {
+    .nexus-bridge-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .nexus-bridge-preview {
+        order: -1;
+        max-height: 280px;
+    }
+}
+
+
+/* Project Inspector — intégré au carrousel */
+.pi-section.features-section {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.pi-features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: min(760px, 100%);
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.pi-features-grid .feature-card {
+    height: 100%;
+}
+
+.pi-hero.page-hero {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--glow-cyan);
+    border-radius: var(--radius);
+}
+
+/* ── Project Inspector — page produit ── */
+
+.pi-hero {
+    display: block;
+    margin-bottom: clamp(48px, 8vw, 72px);
+}
+
+.pi-hero .btn-primary {
+    margin-top: 4px;
+}
+
+.pi-screenshot {
+    margin: 0 auto clamp(48px, 8vw, 72px);
+    max-width: min(920px, 100%);
+    width: 100%;
+    padding: 0;
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--glow-cyan), 0 12px 32px rgba(0, 0, 0, 0.28);
+    background: var(--bg-card);
+}
+
+.pi-screenshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.pi-report-intro {
+    max-width: 60ch;
+    margin: 0 auto clamp(20px, 4vw, 28px);
+    text-align: center;
+    color: var(--text-muted-soft);
+    font-size: clamp(0.88rem, 2.4vw, 0.95rem);
+    line-height: 1.68;
+}
+
+.pi-report-log {
+    margin: 0 auto;
+    max-width: min(900px, 100%);
+    padding: clamp(16px, 3vw, 20px);
+    max-height: min(420px, 55vh);
+    overflow: auto;
+    background: rgba(6, 10, 20, 0.88);
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    border-radius: var(--radius);
+    box-shadow: inset 0 0 24px rgba(34, 211, 238, 0.04), var(--glow-cyan);
+    font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+    font-size: clamp(0.72rem, 1.8vw, 0.82rem);
+    line-height: 1.45;
+    color: #94a3b8;
+    white-space: pre;
+    tab-size: 4;
+}
+
+.pi-report-log code {
+    font: inherit;
+    color: inherit;
+}
+
+.pi-workflow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(12px, 2vw, 16px);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pi-workflow-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(16px, 3vw, 20px);
+    text-align: center;
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.pi-workflow-step:nth-child(5n + 1) {
+    border-color: rgba(139, 92, 246, 0.28);
+    box-shadow: var(--glow-violet);
+}
+
+.pi-workflow-step:nth-child(5n + 2) {
+    border-color: rgba(59, 130, 246, 0.28);
+    box-shadow: var(--glow-blue);
+}
+
+.pi-workflow-step:nth-child(5n + 3) {
+    border-color: rgba(34, 211, 238, 0.28);
+    box-shadow: var(--glow-cyan);
+}
+
+.pi-workflow-step:nth-child(5n + 4) {
+    border-color: rgba(139, 92, 246, 0.28);
+    box-shadow: var(--glow-violet);
+}
+
+.pi-workflow-step:nth-child(5n + 5) {
+    border-color: rgba(59, 130, 246, 0.28);
+    box-shadow: var(--glow-blue);
+}
+
+.pi-workflow-step:hover {
+    transform: translateY(-2px);
+    border-color: rgba(34, 211, 238, 0.35);
+}
+
+.pi-workflow-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: rgba(34, 211, 238, 0.12);
+    border: 1px solid rgba(34, 211, 238, 0.35);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.pi-workflow-step p {
+    margin: 0;
+    font-size: clamp(0.82rem, 2vw, 0.9rem);
+    line-height: 1.65;
+    color: var(--text-muted-soft);
+}
+
+@media (max-width: 900px) {
+    .pi-workflow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .pi-features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .pi-workflow {
+        grid-template-columns: 1fr;
+    }
+
+    .pi-screenshot {
+        max-width: min(520px, 94vw);
+    }
+}
+
+
+
+/* Kios — intégré au carrousel */
+.kios-hero.page-hero {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--glow-cyan);
+    border-radius: var(--radius);
+}
+
+.kios-section.features-section,
+.kios-discussion-section {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.kios-discussion-section {
+    margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+    .screenshots-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .haven-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .haven-shot {
+        max-width: none;
+    }
+
+    .nexus-advantages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body data-nav-root="../" data-nav-active="projects">
+    <script src="../js/site-bg.js"></script>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../assets/logo/logo-nav.png" alt="" class="logo-icon" width="56" height="56">
+                    <span class="logo-text">Weidler <span>Studio</span></span>
+                </a>
+            </div>
+                        <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+                <a href="../index.html"><span class="nav-link-text" data-translate>Accueil</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../services/index.html"><span class="nav-link-text" data-translate>Services</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../projects/index.html"><span class="nav-link-text" data-translate>Projets</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../soumission/index.html"><span class="nav-link-text" data-translate>Soumission</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../about/index.html"><span class="nav-link-text" data-translate>À propos</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../contact/index.html"><span class="nav-link-text" data-translate>Contact</span></a>
+            </nav>
+            <script src="../js/site-nav.js?v=3"></script>
+            <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
+            <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="de">DE</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="es">ES</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="it">IT</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="zh-CN">ZH</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="ja">JA</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="pt">PT</button>
+            </nav>
+            <script src="../js/lang-ui.js"></script>
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+<main class="page-projects">
+    <header class="page-intro">
+        <h1 data-translate>Projets</h1>
+    </header>
+
+    <section class="projects-carousel" id="projectsCarousel" aria-label="Sélection de projets">
+        <div class="carousel">
+            <button class="carousel-arrow" type="button" aria-label="Projet précédent">‹</button>
+
+            <div class="carousel-viewport">
+                <div class="carousel-track"></div>
+            </div>
+
+            <button class="carousel-arrow" type="button" aria-label="Projet suivant">›</button>
+        </div>
+
+        <div class="carousel-dots">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section class="project-detail" id="projectDetail"></section>
+</main>
+
+<footer class="site-footer" data-translate>&copy; 2026 Weidler Studio. Tous droits réservés.</footer>
+
+<script src="../js/nav.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+const projects = [
+    {
+    id: "cribleplus",
+    image: "../assets/project-gallery/cribleplus.png",
+    alt: "Crible+",
+    template: `
+        <section class="page-hero cribleplus-hero">
+            <div class="cribleplus-hero-content cribleplus-hero-content--single">
+                <div class="cribleplus-hero-intro">
+                    <div class="project-card-badges" aria-label="Informations projet">
+                        <span class="project-card-badges__cell"><span class="badge badge-cat-type" data-translate>Jeu</span></span>
+                        <span class="project-card-badges__cell"><span class="badge badge-cat-platform" data-translate>Android</span></span>
+                        <span class="project-card-badges__cell"><span class="badge badge-available" data-translate>Disponible</span></span>
+                    </div>
+                    <h1>Crible+</h1>
+                    <p class="lead" data-translate>Crible+ revisite le Crible Hong Kong dans une version modernisée, plus rapide et plus fluide. Pensé pour Android, il conserve l’esprit stratégique du jeu de cartes tout en rendant les parties plus accessibles, claires et agréables à jouer.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section cribleplus-benefits">
+            <h2 class="features-title" data-translate>Ce qui distingue Crible+</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Hors ligne</h3>
+                    <p data-translate>Jouez sans connexion. Idéal en déplacement ou sans données mobiles.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Adversaire intégré</h3>
+                    <p data-translate>Affrontez l'ordinateur à votre rythme, avec plusieurs niveaux de difficulté.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Multilingue</h3>
+                    <p data-translate>Interface disponible en plusieurs langues pour un accès plus large.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="screenshots-section">
+            <h2 class="screenshots-title" data-translate>Aperçu du jeu</h2>
+            <div class="screenshots-grid">
+                <figure class="screenshot-card">
+                    <img src="../assets/projects/cribleplus/debut%20round.png" alt="Crible+ — Début de manche" width="400" height="800" loading="lazy" decoding="async">
+                    <figcaption data-translate>Début de manche</figcaption>
+                </figure>
+                <figure class="screenshot-card">
+                    <img src="../assets/projects/cribleplus/comptage%20des%20points.png" alt="Crible+ — Comptage des points" width="400" height="800" loading="lazy" decoding="async">
+                    <figcaption data-translate>Comptage des points</figcaption>
+                </figure>
+                <figure class="screenshot-card">
+                    <img src="../assets/projects/cribleplus/explication%20d%C3%A9taill%C3%A9%20des%20point.png" alt="Crible+ — Détail des points" width="400" height="800" loading="lazy" decoding="async">
+                    <figcaption data-translate>Explication détaillée des points</figcaption>
+                </figure>
+                <figure class="screenshot-card">
+                    <img src="../assets/projects/cribleplus/5%20mode%20cpu.png" alt="Crible+ — Modes adversaire" width="400" height="800" loading="lazy" decoding="async">
+                    <figcaption data-translate>Cinq niveaux d'adversaire</figcaption>
+                </figure>
+                <figure class="screenshot-card">
+                    <img src="../assets/projects/cribleplus/option%20language.png" alt="Crible+ — 6 langues : EN, FR, PT, ES, ZH, JA" width="400" height="800" loading="lazy" decoding="async">
+                    <figcaption data-translate>6 langues : EN, FR, PT, ES, ZH, JA</figcaption>
+                </figure>
+            </div>
+        </section>
+    `
+},
+    {
+    id: "haven",
+    image: "../assets/project-gallery/haven.png",
+    alt: "Haven",
+    template: `
+        <section class="haven-summary-box">
+            <div class="project-card-badges" aria-label="Informations projet">
+                <span class="project-card-badges__cell"><span class="badge badge-cat-type" data-translate>Application</span></span>
+                <span class="project-card-badges__cell"><span class="badge badge-cat-platform" data-translate>Android</span></span>
+                <span class="project-card-badges__cell"><span class="badge badge-soon" data-translate>Bientôt</span></span>
+            </div>
+            <h1>Haven</h1>
+            <p class="haven-subtitle" data-translate>Réappropriez-vous votre tranquillité d'esprit.</p>
+            <p class="lead" data-translate>Reprenez le contrôle total de vos appels téléphoniques, SMS, courriels et notifications.</p>
+            <p class="lead" data-translate>Configurez Haven une seule fois selon vos préférences, puis laissez-le travailler automatiquement en arrière-plan. Que vous soyez au travail, à la maison, en voiture ou en train de dormir, Haven adapte son comportement sans que vous ayez à intervenir.</p>
+            <p class="lead" data-translate>Moins d'interruptions. Plus de concentration. Plus de tranquillité, chaque jour.</p>
+        </section>
+
+        <section class="haven-shots-section" aria-label="Captures d'écran Haven">
+            <div class="haven-shots">
+                <figure class="haven-shot">
+                    <img src="../assets/projects/haven/1.png" alt="Capture d'écran Haven — 1" width="1080" height="2340" loading="lazy" decoding="async">
+                </figure>
+                <figure class="haven-shot">
+                    <img src="../assets/projects/haven/2.png" alt="Capture d'écran Haven — 2" width="1080" height="2340" loading="lazy" decoding="async">
+                </figure>
+                <figure class="haven-shot">
+                    <img src="../assets/projects/haven/3.png" alt="Capture d'écran Haven — 3" width="1080" height="2340" loading="lazy" decoding="async">
+                </figure>
+            </div>
+        </section>
+
+        <section class="features-section haven-benefits" aria-labelledby="haven-benefits-title">
+            <h2 class="features-title" id="haven-benefits-title" data-translate>Pourquoi Haven est différent</h2>
+
+            <div class="haven-benefits-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Une seule configuration</h3>
+                    <p data-translate>Configurez vos règles une seule fois.</p>
+                    <p data-translate>Ensuite, Haven applique automatiquement les bons comportements selon vos horaires, vos modes automatiques et votre contexte d'utilisation.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3 data-translate>Conduite automatique</h3>
+                    <p data-translate>Connectez simplement votre téléphone à votre voiture.</p>
+                    <p data-translate>Après une seule configuration, Haven détecte automatiquement vos trajets et active le mode conduite sans aucune intervention.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3 data-translate>École</h3>
+                    <p data-translate>Définissez votre horaire scolaire. Haven réduit automatiquement les distractions en classe et réactive vos applications autorisées pendant les pauses.</p>
+                    <p data-translate>Idéal pour les périodes d’étude, les cours ou les moments de concentration : Haven applique vos règles selon les jours et les heures choisis.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3 data-translate>Sommeil sans inquiétude</h3>
+                    <p data-translate>Bloquez les appels, SMS et notifications pendant la nuit pour enfin dormir en paix.</p>
+                    <p data-translate>Si un contact d'urgence est configuré, un deuxième appel reçu en moins de cinq minutes pourra passer automatiquement afin de gérer les vraies urgences.</p>
+                    <p data-translate>Les appels d'urgence (911 / 112) ainsi que les alertes gouvernementales demeurent toujours autorisés afin de préserver votre sécurité.</p>
+                </article>
+            </div>
+        </section>
+    `
+},
+    {
+        id: "nexus-bridge",
+        image: "../assets/project-gallery/nexus-bridge.png",
+        alt: "Nexus Bridge",
+        template: `
+        <section class="page-hero nexus-bridge-hero">
+            <div>
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="project-card-badges__cell"><span class="badge badge-cat-type" data-translate>Outil</span></span>
+                    <span class="project-card-badges__cell"><span class="badge badge-cat-platform" data-translate>Windows</span></span>
+                    <span class="project-card-badges__cell"><span class="badge badge-available" data-translate>Disponible</span></span>
+                </div>
+                <h1>Nexus Bridge</h1>
+                <p class="lead"><strong data-translate>Contrôlez Cursor à distance, directement depuis Discord.</strong></p>
+                <p class="lead"><span data-translate>Nexus Bridge crée une connexion bidirectionnelle entre </span><strong>Discord</strong><span data-translate> et </span><strong>Cursor</strong><span data-translate>.</span></p>
+                <p class="lead" data-translate>Envoyez un prompt depuis votre téléphone et laissez Cursor exécuter le travail sur votre ordinateur. Suivez ensuite l'avancement en temps réel et recevez automatiquement les réponses, les erreurs ou les confirmations directement dans Discord.</p>
+                <p class="lead" data-translate>Vous pouvez ainsi lancer des tâches, surveiller leur progression et récupérer les résultats sans avoir à rester devant votre ordinateur.</p>
+                <p class="lead" data-translate>Une véritable passerelle entre votre téléphone et votre environnement de développement.</p>
+            </div>
+        </section>
+
+        <figure class="hero-app-shot hero-app-shot--full">
+            <img src="../assets/projects/nexus-bridge/nexusbridge.png" alt="Nexus Bridge — interface du centre de contrôle" loading="lazy" decoding="async">
+        </figure>
+
+        <section class="features-section">
+            <h2 class="features-title" data-translate>Comment ça fonctionne</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Envoyez vos demandes de n'importe où</h3>
+                    <p data-translate>Rédigez un prompt directement depuis Discord, où que vous soyez. Vous n'avez plus besoin d'être devant votre ordinateur pour lancer une tâche.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Votre PC travaille pour vous</h3>
+                    <p data-translate>Nexus Bridge transmet automatiquement votre demande à Cursor, qui exécute le travail directement sur votre environnement de développement.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Suivi en temps réel</h3>
+                    <p data-translate>Recevez directement dans Discord l'état de vos demandes : en cours, terminé ou en erreur, avec les informations utiles.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="features-title" data-translate>Les avantages</h2>
+            <p class="discussion-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;" data-translate>Nexus Bridge transforme Discord en passerelle entre votre téléphone et votre environnement de développement. Envoyez une demande, laissez votre machine travailler et recevez le résultat où que vous soyez.</p>
+            <div class="features-grid nexus-advantages-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Travaillez de partout</h3>
+                    <p data-translate>Continuez à utiliser Cursor même lorsque vous êtes loin de votre ordinateur. Votre téléphone devient une véritable télécommande de votre environnement de développement.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Automatisez vos tâches</h3>
+                    <p data-translate>Lancez des corrections, des générations de code ou des analyses sans interrompre ce que vous faites. Nexus Bridge s'occupe automatiquement de la communication.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Historique complet</h3>
+                    <p data-translate>Retrouvez toutes vos demandes, leurs réponses et leur progression au même endroit pour suivre facilement vos projets.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Gagnez du temps</h3>
+                    <p data-translate>Moins d'allers-retours devant le PC. Lancez une tâche, poursuivez votre journée et récupérez automatiquement le résultat dès qu'il est prêt.</p>
+                </article>
+            </div>
+        </section>
+        `
+    },
+    {
+        id: "project-inspector",
+        image: "../assets/project-gallery/project-inspector.png",
+        alt: "Project Inspector",
+        template: `
+        <section class="page-hero pi-hero">
+            <div>
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="project-card-badges__cell"><span class="badge badge-cat-type" data-translate>Outil</span></span>
+                    <span class="project-card-badges__cell"><span class="badge badge-cat-platform" data-translate>Windows</span></span>
+                    <span class="project-card-badges__cell"><span class="badge badge-available" data-translate>Disponible</span></span>
+                </div>
+                <h1>Project Inspector</h1>
+                <p class="lead"><strong data-translate>Analysez un projet logiciel en quelques secondes.</strong></p>
+                <p class="lead" data-translate>Project Inspector transforme un dossier compressé en rapport technique clair. Glissez un fichier ZIP dans l'application, laissez l'analyse se faire automatiquement, puis récupérez une vue structurée du projet : technologies détectées, architecture, fichiers importants, dépendances, intégrations réseau et indicateurs de risque.</p>
+            </div>
+        </section>
+
+        <figure class="pi-screenshot">
+            <img src="../assets/projects/project-inspector/projectinspector.png" alt="Project Inspector — interface d'analyse de projet" width="1280" height="720" loading="lazy" decoding="async">
+        </figure>
+
+        <section class="features-section pi-section">
+            <h2 class="features-title" data-translate>Ce que l'outil détecte</h2>
+            <div class="features-grid pi-features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Technologies et identité du projet</h3>
+                    <p data-translate>Détecte le type de projet, les langages utilisés, les frameworks, le packaging et les indices permettant de comprendre rapidement à quoi sert le logiciel.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Structure et fichiers importants</h3>
+                    <p data-translate>Repère les fichiers principaux, dossiers critiques, scripts, points d'entrée et éléments qui méritent l'attention lors d'une analyse.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Intégrations et réseau</h3>
+                    <p data-translate>Identifie les services, API, URLs, dépendances externes et communications possibles avec des outils comme Discord, OpenAI, Cursor ou d'autres services.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Indicateurs de risque</h3>
+                    <p data-translate>Met en évidence les éléments sensibles : persistance, autostart, scripts exécutables, intégrations réseau, comportements inhabituels ou zones à vérifier.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="features-section pi-section">
+            <h2 class="features-title" data-translate>Flux de travail</h2>
+            <ol class="pi-workflow">
+                <li class="pi-workflow-step">
+                    <span class="pi-workflow-num" aria-hidden="true">1</span>
+                    <p data-translate>Glisser un ZIP</p>
+                </li>
+                <li class="pi-workflow-step">
+                    <span class="pi-workflow-num" aria-hidden="true">2</span>
+                    <p data-translate>Analyse automatique</p>
+                </li>
+                <li class="pi-workflow-step">
+                    <span class="pi-workflow-num" aria-hidden="true">3</span>
+                    <p data-translate>Rapport structuré</p>
+                </li>
+                <li class="pi-workflow-step">
+                    <span class="pi-workflow-num" aria-hidden="true">4</span>
+                    <p data-translate>Copier le résultat</p>
+                </li>
+                <li class="pi-workflow-step">
+                    <span class="pi-workflow-num" aria-hidden="true">5</span>
+                    <p data-translate>Envoyer à ChatGPT ou Cursor</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="features-section pi-section">
+            <h2 class="features-title" data-translate>Pourquoi c'est utile</h2>
+            <div class="features-grid pi-features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>Comprendre vite</h3>
+                    <p data-translate>Obtenez rapidement une vue d'ensemble d'un projet inconnu, même sans ouvrir chaque fichier manuellement.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Préparer un diagnostic</h3>
+                    <p data-translate>Repérez les zones importantes avant de demander de l'aide, corriger un bogue ou analyser une architecture.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Documenter un projet</h3>
+                    <p data-translate>Transformez un dossier complexe en résumé lisible, utile pour partager l'état d'un projet avec un client, un collègue ou une IA.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Gagner du temps</h3>
+                    <p data-translate>Réduisez le temps passé à explorer manuellement les fichiers et concentrez-vous sur les décisions importantes.</p>
+                </article>
+            </div>
+        </section>
+        `
+    },
+    {
+        id: "kios",
+        image: "../assets/project-gallery/kios.png",
+        alt: "Kios",
+        template: `
+        <section class="page-hero kios-hero">
+            <div>
+                <div class="project-card-badges" aria-label="Informations projet">
+                    <span class="project-card-badges__cell"><span class="badge badge-cat-type" data-translate>Jeu</span></span>
+                    <span class="project-card-badges__cell"><span class="badge badge-cat-platform" data-translate>Windows</span></span>
+                    <span class="project-card-badges__cell"><span class="badge badge-dev" data-translate>En développement</span></span>
+                </div>
+                <h1>Kios</h1>
+                <p class="lead" data-translate>Kios est une expérience de simulation pure, sans menu ni interface, où votre connexion à la nature est directe. Agissez sur l'équilibre d'un monde vivant qui évolue selon ses propres cycles biologiques. Ici, aucune barre de progression : votre savoir est votre seule limite.</p>
+            </div>
+            <div class="preview-box">
+                <picture>
+                    <source srcset="../assets/projects/kios/kios-pure-world.webp" type="image/webp">
+                    <img src="../assets/projects/kios/kios-pure-world.jpg" alt="Kios — Monde vivant en perpétuelle évolution" width="800" height="500" loading="lazy" decoding="async">
+                </picture>
+            </div>
+        </section>
+
+        <section class="features-section kios-section">
+            <h2 class="features-title" data-translate>Le système véritable de la nature</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3 data-translate>L'immersion totale</h3>
+                    <p data-translate>Aucun menu, aucune interface. Juste vous, vos gestes, et la nature. Apprenez par l'observation pure et devenez un habitant éclairé de ce monde vivant.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>Le système de vie autonome</h3>
+                    <p data-translate>Kios n'est pas un système rigide, c'est un écosystème qui respire. L'équilibre biologique suit ses propres lois, des cycles climatiques à l'évolution des espèces, indépendamment du joueur.</p>
+                </article>
+                <article class="feature-card">
+                    <h3 data-translate>La progression par l'expérience réelle</h3>
+                    <p data-translate>Il n'y a pas de niveaux ou de points d'expérience artificiels. Votre progression est votre savoir acquis. Chaque technique, chaque réflexe de survie devient une part de vous-même.</p>
+                </article>
+            </div>
+        </section>
+
+
+        `
+    }
+];
+
+let currentIndex = 1;
+let isAnimating = false;
+
+const track = document.querySelector(".carousel-track");
+const dots = document.querySelectorAll(".dot");
+const arrows = document.querySelectorAll(".carousel-arrow");
+const detail = document.querySelector("#projectDetail");
+
+function getProjectIndex(offset) {
+    return (currentIndex + offset + projects.length) % projects.length;
+}
+
+function createItem(project, isActive = false) {
+    const item = document.createElement("div");
+    item.className = isActive ? "carousel-item active" : "carousel-item";
+    item.classList.add("carousel-item--" + project.id);
+
+    const img = document.createElement("img");
+    img.src = project.image;
+    img.alt = project.alt;
+
+    item.appendChild(img);
+    return item;
+}
+
+function renderCarousel() {
+    track.innerHTML = "";
+
+    track.appendChild(createItem(projects[getProjectIndex(-1)]));
+    track.appendChild(createItem(projects[getProjectIndex(0)], true));
+    track.appendChild(createItem(projects[getProjectIndex(1)]));
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+    });
+
+    detail.innerHTML = projects[currentIndex].template;
+    detail.insertAdjacentHTML("beforeend", `
+        <div class="project-back-top">
+            <button type="button" class="project-back-top-btn">↑ Retour aux projets</button>
+        </div>
+    `);
+
+    const backTopBtn = detail.querySelector(".project-back-top-btn");
+    if (backTopBtn) {
+        backTopBtn.addEventListener("click", () => {
+            document.querySelector("#projectsCarousel").scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        });
+    }
+
+    if (projects[currentIndex].id === "project-inspector") {
+        const reportContent = document.getElementById("pi-report-content");
+        if (reportContent) {
+            fetch("../assets/projects/project-inspector/logprojectinspector.txt")
+                .then(function (response) {
+                    if (!response.ok) throw new Error("Rapport indisponible");
+                    return response.text();
+                })
+                .then(function (reportText) {
+                    reportContent.textContent = reportText;
+                })
+                .catch(function () {
+                    reportContent.textContent = "Rapport indisponible.";
+                });
+        }
+    }
+}
+
+function changeProject(direction) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    detail.style.opacity = "0";
+
+    setTimeout(() => {
+        currentIndex = getProjectIndex(direction);
+        renderCarousel();
+        detail.style.opacity = "1";
+
+        setTimeout(() => {
+            isAnimating = false;
+        }, 300);
+    }, 300);
+}
+
+arrows[0].addEventListener("click", () => {
+    changeProject(-1);
+});
+
+arrows[1].addEventListener("click", () => {
+    changeProject(1);
+});
+
+renderCarousel();
+</script>
+
+</body>
+</html>

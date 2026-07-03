@@ -1,0 +1,20 @@
+{
+  "studioName": "Weidler Studio",
+  "tagline": "Create. Solve. Connect.",
+  "nav": {
+    "home": "Home",
+    "kios": "Kios",
+    "cribleplus": "Crible+",
+    "haven": "Haven",
+    "nexusBridge": "Nexus Bridge"
+  },
+  "status": {
+    "available": "Available",
+    "development": "In development",
+    "soon": "Coming soon",
+    "tool": "Tool"
+  },
+  "footer": {
+    "copyright": "© 2026 Weidler Studio. All rights reserved."
+  }
+}

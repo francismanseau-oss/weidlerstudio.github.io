@@ -1,0 +1,70 @@
+{
+  "product": "Crible+",
+  "documentType": "terms",
+  "documentTitle": "Conditions d'utilisation",
+  "version": "1.0",
+  "updated": "26 juin 2026",
+  "metaDescription": "Conditions d'utilisation de Crible+, jeu de cribbage Android édité par Weidler Studio, Canada.",
+  "sections": [
+    {
+      "id": "about-cribleplus",
+      "title": "À propos de Crible+",
+      "body": "<p><strong>Crible+</strong> est une application mobile de jeu de cribbage pour Android, éditée par <strong>Weidler Studio</strong> (Canada).</p><p>Elle propose des parties rapides, un mode hors ligne et une interface multilingue. Les présentes conditions encadrent votre utilisation de l'application.</p>"
+    },
+    {
+      "id": "acceptance",
+      "title": "Acceptation des conditions",
+      "body": "<p>En installant, ouvrant ou utilisant Crible+, vous acceptez les présentes conditions d'utilisation.</p><p>Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application et la désinstaller de votre appareil.</p>"
+    },
+    {
+      "id": "minimum-age",
+      "title": "Âge minimum : 13 ans et plus",
+      "body": "<p>Crible+ s'adresse aux personnes âgées de <strong>13 ans et plus</strong>.</p><p>Si vous avez moins de 13 ans, vous ne devez pas utiliser l'application. Les parents ou tuteurs légaux sont invités à superviser l'utilisation des appareils par les jeunes utilisateurs.</p>"
+    },
+    {
+      "id": "no-account",
+      "title": "Aucun compte utilisateur requis",
+      "body": "<p>Crible+ peut être utilisé <strong>sans créer de compte</strong>. Aucune inscription, identifiant ou mot de passe n'est nécessaire pour jouer.</p><p>Vos scores et préférences sont enregistrés localement sur votre appareil.</p>"
+    },
+    {
+      "id": "license",
+      "title": "Licence d'utilisation",
+      "body": "<p>Weidler Studio vous accorde une licence <strong>personnelle, non exclusive et non transférable</strong> pour utiliser Crible+ sur vos appareils, conformément aux présentes conditions et aux règles des plateformes de distribution applicables.</p><p>Cette licence ne vous confère aucun droit de propriété sur l'application ou son contenu.</p>"
+    },
+    {
+      "id": "restrictions",
+      "title": "Interdiction de copier, modifier, redistribuer ou revendre",
+      "body": "<p>Sauf autorisation écrite de Weidler Studio, vous ne pouvez pas :</p><ul><li>copier, reproduire ou extraire le code ou les ressources de Crible+ ;</li><li>modifier, adapter ou créer une œuvre dérivée de l'application ;</li><li>redistribuer, revendre, louer ou sublicencier Crible+ ;</li><li>utiliser Crible+ pour produire un produit ou service concurrent.</li></ul>"
+    },
+    {
+      "id": "responsible-use",
+      "title": "Utilisation responsable",
+      "body": "<p>Vous vous engagez à utiliser Crible+ de manière légale et respectueuse. Il est notamment interdit de tenter de contourner les mesures de protection de l'application, d'interférer avec son fonctionnement ou de l'utiliser d'une manière susceptible de nuire à Weidler Studio ou à d'autres utilisateurs.</p>"
+    },
+    {
+      "id": "availability",
+      "title": "Disponibilité du service",
+      "body": "<p>Weidler Studio s'efforce de maintenir Crible+ accessible et fonctionnelle. Toutefois, l'application peut être indisponible temporairement pour maintenance, mise à jour ou pour des raisons indépendantes de notre volonté.</p><p>Les fonctionnalités hors ligne restent disponibles lorsque l'application est installée sur votre appareil.</p>"
+    },
+    {
+      "id": "as-is",
+      "title": "Application fournie telle quelle",
+      "body": "<p>Crible+ est fournie <strong>« telle quelle »</strong>, sans garantie de disponibilité permanente ni de fonctionnement ininterrompu.</p><p>Weidler Studio ne garantit pas que l'application sera exempte d'erreurs ou qu'elle répondra à toutes vos attentes, dans les limites permises par la loi applicable.</p>"
+    },
+    {
+      "id": "liability",
+      "title": "Limitation de responsabilité",
+      "body": "<p>Dans les limites permises par la loi, Weidler Studio ne pourra être tenu responsable des dommages indirects, pertes de données locales ou interruptions d'utilisation liées à Crible+, sauf en cas de faute lourde ou lorsque la loi l'interdit.</p><p>Votre recours principal en cas de mécontentement consiste à cesser d'utiliser l'application et à la désinstaller.</p>"
+    },
+    {
+      "id": "changes",
+      "title": "Modifications futures des conditions",
+      "body": "<p>Weidler Studio peut mettre à jour ces conditions d'utilisation. En cas de modification importante, la version et la date de mise à jour seront actualisées sur cette page.</p><p>La poursuite de l'utilisation de Crible+ après publication d'une nouvelle version vaut acceptation des conditions mises à jour.</p>"
+    },
+    {
+      "id": "contact",
+      "title": "Comment nous contacter",
+      "body": "<p>Pour toute question relative aux présentes conditions :</p><p><strong>Weidler Studio</strong><br>Canada<br>Courriel : <a href=\"mailto:contact@weidlerstudio.com\">contact@weidlerstudio.com</a></p><p>© 2026 Weidler Studio</p>"
+    }
+  ]
+}

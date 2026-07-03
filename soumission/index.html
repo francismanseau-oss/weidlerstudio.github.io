@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0e1a">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Soumission Weidler Studio — demande de soumission pour vos projets logiciels.">
+    <title>Soumission | Weidler Studio</title>
+    <link rel="icon" href="../assets/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="page-soumission" data-nav-root="../" data-nav-active="submission">
+    <script src="../js/site-bg.js"></script>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../assets/logo/logo-nav.png" alt="" class="logo-icon" width="56" height="56">
+                    <span class="logo-text">Weidler <span>Studio</span></span>
+                </a>
+            </div>
+
+            <nav class="main-nav" id="mainNav" aria-label="Navigation principale"></nav>
+            <script src="../js/site-nav.js?v=3"></script>
+
+            <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
+
+            <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep">|</span>
+                <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+                <span class="lang-sep">|</span>
+                <button type="button" class="lang-btn" data-lang="de">DE</button>
+                <span class="lang-sep">|</span>
+                <button type="button" class="lang-btn" data-lang="es">ES</button>
+                <span class="lang-sep">|</span>
+                <button type="button" class="lang-btn" data-lang="it">IT</button>
+                <span class="lang-sep">|</span>
+                <button type="button" class="lang-btn" data-lang="zh-CN">ZH</button>
+                <span class="lang-sep">|</span>
+                <button type="button" class="lang-btn" data-lang="ja">JA</button>
+                <span class="lang-sep">|</span>
+                <button type="button" class="lang-btn" data-lang="pt">PT</button>
+            </nav>
+
+            <script src="../js/lang-ui.js"></script>
+
+            <button
+                type="button"
+                class="nav-toggle"
+                id="navToggle"
+                aria-label="Menu"
+                aria-expanded="false">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <header class="page-intro">
+            <h1>Demande de soumission</h1>
+            
+        </header>
+
+        <section class="submission-content">
+
+            <div class="submission-panel" id="submissionStepWelcome">
+
+                <h2>Bienvenue</h2>
+
+                <p>
+                    Merci de votre intérêt envers Weidler Studio.
+                </p>
+
+                <h3>Avant de commencer</h3>
+
+                <ul class="submission-list">
+                    <li>Quelques renseignements personnels et techniques seront demandés.</li>
+                    <li>Vos renseignements serviront uniquement au traitement de votre demande.</li>
+                    <li>Aucune information ne sera transmise à un tiers.</li>
+                </ul>
+
+                <label class="submission-consent">
+                    <input type="checkbox" id="submissionConsent">
+                    <span>
+                        J'ai lu ces informations et j'accepte que les renseignements fournis
+                        soient utilisés uniquement afin de traiter ma demande de soumission.
+                    </span>
+                </label>
+
+                <button type="button" id="submissionStartBtn" class="primary-btn" disabled>
+                    Commencer
+                </button>
+
+            </div>
+
+            <div class="submission-panel submission-step" id="submissionStepNeed" hidden>
+
+                <h2>Étape 1 sur 3</h2>
+
+                <p>
+                    Sélectionnez la nature de votre demande et la plateforme concernée.
+                </p>
+
+                <label for="requestType">Nature de la demande *</label>
+
+                <select id="requestType" required>
+                    <option value="">— Sélectionnez une option —</option>
+                    <option value="diagnostic">Diagnostic d'un problème</option>
+                    <option value="new">Nouveau projet</option>
+                    <option value="improvement">Amélioration d'un projet existant</option>
+                    <option value="maintenance">Maintenance et soutien</option>
+                    <option value="automation">Automatisation</option>
+                    <option value="other">Autre</option>
+                </select>
+
+                <label for="platformType">Plateforme *</label>
+
+                <select id="platformType" required>
+                    <option value="">— Sélectionnez une plateforme —</option>
+                    <option value="windows">Windows</option>
+                    <option value="android">Android</option>
+                    <option value="website">Site Web</option>
+                    <option value="other">Autre</option>
+                </select>
+
+                <div class="submission-actions">
+                    <button type="button" class="btn-primary" id="submissionNext" disabled>
+                        Continuer
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="submission-panel submission-step" id="submissionStepDetails" hidden>
+
+                <h2>Étape 2 sur 3</h2>
+
+                <h3>Coordonnées</h3>
+
+                <label for="clientName">Nom complet *</label>
+                <input type="text" id="clientName" autocomplete="name" required>
+
+                <label for="clientEmail">Adresse courriel *</label>
+                <input type="email" id="clientEmail" autocomplete="email" required>
+
+                <div class="submission-row submission-row--phone">
+
+                    <div class="form-group">
+                        <label for="clientPhone">Téléphone</label>
+                        <input
+    type="tel"
+    id="clientPhone"
+    autocomplete="tel"
+    inputmode="numeric"
+    maxlength="14"
+    placeholder="1 450 400 3030">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientExtension">Extension</label>
+                        <input
+                            type="tel"
+                            id="clientExtension"
+                            inputmode="numeric"
+                            maxlength="8"
+                            placeholder="12345678">
+                    </div>
+
+                </div>
+
+                <label for="clientCompany">Entreprise</label>
+                <input type="text" id="clientCompany" autocomplete="organization">
+
+                <h3>Projet</h3>
+
+                <label for="projectName">Nom du projet</label>
+                <input type="text" id="projectName">
+
+                <label for="projectDescription">Description du projet *</label>
+                <textarea id="projectDescription" maxlength="5000" rows="8" required></textarea>
+                <div class="char-counter" id="projectDescriptionCounter">0 / 5000</div>
+
+                <label for="expectedResult">Résultat attendu *</label>
+                <textarea id="expectedResult" maxlength="1500" rows="5" required></textarea>
+                <div class="char-counter" id="expectedResultCounter">0 / 1500</div>
+
+                <h3>Budget et délai</h3>
+
+                <label for="budgetType">Budget approximatif *</label>
+                <select id="budgetType" required>
+                    <option value="">— Sélectionnez une option —</option>
+                    <option value="unknown">Je ne sais pas encore</option>
+                    <option value="discussion">À discuter</option>
+                    <option value="defined">J'ai un budget défini</option>
+                </select>
+
+                <div id="budgetAmountGroup" hidden>
+                    <label for="budgetAmount">Montant approximatif</label>
+                    <select id="budgetAmount">
+                        <option value="">— Sélectionnez une option —</option>
+                        <option value="less-500">Moins de 500 $</option>
+                        <option value="500-2000">500 $ à 2 000 $</option>
+                        <option value="2000-5000">2 000 $ à 5 000 $</option>
+                        <option value="5000-10000">5 000 $ à 10 000 $</option>
+                        <option value="more-10000">Plus de 10 000 $</option>
+                    </select>
+                </div>
+
+                <label for="timelineType">Délai souhaité *</label>
+                <select id="timelineType" required>
+                    <option value="">— Sélectionnez une option —</option>
+                    <option value="asap">Dès que possible</option>
+                    <option value="week">Cette semaine</option>
+                    <option value="month">Ce mois-ci</option>
+                    <option value="three-months">Dans les 3 prochains mois</option>
+                    <option value="no-date">Aucune date précise</option>
+                </select>
+
+                <div class="submission-actions">
+                    <button type="button" class="btn-outline" id="submissionBackToNeed">
+                        Retour
+                    </button>
+
+                    <button type="button" class="btn-primary" id="submissionDetailsNext" disabled>
+                        Continuer
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="submission-panel submission-step" id="submissionStepRates" hidden>
+
+    <h2>Étape 3 sur 3</h2>
+
+    <h3>Honoraires et conditions</h3>
+
+    <p>
+        Avant de préparer une soumission détaillée, je vous invite à prendre connaissance de ma façon de travailler.
+        Ces informations permettent d'établir des attentes claires dès le départ.
+    </p>
+
+    <h4>Tarification</h4>
+
+    <p>
+        Les services sont généralement facturés <strong>à partir de 65 $ CAD de l'heure</strong>.
+    </p>
+
+    <p>
+        Lorsque le projet est suffisamment défini, une soumission à prix fixe peut également être proposée afin que vous connaissiez le coût total avant le début des travaux.
+    </p>
+
+    <h4>Paiement</h4>
+
+    <p>
+        Pour les projets nécessitant plusieurs heures de travail, un <strong>acompte de 50 %</strong> est généralement demandé avant le début du développement.
+    </p>
+
+    <p>
+        Le solde est payable selon les modalités convenues avant le début du mandat.
+    </p>
+
+    <h4>Transparence</h4>
+
+    <p>
+        <strong>Aucune facture ne vous sera transmise sans votre accord préalable.</strong>
+    </p>
+
+    <p>
+        Avant le début des travaux, nous confirmerons ensemble la portée du projet, les modalités de paiement ainsi que les coûts estimés.
+    </p>
+
+    <h4>Confidentialité</h4>
+
+    <p>
+        Toutes les informations transmises demeurent confidentielles et sont utilisées uniquement afin d'évaluer votre demande de soumission.
+    </p>
+
+    <label class="submission-consent">
+        <input type="checkbox" id="ratesConsent">
+        <span>
+            J'ai pris connaissance des honoraires, des modalités de paiement et des conditions de Weidler Studio.
+        </span>
+	</label>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAADujMojxq8dNMu6V"></div>
+    <div class="submission-actions">
+        <button type="button" class="btn-outline" id="submissionBackToDetails">
+            Retour
+        </button>
+
+        <button type="button" class="btn-primary" id="submissionRatesNext" disabled>
+            Continuer
+        </button>
+    </div>
+
+</div>
+
+        <div class="submission-panel submission-step" id="submissionStepConfirmation" hidden>
+
+    <h2>Demande envoyée</h2>
+
+    <p>
+        Merci.
+    </p>
+
+    <p>
+        Votre demande de soumission a été transmise avec succès.
+    </p>
+
+    <p>
+        Elle sera analysée dans les meilleurs délais. Si des informations supplémentaires sont nécessaires,
+        un suivi sera effectué avant la préparation de la soumission.
+    </p>
+
+    <p>
+        Merci d'avoir choisi <strong>Weidler Studio</strong>.
+    </p>
+
+    <a href="../index.html" class="btn-primary">
+        Retour à l'accueil
+    </a>
+
+</div>    
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        &copy; 2026 Weidler Studio. Tous droits réservés.
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/i18n.js"></script>
+<script src="../js/soumission.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</body>
+</html>
