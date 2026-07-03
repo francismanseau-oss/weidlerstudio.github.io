@@ -335,15 +335,46 @@ function setDetailsNotice(hasError) {
     }
 
     if (ratesNext) {
-    ratesNext.addEventListener("click", () => {
-        const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+    ratesNext.addEventListener("click", async () => {
+        ratesNext.disabled = true;
+        ratesNext.textContent = "Envoi...";
 
-        if (!turnstileToken) {
-            alert("Veuillez compléter la vérification de sécurité avant d'envoyer la demande.");
-            return;
+        const formData = {
+            nature: getSelectText("requestType"),
+            plateforme: getSelectText("platformType"),
+            nom: getValue("clientName"),
+            courriel: getValue("clientEmail"),
+            telephone: getValue("clientPhone"),
+            extension: getValue("clientExtension"),
+            entreprise: getValue("clientCompany"),
+            projet: getValue("projectName"),
+            description: getValue("projectDescription"),
+            resultat: getValue("expectedResult"),
+            budget: getSelectText("budgetType"),
+            montant: getSelectText("budgetAmount"),
+            delai: getSelectText("timelineType")
+        };
+
+        try {
+            const response = await fetch("https://formspree.io/f/xlgyagna", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error("Erreur d'envoi");
+            }
+
+            showStep(confirmationStep);
+        } catch (error) {
+            alert("L'envoi a échoué. Veuillez réessayer dans quelques minutes.");
+            ratesNext.disabled = false;
+            ratesNext.textContent = "Continuer";
         }
-
-        alert("CAPTCHA validé côté formulaire. Prochaine étape : Worker Cloudflare.");
     });
 }
 
