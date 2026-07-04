@@ -1,26 +1,32 @@
-/* ── Lisibilité mobile (pages principales, ≤640px) ──
+/* ── Lisibilité mobile (pages principales, ≤768px) ──
    Chargé en dernier sur Accueil, Services, Projets, Soumission, À propos, Contact.
    !important : battre les font-size clamp() des feuilles page et styles inline Projets. */
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     body {
-        font-size: 1.125rem;
-        line-height: 1.7;
+        --mobile-text-size: 1.1875rem;
+        --mobile-text-leading: 1.7;
+        font-size: var(--mobile-text-size);
+        line-height: var(--mobile-text-leading);
     }
 
-    /* Corps de texte — titres exclus (h1–h6, labels de section, badges, nav) */
+    /* Corps de texte — titres, badges, nav, champs formulaire exclus */
     body main p,
     body main .lead,
     body main li,
+    body main figcaption,
     body main .about-list li,
     body main .submission-list li,
     body main .about-story p,
     body main .about-quote,
     body main .about-principles li,
+    body main .about-block p,
+    body main .about-block .lead,
     body main .discussion-subtitle,
     body main .feature-card p,
     body main .comment-card p,
     body main .teaser-box p,
+    body main .note-muted,
     body main .submission-panel p,
     body main .submission-consent span,
     body main .submission-panel label,
@@ -28,17 +34,20 @@
     body main .studio-cta .lead,
     body main .page-hero .lead,
     body main .page-intro .lead,
-    body main .about-block .lead,
     body main .home-lead,
     body main .home-subtitle,
     body main .home-card p,
     body main .home-project-card p,
     body main .home-process-item p,
+    body main .home-approach-quote p,
     body main .home-approach-list li,
     body main .home-conclusion .home-lead,
     body main .home-contact-lead,
     body main .home-section-link,
     body main .home-footer-tagline,
+    body main .haven-subtitle,
+    body main .haven-summary-box .lead,
+    body main .pi-report-intro,
     body main.page-projects p,
     body main.page-projects .lead,
     body main.page-projects .discussion-subtitle,
@@ -46,19 +55,24 @@
     body main.page-projects .pi-workflow-step p,
     body main.page-projects .comment-card p,
     body main.page-projects .teaser-box p,
+    body main.page-projects figcaption,
     body.page-home main .home-card p,
     body.page-home main .home-lead,
     body.page-home main .home-subtitle,
+    body.page-home main .home-approach-quote p,
+    body.page-home main .home-process-item p,
     body.page-about main .about-story p,
     body.page-about main .about-quote,
     body.page-contact main .lead,
+    body.page-contact main .about-block p,
     body.page-soumission main .submission-panel p,
     body.page-soumission main .form-group label,
     body[data-nav-active="services"] main .lead,
     body[data-nav-active="services"] main .feature-card p,
     .site-footer,
-    .site-footer p {
-        font-size: 1.125rem !important;
-        line-height: 1.7 !important;
+    .site-footer p,
+    .site-footer-copy {
+        font-size: var(--mobile-text-size) !important;
+        line-height: var(--mobile-text-leading) !important;
     }
 }
