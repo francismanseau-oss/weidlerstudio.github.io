@@ -236,7 +236,7 @@ a.home-contact-email:visited {
     color: var(--accent);
     text-decoration: none;
 }
-a:not(.btn-primary):not(.btn-download-nexus):not(.product-card):not(.logo-link):hover {
+a:not(.btn-primary):not(.btn-download-nexus):not(.product-card):not(.logo-link):not(.home-btn--primary):not(.home-btn--secondary):hover {
     color: var(--accent);
 }
 
@@ -1476,6 +1476,11 @@ a.project-card-link h3 {
         display: none;
     }
 
+    .mobile-page-progress,
+    .mobile-swipe-hints {
+        display: none !important;
+    }
+
     .main-nav {
         display: flex;
         flex-direction: row;
@@ -1529,13 +1534,90 @@ a.project-card-link h3 {
 @media (max-width: 640px) {
     :root { --header-h: 56px; }
     body { padding-top: 0; }
+    body:not(.mobile-swipe-disabled) {
+        touch-action: pan-y pinch-zoom;
+    }
+    body.mobile-swipe-disabled {
+        touch-action: auto;
+    }
     .site-header { position: relative; }
     .header-top {
         min-height: 56px;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto auto;
         grid-template-areas:
-            "brand toggle"
-            "nav nav";
+            "brand progress toggle"
+            "nav nav nav";
+    }
+    .mobile-page-progress {
+        grid-area: progress;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0;
+        min-width: 0;
+        max-width: 46vw;
+        padding-right: 2px;
+        font-size: clamp(0.68rem, 2.8vw, 0.78rem);
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--text-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mobile-page-progress__label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mobile-page-progress__step {
+        flex-shrink: 0;
+        color: var(--text-muted-soft);
+        font-weight: 500;
+    }
+    .mobile-swipe-hints {
+        position: fixed;
+        inset: 0;
+        z-index: 15;
+        pointer-events: none;
+    }
+    .mobile-swipe-hint {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 56px;
+        padding: 0;
+        border: none;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--text-muted-soft);
+        opacity: 0.34;
+        cursor: pointer;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+        transition: opacity 0.2s ease, color 0.2s ease;
+    }
+    .mobile-swipe-hint--prev {
+        left: max(2px, env(safe-area-inset-left));
+    }
+    .mobile-swipe-hint--next {
+        right: max(2px, env(safe-area-inset-right));
+    }
+    .mobile-swipe-hint:hover,
+    .mobile-swipe-hint:focus-visible {
+        opacity: 0.58;
+        color: var(--text-muted);
+        outline: none;
+    }
+    .mobile-swipe-hint:active {
+        opacity: 0.72;
+    }
+    .mobile-swipe-hint[hidden],
+    .mobile-swipe-hints[hidden] {
+        display: none !important;
     }
     .main-nav { justify-self: stretch; }
     .nav-toggle { display: block; }
@@ -1545,7 +1627,7 @@ a.project-card-link h3 {
         align-items: flex-start;
         gap: 0;
         width: 100%;
-        padding: 8px clamp(16px, 4vw, 40px) 12px;
+        padding: 4px clamp(16px, 4vw, 40px) 6px;
         border-top: 1px solid var(--border);
     }
     .main-nav.open { display: flex; }
@@ -1553,15 +1635,18 @@ a.project-card-link h3 {
         display: none;
     }
     .main-nav a {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 100%;
-        padding: 14px 0;
+        min-height: 44px;
+        padding: 8px 0;
         border-bottom: 1px solid var(--border);
     }
     .main-nav a:last-child { border-bottom: none; }
     .main-nav .lang-dropdown--nav {
         width: 100%;
-        padding: 14px 0;
+        min-height: 44px;
+        padding: 8px 0;
         border-bottom: 1px solid var(--border);
     }
     .main-nav .lang-dropdown--nav .lang-dropdown-toggle {
@@ -1585,8 +1670,15 @@ a.project-card-link h3 {
     .main-nav .lang-dropdown--nav .lang-dropdown-menu {
         position: static;
         width: 100%;
-        margin-top: 8px;
+        margin-top: 6px;
         box-shadow: none;
+    }
+
+    .site-header .theme-drawer {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin: 0;
     }
 
     .lang-status,
@@ -2043,4 +2135,47 @@ html[data-theme-effective="day"] .site-back-top-btn {
 html[data-theme-effective="day"] .site-back-top-btn:hover {
     background: rgba(232, 247, 251, 1);
     border-color: rgba(8, 145, 178, 0.55);
+}
+
+/* ── Verrouillage paysage (téléphone uniquement) ── */
+.portrait-lock-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 4vw, 22px);
+    padding: clamp(24px, 6vw, 40px);
+    text-align: center;
+    background: var(--bg-deep);
+    color: var(--text);
+    border: none;
+    box-sizing: border-box;
+}
+
+body.portrait-lock-active {
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+}
+
+body.portrait-lock-active .portrait-lock-overlay {
+    display: flex;
+}
+
+.portrait-lock-icon {
+    color: var(--accent);
+    opacity: 0.72;
+    flex-shrink: 0;
+}
+
+.portrait-lock-message {
+    margin: 0;
+    max-width: 26ch;
+    font-size: clamp(0.92rem, 3.8vw, 1.02rem);
+    line-height: 1.55;
+    font-weight: 500;
+    color: var(--text-muted-soft);
 }

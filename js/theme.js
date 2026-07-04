@@ -93,6 +93,7 @@
             "</div>";
 
         document.body.appendChild(drawer);
+        syncDrawerHost();
 
         var tab = document.getElementById("themeDrawerTab");
         tab.addEventListener("click", function (event) {
@@ -116,6 +117,20 @@
         updateModeButtons(getStored());
     }
 
+    function syncDrawerHost() {
+        var drawer = document.getElementById("themeDrawer");
+        if (!drawer) return;
+
+        var header = document.querySelector(".site-header");
+        var mobile = window.matchMedia("(max-width: 640px)").matches;
+
+        if (mobile && header) {
+            header.appendChild(drawer);
+        } else {
+            document.body.appendChild(drawer);
+        }
+    }
+
     apply(getStored());
 
     window.WeidlerTheme = {
@@ -135,4 +150,6 @@
         mountThemeDrawer();
         updateModeButtons(getStored());
     });
+
+    window.addEventListener("resize", syncDrawerHost, { passive: true });
 })();

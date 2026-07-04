@@ -296,3 +296,111 @@ html[data-theme="auto"][data-theme-effective="day"] .about-principles {
     border-left-color: rgba(34, 211, 238, 0.4);
     box-shadow: var(--card-shadow);
 }
+
+/* ── Soumission — thème jour, mobile seulement ── */
+@media (max-width: 640px) {
+    html[data-theme="day"] .page-soumission #submissionStartBtn,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        border-radius: var(--btn-radius);
+    }
+
+    html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled),
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled) {
+        background: var(--btn-primary-bg);
+        border: 1px solid var(--btn-primary-border);
+        color: var(--text);
+        font-size: 0.92rem;
+        font-weight: 600;
+        box-shadow:
+            0 0 12px rgba(34, 211, 238, 0.08),
+            0 4px 12px rgba(12, 18, 34, 0.06);
+    }
+
+    html[data-theme="day"] .page-soumission #submissionStartBtn:disabled,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:disabled {
+        background: rgba(232, 247, 251, 0.88);
+        border: 1px solid rgba(34, 211, 238, 0.22);
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        font-weight: 600;
+        box-shadow: none;
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions .btn-primary,
+    html[data-theme="day"] .page-soumission .submission-actions .btn-outline,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-primary,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline {
+        width: 100%;
+        min-height: 48px;
+        padding: 0 18px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        box-shadow:
+            0 0 10px rgba(34, 211, 238, 0.06),
+            0 3px 10px rgba(12, 18, 34, 0.05);
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions .btn-outline,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline {
+        background: var(--btn-secondary-bg);
+        border-color: var(--btn-secondary-border);
+        color: var(--text);
+        box-shadow:
+            0 0 8px rgba(139, 92, 246, 0.06),
+            0 2px 8px rgba(12, 18, 34, 0.05);
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions .btn-primary:hover,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-primary:hover {
+        box-shadow:
+            0 0 16px rgba(34, 211, 238, 0.18),
+            0 4px 14px rgba(12, 18, 34, 0.07);
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions .btn-outline:hover,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline:hover {
+        background: rgba(139, 92, 246, 0.08);
+        box-shadow:
+            0 0 12px rgba(139, 92, 246, 0.1),
+            0 3px 12px rgba(12, 18, 34, 0.06);
+    }
+
+    html[data-theme="day"] .page-soumission #submissionStepConfirmation .btn-primary,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStepConfirmation .btn-primary {
+        width: 100%;
+        min-height: 48px;
+        font-size: 0.92rem;
+        box-shadow:
+            0 0 10px rgba(34, 211, 238, 0.06),
+            0 3px 10px rgba(12, 18, 34, 0.05);
+    }
+
+    html[data-theme="day"] .page-soumission .submission-panel select,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-panel select {
+        height: 44px;
+        padding: 0 38px 0 14px;
+        font-size: 0.875rem;
+        line-height: 1.35;
+        background-size: 12px;
+        background-position: right 14px center;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    html[data-theme="day"] .page-soumission .submission-panel select option,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-panel select option {
+        font-size: 0.875rem;
+        line-height: 1.35;
+    }
+}

@@ -52,7 +52,6 @@ body {
     font-family: var(--font);
     line-height: 1.5;
     overflow-x: hidden;
-    padding-top: var(--header-h);
     position: relative;
     isolation: isolate;
 }
@@ -817,6 +816,19 @@ main.page-projects {
     }
 }
 
+@media (max-width: 640px) {
+    /* Même colonne d’alignement que .project-detail (min(760px, 92%) sur PC) */
+    .projects-carousel {
+        width: min(760px, 92%);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+}
+
 @media (max-width: 520px) {
     .pi-workflow {
         grid-template-columns: 1fr;
@@ -829,7 +841,6 @@ main.page-projects {
     .carousel {
         grid-template-columns: 36px minmax(0, 1fr) 36px;
         gap: 8px;
-        width: min(760px, 100%);
     }
 
     .carousel-item {
@@ -895,6 +906,7 @@ main.page-projects {
     }
 }
 </style>
+<link rel="stylesheet" href="../css/mobile-readability.css">
 </head>
 
 <body data-nav-root="../" data-nav-active="projects">
@@ -977,6 +989,7 @@ main.page-projects {
 
 <script src="../js/nav.js"></script>
 <script src="../js/mobile-nav.js"></script>
+<script src="../js/portrait-lock.js"></script>
 <script src="../js/back-to-top.js"></script>
 <script src="../js/i18n.js"></script>
 <script>
