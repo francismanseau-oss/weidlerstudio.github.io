@@ -1612,26 +1612,27 @@ a.project-card-link h3 {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 62px;
-        padding: 0;
-        border: 1px solid rgba(34, 211, 238, 0.42);
-        border-radius: 999px;
-        background: rgba(8, 14, 28, 0.58);
+        min-width: 44px;
+        min-height: 44px;
+        width: auto;
+        height: auto;
+        padding: 8px 4px;
+        border: none;
+        border-radius: 0;
+        background: transparent;
         color: var(--accent);
-        opacity: 0.82;
+        opacity: 0.72;
         cursor: pointer;
         pointer-events: auto;
         -webkit-tap-highlight-color: transparent;
-        box-shadow:
-            0 0 14px rgba(34, 211, 238, 0.22),
-            0 0 28px rgba(34, 211, 238, 0.08);
-        transition: opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        box-shadow: none;
+        transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
     .mobile-swipe-hint svg {
         width: 24px;
         height: 24px;
         flex-shrink: 0;
+        filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.28));
     }
     .mobile-swipe-hint--prev {
         left: max(2px, env(safe-area-inset-left));
@@ -1643,30 +1644,23 @@ a.project-card-link h3 {
     .mobile-swipe-hint:focus-visible {
         opacity: 1;
         color: var(--accent);
-        border-color: rgba(34, 211, 238, 0.62);
-        box-shadow:
-            0 0 18px rgba(34, 211, 238, 0.34),
-            0 0 32px rgba(34, 211, 238, 0.12);
+        background: transparent;
+        border: none;
+        box-shadow: none;
         outline: none;
     }
     .mobile-swipe-hint:active {
-        opacity: 1;
+        opacity: 0.9;
         transform: translateY(-50%) scale(0.96);
     }
     @keyframes mobile-swipe-hint-intro {
         0%, 100% {
-            opacity: 0.82;
+            opacity: 0.72;
             transform: translateY(-50%) scale(1);
-            box-shadow:
-                0 0 14px rgba(34, 211, 238, 0.22),
-                0 0 28px rgba(34, 211, 238, 0.08);
         }
         50% {
             opacity: 1;
-            transform: translateY(-50%) scale(1.07);
-            box-shadow:
-                0 0 22px rgba(34, 211, 238, 0.42),
-                0 0 36px rgba(34, 211, 238, 0.14);
+            transform: translateY(-50%) scale(1.08);
         }
     }
     .mobile-swipe-hint.is-intro:not([hidden]) {
@@ -1689,7 +1683,7 @@ a.project-card-link h3 {
         align-items: flex-start;
         gap: 0;
         width: 100%;
-        padding: 4px clamp(16px, 4vw, 40px) 6px;
+        padding: 2px clamp(16px, 4vw, 40px) 4px;
         border-top: 1px solid var(--border);
     }
     .main-nav.open { display: flex; }
@@ -1700,15 +1694,16 @@ a.project-card-link h3 {
         display: flex;
         align-items: center;
         width: 100%;
-        min-height: 44px;
-        padding: 8px 0;
+        min-height: 40px;
+        padding: 3px 0;
+        line-height: 1.25;
         border-bottom: 1px solid var(--border);
     }
     .main-nav a:last-child { border-bottom: none; }
     .main-nav .lang-dropdown--nav {
         width: 100%;
-        min-height: 44px;
-        padding: 8px 0;
+        min-height: 40px;
+        padding: 3px 0;
         border-bottom: 1px solid var(--border);
     }
     .main-nav .lang-dropdown--nav .lang-dropdown-toggle {
@@ -1732,8 +1727,27 @@ a.project-card-link h3 {
     .main-nav .lang-dropdown--nav .lang-dropdown-menu {
         position: static;
         width: 100%;
-        margin-top: 6px;
+        margin-top: 4px;
+        padding: 4px;
+        gap: 0;
         box-shadow: none;
+    }
+
+    .main-nav .lang-dropdown--nav .lang-btn {
+        min-height: 34px;
+        padding: 5px 8px;
+    }
+
+    .page-soumission .submission-panel select {
+        font-size: 0.875rem;
+        line-height: 1.35;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    .page-soumission .submission-panel select option {
+        font-size: 0.875rem;
+        line-height: 1.35;
     }
 
     .site-header .theme-drawer {
