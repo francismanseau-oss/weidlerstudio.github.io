@@ -827,13 +827,141 @@ main.page-projects {
     .carousel {
         width: 100%;
     }
+
+    /* Carrousel — image active seule, sans bandes latérales */
+    .carousel-track {
+        gap: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .carousel-item:not(.active) {
+        display: none;
+    }
+
+    .carousel-item.active {
+        width: min(240px, 74vw);
+        height: min(240px, 74vw);
+        transform: none;
+    }
+
+    /* Contenu sous le carrousel — progression et espacements cohérents */
+    .project-detail {
+        margin-top: clamp(24px, 5vw, 32px);
+    }
+
+    .page-hero,
+    .features-section,
+    .screenshots-section {
+        margin-top: clamp(20px, 4.5vw, 28px);
+        padding: clamp(18px, 4vw, 22px);
+    }
+
+    .haven-summary-box {
+        margin-top: 0;
+        margin-bottom: clamp(20px, 4.5vw, 28px);
+        padding: clamp(18px, 4vw, 22px);
+    }
+
+    .project-detail > *:first-child {
+        margin-top: 0;
+    }
+
+    .features-title,
+    .screenshots-title {
+        margin-bottom: clamp(14px, 3vw, 18px);
+    }
+
+    .hero-app-shot,
+    .pi-screenshot {
+        margin-top: clamp(20px, 4.5vw, 28px);
+        margin-bottom: clamp(20px, 4.5vw, 28px);
+    }
+
+    .pi-hero {
+        margin-bottom: clamp(20px, 4.5vw, 28px);
+    }
+
+    .haven-shots-section {
+        margin-bottom: clamp(20px, 4.5vw, 28px);
+    }
+
+    .lead + .lead {
+        margin-top: 0.85em;
+    }
+
+    .discussion-subtitle {
+        margin-bottom: clamp(16px, 3vw, 20px);
+    }
+
+    /* Grilles — une colonne, texte lisible (dont « Comment ça fonctionne ») */
+    .features-grid,
+    .nexus-advantages-grid,
+    .haven-benefits-grid,
+    .pi-features-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(14px, 3vw, 18px);
+    }
+
+    .feature-card {
+        padding: clamp(16px, 4vw, 20px);
+        text-align: left;
+    }
+
+    .feature-card h3 {
+        margin-bottom: 8px;
+    }
+
+    .pi-section.features-section,
+    .haven-benefits.features-section,
+    .cribleplus-benefits.features-section,
+    .kios-section.features-section {
+        padding: 0;
+        margin-top: clamp(24px, 5vw, 32px);
+    }
+
+    .pi-workflow {
+        grid-template-columns: 1fr;
+        gap: clamp(12px, 3vw, 16px);
+    }
+
+    .pi-workflow-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: clamp(16px, 4vw, 20px);
+        text-align: left;
+    }
+
+    .pi-workflow-num {
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+
+    .pi-workflow-step p {
+        text-align: left;
+    }
+
+    /* Haven — captures empilées pour une lecture verticale */
+    .haven-shots {
+        flex-direction: column;
+        gap: clamp(12px, 3vw, 16px);
+    }
+
+    .haven-shot {
+        flex: none;
+        width: 100%;
+        margin: 0;
+        border-radius: var(--radius);
+    }
+
+    .haven-shot:first-child,
+    .haven-shot:last-child {
+        border-radius: var(--radius);
+    }
 }
 
 @media (max-width: 520px) {
-    .pi-workflow {
-        grid-template-columns: 1fr;
-    }
-
     .pi-screenshot {
         max-width: min(520px, 94vw);
     }
@@ -843,19 +971,15 @@ main.page-projects {
         gap: 8px;
     }
 
-    .carousel-item {
-        width: min(190px, 52vw);
-        height: min(190px, 52vw);
+    .carousel-item.active {
+        width: min(220px, 72vw);
+        height: min(220px, 72vw);
     }
 
     .carousel-arrow {
         width: 36px;
         height: 36px;
         font-size: 20px;
-    }
-
-    .carousel-item.active {
-        transform: scale(1.02);
     }
 
     .pi-report-log {

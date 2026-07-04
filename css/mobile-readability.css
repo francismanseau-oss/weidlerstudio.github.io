@@ -1,67 +1,64 @@
 /* ── Lisibilité mobile (pages principales, ≤640px) ──
-   Chargé en dernier sur Accueil, Services, Projets, Soumission, À propos, Contact. */
+   Chargé en dernier sur Accueil, Services, Projets, Soumission, À propos, Contact.
+   !important : battre les font-size clamp() des feuilles page et styles inline Projets. */
 
 @media (max-width: 640px) {
     body {
-        font-size: 1rem;
-        line-height: 1.65;
+        font-size: 1.125rem;
+        line-height: 1.7;
     }
 
-    main p,
-    main .lead,
-    main .about-list li,
-    main .submission-list li,
-    main .about-story p,
-    main .about-quote,
-    main .about-principles li,
-    main .discussion-subtitle,
-    main .feature-card p,
-    main .comment-card p,
-    main .teaser-box p,
-    main .submission-panel p,
-    main .submission-consent span,
-    main .submission-panel label,
-    main .form-group label,
-    main .studio-cta .lead,
-    main .page-hero .lead,
-    main .home-lead,
-    main .home-subtitle,
-    main .home-card p,
-    main .home-project-card p,
-    main .home-process-item p,
-    main .home-approach-list li,
-    main .home-conclusion .home-lead,
-    main .home-contact-lead,
-    main .home-section-link,
-    main .home-footer-tagline,
-    main.page-projects p,
-    main.page-projects .lead,
-    main.page-projects .discussion-subtitle,
-    main.page-projects li,
-    main.page-projects .pi-workflow-step p,
-    .site-footer {
-        font-size: 1rem;
-        line-height: 1.65;
-    }
-
-    main .btn-primary,
-    main .btn-outline,
-    main .btn-submit,
-    main .primary-btn,
-    main #submissionStartBtn,
-    main .hero-actions .btn,
-    main .home-btn--primary,
-    main .home-btn--secondary,
-    main a.btn-primary {
-        font-size: 1rem;
-    }
-
-    html[data-theme="day"] main .submission-actions .btn-primary,
-    html[data-theme="day"] main .submission-actions .btn-outline,
-    html[data-theme="auto"][data-theme-effective="day"] main .submission-actions .btn-primary,
-    html[data-theme="auto"][data-theme-effective="day"] main .submission-actions .btn-outline,
-    html[data-theme="day"] main #submissionStepConfirmation .btn-primary,
-    html[data-theme="auto"][data-theme-effective="day"] main #submissionStepConfirmation .btn-primary {
-        font-size: 1rem;
+    /* Corps de texte — titres exclus (h1–h6, labels de section, badges, nav) */
+    body main p,
+    body main .lead,
+    body main li,
+    body main .about-list li,
+    body main .submission-list li,
+    body main .about-story p,
+    body main .about-quote,
+    body main .about-principles li,
+    body main .discussion-subtitle,
+    body main .feature-card p,
+    body main .comment-card p,
+    body main .teaser-box p,
+    body main .submission-panel p,
+    body main .submission-consent span,
+    body main .submission-panel label,
+    body main .form-group label,
+    body main .studio-cta .lead,
+    body main .page-hero .lead,
+    body main .page-intro .lead,
+    body main .about-block .lead,
+    body main .home-lead,
+    body main .home-subtitle,
+    body main .home-card p,
+    body main .home-project-card p,
+    body main .home-process-item p,
+    body main .home-approach-list li,
+    body main .home-conclusion .home-lead,
+    body main .home-contact-lead,
+    body main .home-section-link,
+    body main .home-footer-tagline,
+    body main.page-projects p,
+    body main.page-projects .lead,
+    body main.page-projects .discussion-subtitle,
+    body main.page-projects li,
+    body main.page-projects .pi-workflow-step p,
+    body main.page-projects .comment-card p,
+    body main.page-projects .teaser-box p,
+    body.page-home main .home-card p,
+    body.page-home main .home-lead,
+    body.page-home main .home-subtitle,
+    body.page-about main .about-story p,
+    body.page-about main .about-quote,
+    body.page-contact main .lead,
+    body.page-soumission main .submission-panel p,
+    body.page-soumission main .form-group label,
+    body[data-nav-active="services"] main .lead,
+    body[data-nav-active="services"] main .feature-card p,
+    .site-footer,
+    .site-footer p {
+        font-size: 1.125rem !important;
+        line-height: 1.7 !important;
     }
 }

@@ -1532,8 +1532,33 @@ a.project-card-link h3 {
 }
 
 @media (max-width: 640px) {
-    :root { --header-h: 56px; }
+    :root {
+        --header-h: 56px;
+        --mobile-main-top: 16px;
+    }
     body { padding-top: 0; }
+
+    /* Espacement menu → titre (référence : page Services) */
+    main,
+    .page-home main,
+    .page-contact main,
+    .page-soumission main,
+    main.page-projects {
+        padding-top: var(--mobile-main-top);
+    }
+
+    main > .page-intro:first-child,
+    main > .about-hero:first-child,
+    main > .home-hero:first-child {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .page-home .home-hero {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
     body:not(.mobile-swipe-disabled) {
         touch-action: pan-y pinch-zoom;
     }
@@ -1587,18 +1612,26 @@ a.project-card-link h3 {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 44px;
-        height: 56px;
+        width: 50px;
+        height: 62px;
         padding: 0;
-        border: none;
+        border: 1px solid rgba(34, 211, 238, 0.42);
         border-radius: 999px;
-        background: transparent;
-        color: var(--text-muted-soft);
-        opacity: 0.34;
+        background: rgba(8, 14, 28, 0.58);
+        color: var(--accent);
+        opacity: 0.82;
         cursor: pointer;
         pointer-events: auto;
         -webkit-tap-highlight-color: transparent;
-        transition: opacity 0.2s ease, color 0.2s ease;
+        box-shadow:
+            0 0 14px rgba(34, 211, 238, 0.22),
+            0 0 28px rgba(34, 211, 238, 0.08);
+        transition: opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .mobile-swipe-hint svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
     }
     .mobile-swipe-hint--prev {
         left: max(2px, env(safe-area-inset-left));
@@ -1608,12 +1641,41 @@ a.project-card-link h3 {
     }
     .mobile-swipe-hint:hover,
     .mobile-swipe-hint:focus-visible {
-        opacity: 0.58;
-        color: var(--text-muted);
+        opacity: 1;
+        color: var(--accent);
+        border-color: rgba(34, 211, 238, 0.62);
+        box-shadow:
+            0 0 18px rgba(34, 211, 238, 0.34),
+            0 0 32px rgba(34, 211, 238, 0.12);
         outline: none;
     }
     .mobile-swipe-hint:active {
-        opacity: 0.72;
+        opacity: 1;
+        transform: translateY(-50%) scale(0.96);
+    }
+    @keyframes mobile-swipe-hint-intro {
+        0%, 100% {
+            opacity: 0.82;
+            transform: translateY(-50%) scale(1);
+            box-shadow:
+                0 0 14px rgba(34, 211, 238, 0.22),
+                0 0 28px rgba(34, 211, 238, 0.08);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.07);
+            box-shadow:
+                0 0 22px rgba(34, 211, 238, 0.42),
+                0 0 36px rgba(34, 211, 238, 0.14);
+        }
+    }
+    .mobile-swipe-hint.is-intro:not([hidden]) {
+        animation: mobile-swipe-hint-intro 0.9s ease-in-out 3;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .mobile-swipe-hint.is-intro:not([hidden]) {
+            animation: none;
+        }
     }
     .mobile-swipe-hint[hidden],
     .mobile-swipe-hints[hidden] {

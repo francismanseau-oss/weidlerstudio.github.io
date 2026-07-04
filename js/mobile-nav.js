@@ -31,9 +31,9 @@
         ".main-nav.open, .mobile-swipe-hint";
 
     var PREV_SVG =
-        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="15 18 9 12 15 6"/></svg>';
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="15 18 9 12 15 6"/></svg>';
     var NEXT_SVG =
-        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"/></svg>';
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"/></svg>';
 
     var tracking = null;
     var uiMounted = false;
@@ -131,6 +131,28 @@
         next.hidden = !enabled || index >= SWIPE_PAGES.length - 1;
     }
 
+    function playHintIntro() {
+        if (!isMobile() || !isSwipeEnabled()) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        var hints = document.getElementById("mobileSwipeHints");
+        if (!hints || hints.hidden) return;
+
+        hints.querySelectorAll(".mobile-swipe-hint").forEach(function (btn) {
+            if (btn.hidden) return;
+
+            btn.classList.remove("is-intro");
+            void btn.offsetWidth;
+            btn.classList.add("is-intro");
+
+            btn.addEventListener("animationend", function onEnd(event) {
+                if (event.animationName !== "mobile-swipe-hint-intro") return;
+                btn.classList.remove("is-intro");
+                btn.removeEventListener("animationend", onEnd);
+            });
+        });
+    }
+
     function refreshUi() {
         updateProgress();
         updateHints();
@@ -180,6 +202,9 @@
 
         uiMounted = true;
         refreshUi();
+        requestAnimationFrame(function () {
+            requestAnimationFrame(playHintIntro);
+        });
     }
 
     function onTouchStart(event) {
@@ -260,6 +285,14 @@
     document.addEventListener("touchcancel", resetTracking, { passive: true });
 
     window.addEventListener("resize", refreshUi, { passive: true });
+    window.addEventListener("pageshow", function (event) {
+        refreshUi();
+        if (event.persisted) {
+            requestAnimationFrame(function () {
+                requestAnimationFrame(playHintIntro);
+            });
+        }
+    });
 
     if (typeof MutationObserver !== "undefined") {
         var bodyObserver = new MutationObserver(function () {

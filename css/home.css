@@ -629,7 +629,7 @@
 
     .page-home .home-hero {
         margin-bottom: 40px;
-        padding-top: clamp(36px, 7vw, 52px);
+        padding-top: 0;
     }
 
     .page-home .home-tagline {
@@ -727,26 +727,28 @@
         min-width: 0;
     }
 }
-/* Accueil — remonter le titre principal */
-.page-home .home-hero {
-    padding-top: clamp(10px, 3vw, 24px) !important;
-}
-
-@media (max-width: 768px) {
+/* Accueil — remontée titre (PC uniquement) */
+@media (min-width: 641px) {
     .page-home .home-hero {
-        padding-top: 12px !important;
+        padding-top: clamp(10px, 3vw, 24px) !important;
     }
-}
-/* Accueil — aligner le titre avec les autres pages */
-.page-home .home-hero {
-    padding-top: 0 !important;
-    margin-top: -8px !important;
-}
 
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
+        .page-home .home-hero {
+            padding-top: 12px !important;
+        }
+    }
+
     .page-home .home-hero {
         padding-top: 0 !important;
-        margin-top: -14px !important;
+        margin-top: -8px !important;
+    }
+
+    @media (max-width: 768px) {
+        .page-home .home-hero {
+            padding-top: 0 !important;
+            margin-top: -14px !important;
+        }
     }
 }
 /* Accueil — espace entre le titre principal et le texte */
