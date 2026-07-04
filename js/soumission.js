@@ -40,6 +40,9 @@ function initSubmissionForm() {
             if (panel) panel.hidden = panel !== step;
         });
 
+        const inForm = step !== welcomeStep && step !== confirmationStep;
+        document.body.classList.toggle("mobile-swipe-disabled", inForm);
+
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 

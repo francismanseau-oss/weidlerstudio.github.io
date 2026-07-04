@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0e1a">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light dark">
 <meta name="description" content="Projets Weidler Studio : Crible+, Haven, Nexus Bridge, Project Inspector et Kios.">
 <title>Projets | Weidler Studio</title>
 <link rel="icon" href="../assets/logo/favicon.png" type="image/png">
+<script src="../js/theme.js"></script>
 <link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/themes.css">
 
 <style>
 :root {
@@ -187,36 +189,6 @@ main.page-projects {
     opacity: 1;
     transition: opacity .3s ease;
     text-align: left;
-}
-
-.project-back-top {
-    display: flex;
-    justify-content: center;
-    margin: clamp(32px, 6vw, 48px) auto 0;
-}
-
-.project-back-top button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 46px;
-    padding: 0 18px;
-    border-radius: 999px;
-    border: 1px solid rgba(34, 211, 238, 0.38);
-    background: rgba(12, 18, 32, 0.92);
-    color: var(--text);
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 0 14px rgba(34, 211, 238, 0.10);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-}
-
-.project-back-top button:hover {
-    background: rgba(16, 28, 48, 0.98);
-    border-color: rgba(34, 211, 238, 0.62);
-    box-shadow: 0 0 18px rgba(34, 211, 238, 0.24);
-    transform: translateY(-1px);
 }
 
 .page-hero,
@@ -853,6 +825,33 @@ main.page-projects {
     .pi-screenshot {
         max-width: min(520px, 94vw);
     }
+
+    .carousel {
+        grid-template-columns: 36px minmax(0, 1fr) 36px;
+        gap: 8px;
+        width: min(760px, 100%);
+    }
+
+    .carousel-item {
+        width: min(190px, 52vw);
+        height: min(190px, 52vw);
+    }
+
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .carousel-item.active {
+        transform: scale(1.02);
+    }
+
+    .pi-report-log {
+        white-space: pre-wrap;
+        overflow-x: auto;
+        font-size: 0.7rem;
+    }
 }
 
 
@@ -977,6 +976,8 @@ main.page-projects {
 <footer class="site-footer" data-translate>&copy; 2026 Weidler Studio. Tous droits réservés.</footer>
 
 <script src="../js/nav.js"></script>
+<script src="../js/mobile-nav.js"></script>
+<script src="../js/back-to-top.js"></script>
 <script src="../js/i18n.js"></script>
 <script>
 const projects = [
@@ -1351,21 +1352,6 @@ function renderCarousel() {
     });
 
     detail.innerHTML = projects[currentIndex].template;
-    detail.insertAdjacentHTML("beforeend", `
-        <div class="project-back-top">
-            <button type="button" class="project-back-top-btn">↑ Retour aux projets</button>
-        </div>
-    `);
-
-    const backTopBtn = detail.querySelector(".project-back-top-btn");
-    if (backTopBtn) {
-        backTopBtn.addEventListener("click", () => {
-            document.querySelector("#projectsCarousel").scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-        });
-    }
 
     if (projects[currentIndex].id === "project-inspector") {
         const reportContent = document.getElementById("pi-report-content");
