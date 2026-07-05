@@ -363,9 +363,6 @@ html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submission
 
     html[data-theme="day"] .page-soumission .submission-actions,
     html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
         margin-top: 28px;
     }
 
@@ -373,11 +370,6 @@ html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submission
     html[data-theme="day"] .page-soumission .submission-actions .btn-outline,
     html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-primary,
     html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline {
-        width: 100%;
-        min-height: 48px;
-        padding: 0 18px;
-        font-size: 0.92rem;
-        font-weight: 600;
         box-shadow:
             0 0 10px rgba(34, 211, 238, 0.06),
             0 3px 10px rgba(12, 18, 34, 0.05);

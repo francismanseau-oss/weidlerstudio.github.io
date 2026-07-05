@@ -1,39 +1,46 @@
 /* ── Lisibilité mobile (pages principales, ≤768px) ──
    Chargé en dernier sur Accueil, Services, Projets, Soumission, À propos, Contact.
-   !important : battre les font-size clamp() des feuilles page et styles inline Projets. */
+   !important : battre les font-size clamp() des autres feuilles (home.css, site.css, Projets inline). */
 
 @media (max-width: 768px) {
     body {
-        --mobile-text-size: 1.1875rem;
-        --mobile-text-leading: 1.7;
+        --mobile-text-size: 1.25rem;
+        --mobile-text-leading: 1.72;
         font-size: var(--mobile-text-size);
         line-height: var(--mobile-text-leading);
     }
 
-    /* Corps de texte — titres, badges, nav, champs formulaire exclus */
+    /* Corps de texte — !important bat .page-home .home-card p et autres clamp() */
     body main p,
-    body main .lead,
     body main li,
+    body main label,
     body main figcaption,
-    body main .about-list li,
-    body main .submission-list li,
-    body main .about-story p,
-    body main .about-quote,
-    body main .about-principles li,
-    body main .about-block p,
-    body main .about-block .lead,
+    body main blockquote,
+    body main dd,
+    body main dt,
+    body main .lead,
     body main .discussion-subtitle,
+    body main .note-muted,
+    body main .submission-field-error,
+    body main .submission-required-notice,
+    body main .char-counter,
+    body main .submission-consent span,
+    body main .about-quote,
     body main .feature-card p,
     body main .comment-card p,
     body main .teaser-box p,
-    body main .note-muted,
     body main .submission-panel p,
-    body main .submission-consent span,
-    body main .submission-panel label,
     body main .form-group label,
+    body main .submission-panel label,
     body main .studio-cta .lead,
     body main .page-hero .lead,
     body main .page-intro .lead,
+    body main .about-block p,
+    body main .about-block .lead,
+    body main .about-story p,
+    body main .about-list li,
+    body main .submission-list li,
+    body main .about-principles li,
     body main .home-lead,
     body main .home-subtitle,
     body main .home-card p,
@@ -41,7 +48,6 @@
     body main .home-process-item p,
     body main .home-approach-quote p,
     body main .home-approach-list li,
-    body main .home-conclusion .home-lead,
     body main .home-contact-lead,
     body main .home-section-link,
     body main .home-footer-tagline,
@@ -53,26 +59,18 @@
     body main.page-projects .discussion-subtitle,
     body main.page-projects li,
     body main.page-projects .pi-workflow-step p,
-    body main.page-projects .comment-card p,
-    body main.page-projects .teaser-box p,
     body main.page-projects figcaption,
-    body.page-home main .home-card p,
-    body.page-home main .home-lead,
-    body.page-home main .home-subtitle,
-    body.page-home main .home-approach-quote p,
-    body.page-home main .home-process-item p,
-    body.page-about main .about-story p,
-    body.page-about main .about-quote,
-    body.page-contact main .lead,
-    body.page-contact main .about-block p,
-    body.page-soumission main .submission-panel p,
-    body.page-soumission main .form-group label,
-    body[data-nav-active="services"] main .lead,
-    body[data-nav-active="services"] main .feature-card p,
     .site-footer,
     .site-footer p,
     .site-footer-copy {
         font-size: var(--mobile-text-size) !important;
         line-height: var(--mobile-text-leading) !important;
+    }
+
+    /* Menus déroulants natifs — taille inchangée (exception demandée) */
+    body main select,
+    body main select option {
+        font-size: 0.875rem !important;
+        line-height: 1.35 !important;
     }
 }
