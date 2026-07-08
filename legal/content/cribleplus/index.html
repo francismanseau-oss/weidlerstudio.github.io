@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0e1a">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="Documents juridiques de Crible+ — politique de confidentialité, conditions d'utilisation et mentions légales.">
+    <title>Documents juridiques — Crible+ | Weidler Studio</title>
+    <link rel="icon" href="../../../assets/logo/favicon.png" type="image/png">
+    <script src="../../../js/theme.js"></script>
+    <link rel="stylesheet" href="../../../css/themes.css">
+    <link rel="stylesheet" href="../../../css/site.css">
+    <link rel="stylesheet" href="../../../css/legal.css">
+    <style>
+        .legal-bundle-page main {
+            max-width: min(760px, 100%);
+            margin: 0 auto;
+            padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 24px) clamp(48px, 8vw, 72px);
+        }
+
+        .legal-bundle-intro {
+            text-align: center;
+            margin-bottom: clamp(28px, 5vw, 40px);
+        }
+
+        .legal-bundle-intro p {
+            margin: 0;
+            color: var(--text-muted-soft);
+            font-size: clamp(0.92rem, 2.2vw, 1rem);
+            line-height: 1.65;
+        }
+
+        .legal-document {
+            scroll-margin-top: 24px;
+            margin-bottom: clamp(48px, 8vw, 72px);
+            padding-top: clamp(8px, 2vw, 16px);
+            border-top: 1px solid var(--border);
+        }
+
+        .legal-document:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .legal-document-header {
+            text-align: center;
+            margin-bottom: clamp(24px, 5vw, 32px);
+        }
+
+        .legal-section-list {
+            display: grid;
+            gap: clamp(18px, 3vw, 24px);
+        }
+
+        .legal-section-item {
+            scroll-margin-top: 24px;
+            padding: clamp(16px, 3vw, 22px) clamp(18px, 3.5vw, 24px);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: rgba(16, 24, 39, 0.55);
+        }
+
+        .legal-section-item h3 {
+            margin: 0 0 12px;
+            font-size: clamp(1rem, 2.6vw, 1.12rem);
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .legal-section-item .legal-accordion-body {
+            margin: 0;
+        }
+
+        .legal-bundle-status {
+            text-align: center;
+            color: var(--text-muted-soft);
+            padding: 24px 0;
+        }
+
+        .legal-bundle-status.is-error {
+            color: #f87171;
+        }
+
+        a.legal-toc-link,
+        #legalDocNav a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="legal-bundle-page">
+    <main>
+        <header class="legal-header legal-bundle-intro">
+            <h1 class="legal-header-product">Crible+</h1>
+            <p>Documents juridiques — Weidler Studio</p>
+        </header>
+
+        <nav class="legal-doc-nav" id="legalDocNav" aria-label="Navigation entre les documents juridiques">
+            <a href="#privacy">Politique de confidentialité</a>
+            <a href="#terms">Conditions d'utilisation</a>
+            <a href="#legal-notice">Mentions légales</a>
+        </nav>
+
+        <p class="legal-bundle-status" id="legalBundleStatus">Chargement des documents…</p>
+        <div id="legalDocuments" hidden></div>
+    </main>
+
+    <script>
+        (function () {
+            var DOCUMENTS = [
+                { id: "privacy", path: "privacy/fr.json" },
+                { id: "terms", path: "terms/fr.json" },
+                { id: "legal-notice", path: "legal-notice/fr.json" }
+            ];
+
+            var statusEl = document.getElementById("legalBundleStatus");
+            var containerEl = document.getElementById("legalDocuments");
+
+            function escapeHtml(text) {
+                return String(text)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;");
+            }
+
+            function isDataAvailable(data) {
+                return data
+                    && data.available !== false
+                    && Array.isArray(data.sections)
+                    && data.sections.length > 0;
+            }
+
+            function renderDocument(data) {
+                var docId = data.documentType;
+                var tocItems = data.sections.map(function (section) {
+                    return (
+                        '<li>' +
+                            '<a class="legal-toc-link" href="#' + escapeHtml(docId + "-" + section.id) + '">' +
+                                escapeHtml(section.title) +
+                            '</a>' +
+                        '</li>'
+                    );
+                }).join("");
+
+                var sectionsHtml = data.sections.map(function (section) {
+                    return (
+                        '<article class="legal-section-item" id="' + escapeHtml(docId + "-" + section.id) + '">' +
+                            '<h3>' + escapeHtml(section.title) + '</h3>' +
+                            '<div class="legal-accordion-body">' + section.body + '</div>' +
+                        '</article>'
+                    );
+                }).join("");
+
+                return (
+                    '<section class="legal-document" id="' + escapeHtml(docId) + '">' +
+                        '<header class="legal-document-header">' +
+                            '<h2 class="legal-header-doc">' + escapeHtml(data.documentTitle) + '</h2>' +
+                            '<div class="legal-header-meta">' +
+                                '<span>Version ' + escapeHtml(data.version) + '</span>' +
+                                '<span>' + escapeHtml(data.updated) + '</span>' +
+                            '</div>' +
+                        '</header>' +
+                        '<nav class="legal-toc" aria-label="Sommaire — ' + escapeHtml(data.documentTitle) + '">' +
+                            '<p class="legal-toc-title">Sommaire</p>' +
+                            '<ul class="legal-toc-list">' + tocItems + '</ul>' +
+                        '</nav>' +
+                        '<div class="legal-section-list">' + sectionsHtml + '</div>' +
+                    '</section>'
+                );
+            }
+
+            function setActiveNav() {
+                var hash = (location.hash || "").replace(/^#/, "");
+                var activeDoc = hash.split("-")[0];
+
+                document.querySelectorAll("#legalDocNav a").forEach(function (link) {
+                    var target = (link.getAttribute("href") || "").replace(/^#/, "");
+                    var isActive = target === activeDoc;
+                    link.classList.toggle("active", isActive);
+                    if (isActive) {
+                        link.setAttribute("aria-current", "location");
+                    } else {
+                        link.removeAttribute("aria-current");
+                    }
+                });
+            }
+
+            async function loadDocuments() {
+                var rendered = [];
+
+                for (var i = 0; i < DOCUMENTS.length; i++) {
+                    var doc = DOCUMENTS[i];
+                    var response = await fetch(doc.path);
+
+                    if (!response.ok) {
+                        throw new Error("missing:" + doc.path);
+                    }
+
+                    var data = await response.json();
+
+                    if (!isDataAvailable(data)) {
+                        throw new Error("pending:" + doc.path);
+                    }
+
+                    rendered.push(renderDocument(data));
+                }
+
+                containerEl.innerHTML = rendered.join("");
+                statusEl.hidden = true;
+                containerEl.hidden = false;
+                setActiveNav();
+            }
+
+            window.addEventListener("hashchange", setActiveNav);
+
+            loadDocuments().catch(function () {
+                statusEl.textContent = "Contenu juridique temporairement indisponible.";
+                statusEl.classList.add("is-error");
+            });
+        })();
+    </script>
+</body>
+</html>
