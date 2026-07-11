@@ -1558,7 +1558,7 @@ a.project-card-link .badge {
         top: calc(100% + 4px);
         left: 0;
         right: 0;
-        z-index: 120;
+        z-index: 250;
         max-height: min(280px, 52vh);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -1716,6 +1716,105 @@ a.project-card-link .badge {
     .home-bg-scatter { opacity: 1; }
     .home-bg-scatter .home-bg-kw,
     .home-bg-scatter .home-bg-sym { font-size: 0.52rem; }
+}
+
+/* Soumission — select custom sur appareils tactiles (Android, etc.)
+   Active même si largeur CSS > 640px. Desktop non tactile inchangé. */
+@media (hover: none) and (pointer: coarse) {
+    .page-soumission .submission-panel select {
+        font-size: 0.875rem;
+        line-height: 1.35;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    .page-soumission .submission-panel select option {
+        font-size: 0.875rem;
+        line-height: 1.35;
+    }
+
+    .page-soumission .submission-select-custom {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 520px;
+    }
+
+    .page-soumission .submission-select-native {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .page-soumission .submission-select-toggle {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+        max-width: 520px;
+        min-height: 50px;
+        height: 50px;
+        padding: 0 46px 0 16px;
+        box-sizing: border-box;
+        text-align: left;
+        font-family: inherit;
+        line-height: 1.35;
+    }
+
+    .page-soumission .submission-select-label {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .page-soumission .submission-select-chevron {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.55em;
+        line-height: 1;
+        pointer-events: none;
+    }
+
+    .page-soumission .submission-select-menu {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        z-index: 250;
+        max-height: min(280px, 52vh);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+    }
+
+    .page-soumission .submission-select-option {
+        display: block;
+        width: 100%;
+        padding: 10px 14px;
+        box-sizing: border-box;
+        text-align: left;
+        font-family: inherit;
+        line-height: 1.3;
+        border: none;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+
+    .page-soumission .submission-select-option:last-child {
+        border-bottom: none;
+    }
 }
 
 @media (max-width: 400px) {
@@ -1921,6 +2020,10 @@ body[data-nav-active="services"] .page-intro h1 {
 
 body[data-nav-active="services"] .page-intro .lead {
     margin-top: 0 !important;
+}
+
+body[data-nav-active="services"] .features-grid {
+    grid-template-columns: 1fr;
 }
 
 .theme-drawer {
