@@ -1,4 +1,5 @@
 function initSubmissionForm() {
+    // deploy-bust-20260711a
     const consentCheckbox = document.getElementById("submissionConsent");
     const startButton = document.getElementById("submissionStartBtn");
 
@@ -337,25 +338,42 @@ function setDetailsNotice(hasError) {
         });
     }
 
+    function buildTaggedField(tag, value) {
+        return `@${tag}\n${value}\n/@`;
+    }
+
+    function buildSubmissionEmailBody() {
+        const fields = [
+            ["1 Nature de la demande", getSelectText("requestType")],
+            ["2 Plateforme", getSelectText("platformType")],
+            ["3 Nom complet", getValue("clientName")],
+            ["4 Courriel", getValue("clientEmail")],
+            ["5 Téléphone", getValue("clientPhone")],
+            ["6 Extension", getValue("clientExtension")],
+            ["7 Entreprise", getValue("clientCompany")],
+            ["8 Nom du projet", getValue("projectName")],
+            ["9 Description du projet", getValue("projectDescription")],
+            ["10 Résultat attendu", getValue("expectedResult")],
+            ["11 Budget approximatif", getSelectText("budgetType")],
+            ["12 Montant approximatif", getSelectText("budgetAmount")],
+            ["13 Délai souhaité", getSelectText("timelineType")]
+        ];
+
+        return fields.map(function (field) {
+            return buildTaggedField(field[0], field[1]);
+        }).join("\n\n");
+    }
+
     if (ratesNext) {
     ratesNext.addEventListener("click", async () => {
         ratesNext.disabled = true;
         ratesNext.textContent = "Envoi...";
 
+        const clientEmail = getValue("clientEmail");
         const formData = {
-            nature: getSelectText("requestType"),
-            plateforme: getSelectText("platformType"),
-            nom: getValue("clientName"),
-            courriel: getValue("clientEmail"),
-            telephone: getValue("clientPhone"),
-            extension: getValue("clientExtension"),
-            entreprise: getValue("clientCompany"),
-            projet: getValue("projectName"),
-            description: getValue("projectDescription"),
-            resultat: getValue("expectedResult"),
-            budget: getSelectText("budgetType"),
-            montant: getSelectText("budgetAmount"),
-            delai: getSelectText("timelineType")
+            email: clientEmail,
+            _replyto: clientEmail,
+            message: buildSubmissionEmailBody()
         };
 
         try {

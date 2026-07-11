@@ -1,7 +1,56 @@
-/* ── Thème jour premium (+ Auto résolu en jour via data-theme-effective) ──
-   Le thème nuit reste dans site.css.
-   L’arrière-plan décoratif (.home-bg-deco) conserve ses couleurs code. */
+/* ── Variables de thème Weidler Studio ──
+   Nuit (:root) et jour (html[data-theme="day"]).
+   Couleurs composants : site.css · Interactions : interactive.css */
 
+/* ── Thème nuit (défaut) ── */
+:root,
+html[data-theme="night"],
+html[data-theme="auto"][data-theme-effective="night"] {
+    --bg-deep: #060810;
+    --bg-top: #0c1222;
+    --bg-gradient-end: #040608;
+    --bg-surface: rgba(14, 20, 36, 0.72);
+    --bg-card: rgba(12, 18, 32, 0.85);
+    --border: rgba(56, 80, 120, 0.35);
+    --text: #f0f4ff;
+    --text-muted: #94a3b8;
+    --text-muted-soft: #b4c1d3;
+    --lead-color: #cbd5e1;
+    --accent: #22d3ee;
+    --accent-dim: #0891b2;
+    --accent-violet: #8b5cf6;
+    --accent-glow: rgba(34, 211, 238, 0.18);
+    --accent-soft: rgba(34, 211, 238, 0.1);
+    --glow-cyan: 0 0 20px rgba(34, 211, 238, 0.18), 0 0 40px rgba(34, 211, 238, 0.06);
+    --glow-violet: 0 0 20px rgba(139, 92, 246, 0.18), 0 0 40px rgba(139, 92, 246, 0.06);
+    --glow-blue: 0 0 20px rgba(59, 130, 246, 0.18), 0 0 40px rgba(59, 130, 246, 0.06);
+    --badge-dev: #c9a227;
+    --badge-soon: #64748b;
+    --badge-tool: #3b82f6;
+    --header-bg: rgba(8, 12, 22, 0.92);
+    --surface-color: #1b2234;
+    --preferences-text: #ffffff;
+    --btn-primary-bg: linear-gradient(180deg, rgba(16, 38, 68, 0.92) 0%, rgba(10, 24, 46, 0.96) 100%);
+    --btn-primary-bg-hover: linear-gradient(180deg, rgba(20, 48, 82, 0.96) 0%, rgba(14, 30, 54, 1) 100%);
+    --btn-primary-border: rgba(34, 211, 238, 0.52);
+    --btn-primary-border-hover: rgba(34, 211, 238, 0.72);
+    --btn-secondary-bg: rgba(8, 12, 24, 0.5);
+    --btn-secondary-border: rgba(139, 92, 246, 0.42);
+    --lang-inactive: #9aa7bd;
+    --lang-active-bg: #0f2a38;
+    --lang-active-text: #f4fcff;
+    --lang-toggle-bg: #0f2a38;
+    --lang-toggle-border: #22d3ee;
+    --dropdown-bg: rgba(12, 18, 32, 0.98);
+    --panel-muted-bg: rgba(14, 20, 36, 0.52);
+    --panel-muted-border: rgba(56, 80, 120, 0.28);
+    --conclusion-bg: rgba(14, 20, 36, 0.48);
+    --conclusion-border: rgba(56, 80, 120, 0.38);
+    --conclusion-text: #dce3ed;
+    --meta-theme-color: #0a0e1a;
+}
+
+/* ── Thème jour (+ Auto résolu en jour via data-theme-effective) ── */
 html[data-theme="day"],
 html[data-theme="auto"][data-theme-effective="day"] {
     --bg-deep: #f7f9fc;
@@ -50,371 +99,4 @@ html[data-theme="auto"][data-theme-effective="day"] {
     --conclusion-border: rgba(34, 211, 238, 0.18);
     --conclusion-text: #44536a;
     --meta-theme-color: #f7f9fc;
-}
-
-/* ── Body : dégradé doux + halos cyan/violet atténués (~30 %) ── */
-html[data-theme="day"] body::before,
-html[data-theme="auto"][data-theme-effective="day"] body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 52% 42% at 12% 18%, rgba(34, 211, 238, 0.125) 0%, transparent 72%),
-        radial-gradient(ellipse 48% 38% at 88% 78%, rgba(139, 92, 246, 0.09) 0%, transparent 70%);
-}
-
-/* ── Header ── */
-html[data-theme="day"] .site-header,
-html[data-theme="auto"][data-theme-effective="day"] .site-header {
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-/* ── Boutons principaux ── */
-html[data-theme="day"] .btn-primary,
-html[data-theme="auto"][data-theme-effective="day"] .btn-primary {
-    color: var(--text);
-    box-shadow:
-        0 0 12px rgba(34, 211, 238, 0.08),
-        0 4px 12px rgba(12, 18, 34, 0.06);
-}
-
-html[data-theme="day"] .btn-primary:hover,
-html[data-theme="auto"][data-theme-effective="day"] .btn-primary:hover {
-    background: var(--btn-primary-bg-hover);
-    border-color: var(--btn-primary-border-hover);
-    color: var(--btn-primary-text-hover);
-    box-shadow:
-        0 0 18px rgba(34, 211, 238, 0.22),
-        0 6px 16px rgba(12, 18, 34, 0.08);
-}
-
-html[data-theme="day"] .btn-outline,
-html[data-theme="auto"][data-theme-effective="day"] .btn-outline {
-    box-shadow:
-        0 0 8px rgba(139, 92, 246, 0.06),
-        0 2px 10px rgba(12, 18, 34, 0.05);
-}
-
-html[data-theme="day"] .btn-outline:hover,
-html[data-theme="auto"][data-theme-effective="day"] .btn-outline:hover {
-    background: rgba(139, 92, 246, 0.08);
-    box-shadow:
-        0 0 12px rgba(139, 92, 246, 0.1),
-        0 4px 14px rgba(12, 18, 34, 0.06);
-}
-
-/* ── Cartes (site + accueil) ── */
-html[data-theme="day"] .feature-card,
-html[data-theme="day"] .form-card,
-html[data-theme="day"] .comment-card,
-html[data-theme="day"] .teaser-box,
-html[data-theme="day"] .screenshot-card,
-html[data-theme="day"] .submission-panel,
-html[data-theme="auto"][data-theme-effective="day"] .feature-card,
-html[data-theme="auto"][data-theme-effective="day"] .form-card,
-html[data-theme="auto"][data-theme-effective="day"] .comment-card,
-html[data-theme="auto"][data-theme-effective="day"] .teaser-box,
-html[data-theme="auto"][data-theme-effective="day"] .screenshot-card,
-html[data-theme="auto"][data-theme-effective="day"] .submission-panel {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: var(--card-border);
-    box-shadow: var(--card-shadow);
-}
-
-html[data-theme="day"] .page-home .home-card,
-html[data-theme="day"] .page-home .home-project-card,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-card,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-project-card {
-    background: rgba(255, 255, 255, 0.9);
-    border-color: var(--card-border);
-    box-shadow: var(--card-shadow);
-}
-
-html[data-theme="day"] .page-home .home-card--cyan,
-html[data-theme="day"] .page-home .home-card--blue,
-html[data-theme="day"] .page-home .home-card--violet,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-card--cyan,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-card--blue,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-card--violet {
-    box-shadow: var(--card-shadow);
-}
-
-html[data-theme="day"] .page-home .home-card--cyan,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-card--cyan {
-    border-color: rgba(34, 211, 238, 0.22);
-}
-
-html[data-theme="day"] .page-home .home-card--blue,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-card--blue {
-    border-color: rgba(59, 130, 246, 0.2);
-}
-
-html[data-theme="day"] .page-home .home-card--violet,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-card--violet {
-    border-color: rgba(139, 92, 246, 0.2);
-}
-
-/* ── Sélecteur de langue ── */
-html[data-theme="day"] .lang-dropdown-toggle,
-html[data-theme="auto"][data-theme-effective="day"] .lang-dropdown-toggle {
-    color: var(--lang-toggle-text);
-    background: var(--lang-toggle-bg);
-    border-color: var(--lang-toggle-border);
-    box-shadow: 0 0 10px rgba(34, 211, 238, 0.08);
-}
-
-html[data-theme="day"] .lang-dropdown-toggle:hover:not(:disabled),
-html[data-theme="auto"][data-theme-effective="day"] .lang-dropdown-toggle:hover:not(:disabled) {
-    border-color: #22d3ee;
-    box-shadow: 0 0 14px rgba(34, 211, 238, 0.14);
-}
-
-html[data-theme="day"] .main-nav .lang-dropdown--nav .lang-dropdown-toggle,
-html[data-theme="auto"][data-theme-effective="day"] .main-nav .lang-dropdown--nav .lang-dropdown-toggle {
-    background: var(--lang-toggle-bg);
-    border: 1px solid var(--lang-toggle-border);
-    color: var(--lang-toggle-text);
-    box-shadow: 0 0 10px rgba(34, 211, 238, 0.08);
-}
-
-html[data-theme="day"] .main-nav .lang-dropdown--nav .lang-dropdown-toggle:hover:not(:disabled),
-html[data-theme="auto"][data-theme-effective="day"] .main-nav .lang-dropdown--nav .lang-dropdown-toggle:hover:not(:disabled) {
-    border-color: #22d3ee;
-    color: var(--lang-toggle-text);
-    box-shadow: 0 0 14px rgba(34, 211, 238, 0.14);
-}
-
-html[data-theme="day"] .lang-btn,
-html[data-theme="auto"][data-theme-effective="day"] .lang-btn {
-    color: var(--lang-inactive);
-    background: transparent;
-}
-
-html[data-theme="day"] .lang-btn:hover,
-html[data-theme="auto"][data-theme-effective="day"] .lang-btn:hover {
-    color: #0c1222;
-    background: #e8f7fb;
-    border-color: #22d3ee;
-    box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
-}
-
-html[data-theme="day"] .lang-btn.active,
-html[data-theme="auto"][data-theme-effective="day"] .lang-btn.active {
-    background: #22d3ee;
-    border-color: #22d3ee;
-    color: #ffffff;
-    box-shadow: 0 0 12px rgba(34, 211, 238, 0.2);
-}
-
-/* ── Accueil ── */
-html[data-theme="day"] .page-home .home-btn--primary,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-btn--primary {
-    color: var(--text);
-    background: var(--btn-primary-bg);
-    border-color: var(--btn-primary-border);
-    box-shadow:
-        0 0 12px rgba(34, 211, 238, 0.08),
-        0 4px 12px rgba(12, 18, 34, 0.06);
-}
-
-html[data-theme="day"] .page-home .home-btn--primary:hover,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-btn--primary:hover {
-    background: var(--btn-primary-bg-hover);
-    border-color: var(--btn-primary-border-hover);
-    color: var(--btn-primary-text-hover);
-    box-shadow:
-        0 0 18px rgba(34, 211, 238, 0.22),
-        0 6px 16px rgba(12, 18, 34, 0.08);
-}
-
-html[data-theme="day"] .page-home .home-btn--secondary,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-btn--secondary {
-    background: var(--btn-secondary-bg);
-    border-color: var(--btn-secondary-border);
-    box-shadow:
-        0 0 8px rgba(139, 92, 246, 0.06),
-        0 2px 10px rgba(12, 18, 34, 0.05);
-}
-
-html[data-theme="day"] .page-home .home-btn--secondary:hover,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-btn--secondary:hover {
-    background: rgba(139, 92, 246, 0.08);
-    box-shadow:
-        0 0 12px rgba(139, 92, 246, 0.1),
-        0 4px 14px rgba(12, 18, 34, 0.06);
-}
-
-html[data-theme="day"] .page-home .home-hero::before,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-hero::before {
-    background: radial-gradient(ellipse 85% 100% at 50% 45%, rgba(255, 255, 255, 0.72) 0%, transparent 72%);
-}
-
-html[data-theme="day"] .page-home .home-contact,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-contact {
-    background: var(--bg-surface);
-    border-color: var(--card-border);
-    box-shadow: var(--card-shadow);
-}
-
-html[data-theme="day"] .page-home .home-process-list,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-process-list {
-    box-shadow: var(--card-shadow);
-}
-
-html[data-theme="day"] .page-home .home-conclusion .home-lead,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-conclusion .home-lead {
-    box-shadow: var(--card-shadow);
-}
-
-html[data-theme="day"] .page-home .home-footer-done,
-html[data-theme="auto"][data-theme-effective="day"] .page-home .home-footer-done {
-    text-shadow: 0 0 12px rgba(34, 211, 238, 0.2);
-}
-
-/* ── À propos ── */
-html[data-theme="day"] .about-portrait__frame,
-html[data-theme="auto"][data-theme-effective="day"] .about-portrait__frame {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(238, 248, 255, 0.98) 100%);
-    border-color: var(--card-border);
-    box-shadow: var(--card-shadow);
-}
-
-html[data-theme="day"] .about-quote,
-html[data-theme="auto"][data-theme-effective="day"] .about-quote {
-    background: rgba(255, 255, 255, 0.92);
-    border-left-color: rgba(34, 211, 238, 0.45);
-    box-shadow: var(--card-shadow);
-    color: var(--lead-color);
-}
-
-html[data-theme="day"] .about-principles,
-html[data-theme="auto"][data-theme-effective="day"] .about-principles {
-    background: var(--panel-muted-bg);
-    border-left-color: rgba(34, 211, 238, 0.4);
-    box-shadow: var(--card-shadow);
-}
-
-/* ── Soumission — bouton Commencer (thème jour, toutes tailles) ── */
-html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled),
-html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled) {
-    background: var(--btn-primary-bg);
-    border: 1px solid var(--btn-primary-border);
-    border-radius: var(--btn-radius);
-    color: var(--text);
-    font-weight: 600;
-    box-shadow:
-        0 0 12px rgba(34, 211, 238, 0.08),
-        0 4px 12px rgba(12, 18, 34, 0.06);
-    cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-}
-
-html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled):hover,
-html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled):hover {
-    background: var(--btn-primary-bg-hover);
-    border-color: var(--btn-primary-border-hover);
-    color: var(--btn-primary-text-hover);
-    box-shadow:
-        0 0 18px rgba(34, 211, 238, 0.22),
-        0 6px 16px rgba(12, 18, 34, 0.08);
-}
-
-html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled):active,
-html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled):active {
-    box-shadow:
-        0 0 14px rgba(34, 211, 238, 0.16),
-        0 3px 10px rgba(12, 18, 34, 0.06);
-}
-
-html[data-theme="day"] .page-soumission #submissionStartBtn:disabled,
-html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:disabled {
-    background: rgba(232, 247, 251, 0.88);
-    border: 1px solid rgba(34, 211, 238, 0.22);
-    border-radius: var(--btn-radius);
-    color: var(--text-muted);
-    font-weight: 600;
-    box-shadow: none;
-    cursor: not-allowed;
-    opacity: 1;
-}
-
-/* ── Soumission — thème jour, mobile seulement ── */
-@media (max-width: 640px) {
-    html[data-theme="day"] .page-soumission #submissionStartBtn,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        font-size: 0.92rem;
-    }
-
-    html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled),
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled) {
-        font-size: 0.92rem;
-    }
-
-    html[data-theme="day"] .page-soumission #submissionStartBtn:disabled,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:disabled {
-        font-size: 0.92rem;
-    }
-
-    html[data-theme="day"] .page-soumission .submission-actions,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions {
-        margin-top: 28px;
-    }
-
-    html[data-theme="day"] .page-soumission .submission-actions .btn-primary,
-    html[data-theme="day"] .page-soumission .submission-actions .btn-outline,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-primary,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline {
-        box-shadow:
-            0 0 10px rgba(34, 211, 238, 0.06),
-            0 3px 10px rgba(12, 18, 34, 0.05);
-    }
-
-    html[data-theme="day"] .page-soumission .submission-actions .btn-outline,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline {
-        background: var(--btn-secondary-bg);
-        border-color: var(--btn-secondary-border);
-        color: var(--text);
-        box-shadow:
-            0 0 8px rgba(139, 92, 246, 0.06),
-            0 2px 8px rgba(12, 18, 34, 0.05);
-    }
-
-    html[data-theme="day"] .page-soumission .submission-actions .btn-primary:hover,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-primary:hover {
-        box-shadow:
-            0 0 16px rgba(34, 211, 238, 0.18),
-            0 4px 14px rgba(12, 18, 34, 0.07);
-    }
-
-    html[data-theme="day"] .page-soumission .submission-actions .btn-outline:hover,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline:hover {
-        background: rgba(139, 92, 246, 0.08);
-        box-shadow:
-            0 0 12px rgba(139, 92, 246, 0.1),
-            0 3px 12px rgba(12, 18, 34, 0.06);
-    }
-
-    html[data-theme="day"] .page-soumission #submissionStepConfirmation .btn-primary,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStepConfirmation .btn-primary {
-        width: 100%;
-        min-height: 48px;
-        font-size: 0.92rem;
-        box-shadow:
-            0 0 10px rgba(34, 211, 238, 0.06),
-            0 3px 10px rgba(12, 18, 34, 0.05);
-    }
-
-    html[data-theme="day"] .page-soumission .submission-panel select,
-    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-panel select {
-        height: 44px;
-        padding: 0 38px 0 14px;
-        background-size: 12px;
-        background-position: right 14px center;
-    }
 }

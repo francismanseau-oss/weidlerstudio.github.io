@@ -1,0 +1,502 @@
+/* ── Éléments interactifs Weidler Studio ──
+   Boutons, liens, menus, états hover/focus/disabled, transitions.
+   Chargé après layout.css. Couleurs de thème dans themes.css. ── */
+
+/* ── Liens ── */
+a:not(.btn-primary):not(.btn-download-nexus):not(.product-card):not(.logo-link):not(.home-btn--primary):not(.home-btn--secondary):hover {
+    color: var(--accent);
+}
+
+/* ── Header contact ── */
+.header-contact,
+.home-header-contact {
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.header-contact:hover,
+.home-header-contact:hover {
+    background: rgba(34, 211, 238, 0.14);
+    border-color: rgba(34, 211, 238, 0.65);
+    color: var(--accent);
+    transform: translateY(-14px);
+}
+
+/* ── Menu hamburger ── */
+.nav-toggle {
+    cursor: pointer;
+}
+
+/* ── Dropdown langue ── */
+.lang-dropdown-toggle {
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lang-dropdown-toggle:hover:not(:disabled) {
+    border-color: rgba(34, 211, 238, 0.75);
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.22);
+}
+
+.lang-dropdown-toggle:disabled {
+    opacity: 0.45;
+    cursor: wait;
+}
+
+.lang-dropdown-toggle:focus-visible {
+    outline: 2px solid rgba(34, 211, 238, 0.65);
+    outline-offset: 2px;
+}
+
+.lang-dropdown-chevron {
+    transition: transform 0.2s ease;
+}
+
+.lang-dropdown.is-open .lang-dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+.lang-btn {
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+.lang-btn:hover {
+    color: #ffffff;
+    border-color: #22d3ee;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
+}
+
+.lang-btn.active {
+    background: var(--lang-active-bg);
+    border-color: var(--lang-toggle-border);
+    color: var(--lang-active-text);
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.16);
+}
+
+.lang-btn:disabled {
+    opacity: 0.4;
+    cursor: wait;
+}
+
+/* ── Navigation principale ── */
+.main-nav a {
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: var(--text);
+}
+
+.main-nav a.active {
+    color: var(--accent);
+}
+
+.main-nav a.active .nav-link-text {
+    box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+/* ── Boutons téléchargement / principaux ── */
+.btn-download-nexus {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-download-nexus:hover {
+    transform: translateY(-2px);
+    border-color: rgba(34, 211, 238, 0.72);
+    box-shadow: 0 0 22px rgba(34, 211, 238, 0.2), 0 6px 16px rgba(0, 0, 0, 0.28);
+    color: var(--text);
+}
+
+.btn-primary {
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 0 22px rgba(34, 211, 238, 0.2), 0 6px 16px rgba(0, 0, 0, 0.28);
+    color: var(--text);
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.btn-outline {
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(139, 92, 246, 0.58);
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 10px rgba(139, 92, 246, 0.08),
+        0 4px 14px rgba(0, 0, 0, 0.22);
+    color: var(--text);
+}
+
+.btn-submit {
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(139, 92, 246, 0.58);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.08), 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+/* ── Cartes cliquables / survol ── */
+.feature-card,
+.form-card,
+.comment-card,
+.teaser-box,
+.screenshot-card {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.feature-card:hover,
+.comment-card:hover,
+.teaser-box:hover {
+    transform: translateY(-2px);
+    border-color: rgba(34, 211, 238, 0.35);
+}
+
+/* ── Champs de formulaire ── */
+input:not([type="checkbox"]),
+textarea,
+select {
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.25);
+}
+
+select {
+    cursor: pointer;
+}
+
+.submission-panel select:hover,
+.submission-panel select:focus {
+    border-color: rgba(34, 211, 238, 0.55);
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.18);
+    outline: none;
+}
+
+.submission-panel select {
+    cursor: pointer;
+}
+
+.page-soumission .submission-select-toggle {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.page-soumission .submission-select-toggle:hover,
+.page-soumission .submission-select-toggle:focus-visible,
+.page-soumission .submission-select-custom.is-open .submission-select-toggle {
+    border-color: rgba(34, 211, 238, 0.55);
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.18);
+    outline: none;
+}
+
+.page-soumission .submission-select-option {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.page-soumission .submission-select-option:hover,
+.page-soumission .submission-select-option:focus-visible {
+    color: var(--text);
+    background: var(--accent-soft);
+    outline: none;
+}
+
+.page-soumission .submission-select-custom.is-open .submission-select-chevron {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.page-soumission .submission-select-toggle.submission-field-invalid {
+    border-color: rgba(252, 165, 165, 0.7) !important;
+    box-shadow: 0 0 0 1px rgba(252, 165, 165, 0.18) !important;
+}
+
+/* ── Commentaires / liens secondaires ── */
+.btn-translate-comment {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.btn-translate-comment:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.project-see-also a {
+    transition: color 0.2s ease;
+}
+
+.project-see-also a:hover {
+    color: var(--accent);
+}
+
+.project-see-also__current {
+    text-decoration: underline;
+}
+
+a.project-card-link {
+    text-decoration: none;
+}
+
+/* ── Soumission ── */
+#submissionStartBtn:not(:disabled) {
+    cursor: pointer;
+}
+
+#submissionStartBtn:disabled {
+    cursor: not-allowed;
+}
+
+/* ── Panneau thème ── */
+.theme-drawer-panel {
+    transition: max-width 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-drawer-tab {
+    cursor: pointer;
+}
+
+.theme-mode-btn {
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+}
+
+.theme-mode-btn:hover {
+    color: var(--text);
+    border-color: rgba(56, 80, 120, 0.45);
+}
+
+.theme-mode-btn.active {
+    color: var(--accent);
+    border-color: rgba(34, 211, 238, 0.45);
+    background: var(--accent-soft);
+}
+
+/* ── Remonter en haut (visibilité + survol nuit) ── */
+.site-back-top {
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.18s ease;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.site-back-top.is-visible {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.site-back-top-btn {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    cursor: pointer;
+}
+
+.site-back-top-btn:hover {
+    background: rgba(16, 28, 48, 0.98);
+    border-color: rgba(34, 211, 238, 0.62);
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.24);
+    transform: translateY(-1px);
+}
+
+/* ── Navigation mobile : langue / swipe ── */
+@media (min-width: 641px) {
+    .main-nav a.active .nav-link-text {
+        box-shadow: inset 0 -2px 0 var(--accent);
+    }
+}
+
+@media (max-width: 640px) {
+    .mobile-swipe-hint {
+        cursor: pointer;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+        transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .mobile-swipe-hint:hover,
+    .mobile-swipe-hint:focus-visible {
+        opacity: 1;
+        color: var(--accent);
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        outline: none;
+    }
+
+    .mobile-swipe-hint:active {
+        opacity: 0.9;
+        transform: translateY(-50%) scale(0.96);
+    }
+
+    @keyframes mobile-swipe-hint-intro {
+        0%, 100% {
+            opacity: 0.72;
+            transform: translateY(-50%) scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.08);
+        }
+    }
+
+    .mobile-swipe-hint.is-intro:not([hidden]) {
+        animation: mobile-swipe-hint-intro 0.9s ease-in-out 3;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .mobile-swipe-hint.is-intro:not([hidden]) {
+            animation: none;
+        }
+    }
+
+    .main-nav .lang-dropdown--nav .lang-dropdown-toggle {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        color: var(--text-muted);
+    }
+
+    .main-nav .lang-dropdown--nav .lang-dropdown-toggle:hover:not(:disabled) {
+        color: var(--text);
+        border: none;
+        box-shadow: none;
+    }
+
+    .main-nav .lang-dropdown--nav .lang-dropdown-menu {
+        box-shadow: none;
+    }
+}
+
+/* ── Thème jour : états interactifs soumission (couleurs) ── */
+html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled),
+html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled) {
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled):hover,
+html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled):hover {
+    background: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-border-hover);
+    color: var(--btn-primary-text-hover);
+    box-shadow:
+        0 0 18px rgba(34, 211, 238, 0.22),
+        0 6px 16px rgba(12, 18, 34, 0.08);
+}
+
+html[data-theme="day"] .page-soumission #submissionStartBtn:not(:disabled):active,
+html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStartBtn:not(:disabled):active {
+    box-shadow:
+        0 0 14px rgba(34, 211, 238, 0.16),
+        0 3px 10px rgba(12, 18, 34, 0.06);
+}
+
+@media (max-width: 640px) {
+    html[data-theme="day"] .page-soumission .submission-actions .btn-primary,
+    html[data-theme="day"] .page-soumission .submission-actions .btn-outline,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-primary,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline {
+        box-shadow:
+            0 0 10px rgba(34, 211, 238, 0.06),
+            0 3px 10px rgba(12, 18, 34, 0.05);
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions .btn-outline,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline {
+        background: var(--btn-secondary-bg);
+        border-color: var(--btn-secondary-border);
+        color: var(--text);
+        box-shadow:
+            0 0 8px rgba(139, 92, 246, 0.06),
+            0 2px 8px rgba(12, 18, 34, 0.05);
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions .btn-primary:hover,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-primary:hover {
+        box-shadow:
+            0 0 16px rgba(34, 211, 238, 0.18),
+            0 4px 14px rgba(12, 18, 34, 0.07);
+    }
+
+    html[data-theme="day"] .page-soumission .submission-actions .btn-outline:hover,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission .submission-actions .btn-outline:hover {
+        background: rgba(139, 92, 246, 0.08);
+        box-shadow:
+            0 0 12px rgba(139, 92, 246, 0.1),
+            0 3px 12px rgba(12, 18, 34, 0.06);
+    }
+
+    html[data-theme="day"] .page-soumission #submissionStepConfirmation .btn-primary,
+    html[data-theme="auto"][data-theme-effective="day"] .page-soumission #submissionStepConfirmation .btn-primary {
+        box-shadow:
+            0 0 10px rgba(34, 211, 238, 0.06),
+            0 3px 10px rgba(12, 18, 34, 0.05);
+    }
+}
+
+html[data-theme="day"] .btn-primary:hover,
+html[data-theme="auto"][data-theme-effective="day"] .btn-primary:hover {
+    background: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-border-hover);
+    color: var(--btn-primary-text-hover);
+    box-shadow:
+        0 0 18px rgba(34, 211, 238, 0.22),
+        0 6px 16px rgba(12, 18, 34, 0.08);
+}
+
+html[data-theme="day"] .btn-outline:hover,
+html[data-theme="auto"][data-theme-effective="day"] .btn-outline:hover {
+    background: rgba(139, 92, 246, 0.08);
+    box-shadow:
+        0 0 12px rgba(139, 92, 246, 0.1),
+        0 4px 14px rgba(12, 18, 34, 0.06);
+}
+
+html[data-theme="day"] .lang-dropdown-toggle:hover:not(:disabled),
+html[data-theme="auto"][data-theme-effective="day"] .lang-dropdown-toggle:hover:not(:disabled) {
+    border-color: #22d3ee;
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.14);
+}
+
+html[data-theme="day"] .main-nav .lang-dropdown--nav .lang-dropdown-toggle:hover:not(:disabled),
+html[data-theme="auto"][data-theme-effective="day"] .main-nav .lang-dropdown--nav .lang-dropdown-toggle:hover:not(:disabled) {
+    border-color: #22d3ee;
+    color: var(--lang-toggle-text);
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.14);
+}
+
+html[data-theme="day"] .lang-btn:hover,
+html[data-theme="auto"][data-theme-effective="day"] .lang-btn:hover {
+    color: #0c1222;
+    background: #e8f7fb;
+    border-color: #22d3ee;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
+}
+
+html[data-theme-effective="day"] .site-back-top-btn:hover {
+    background: rgba(232, 247, 251, 1);
+    border-color: rgba(8, 145, 178, 0.55);
+}

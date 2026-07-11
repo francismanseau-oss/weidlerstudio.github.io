@@ -3,9 +3,10 @@
     var nav = document.getElementById("mainNav");
     if (!toggle || !nav) return;
 
-    toggle.addEventListener("click", function () {
+    toggle.addEventListener("click", function (event) {
+        event.stopPropagation();
         var open = nav.classList.toggle("open");
-        toggle.setAttribute("aria-expanded", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
 
     nav.querySelectorAll("a").forEach(function (link) {
