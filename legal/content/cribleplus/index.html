@@ -9,9 +9,12 @@
     <title>Documents juridiques — Crible+ | Weidler Studio</title>
     <link rel="icon" href="../../../assets/logo/favicon.png" type="image/png">
     <script src="../../../js/theme.js"></script>
-    <link rel="stylesheet" href="../../../css/themes.css">
-    <link rel="stylesheet" href="../../../css/site.css">
-    <link rel="stylesheet" href="../../../css/legal.css">
+    <link rel="stylesheet" href="../../../css/site.css?v=8">
+    <link rel="stylesheet" href="../../../css/themes.css?v=8">
+    <link rel="stylesheet" href="../../../css/layout.css?v=8">
+    <link rel="stylesheet" href="../../../css/interactive.css?v=8">
+    <link rel="stylesheet" href="../../../css/mobile-readability.css?v=8">
+    <link rel="stylesheet" href="../../../css/legal.css?v=11">
     <style>
         .legal-bundle-page main {
             max-width: min(760px, 100%);
@@ -31,37 +34,36 @@
             line-height: 1.65;
         }
 
-        .legal-document {
-            scroll-margin-top: 24px;
-            margin-bottom: clamp(48px, 8vw, 72px);
-            padding-top: clamp(8px, 2vw, 16px);
+        .legal-bundle-updated {
+            margin: clamp(10px, 2vw, 14px) 0 0;
+            color: var(--text-muted-soft);
+            font-size: clamp(0.82rem, 2vw, 0.9rem);
+            line-height: 1.55;
+            font-weight: 400;
+        }
+
+        .legal-bundle-page .legal-accordion {
+            margin-bottom: clamp(28px, 5vw, 40px);
+        }
+
+        .legal-bundle-sections {
+            display: grid;
+            gap: clamp(18px, 3vw, 24px);
+            margin-top: clamp(18px, 3vw, 24px);
+        }
+
+        .legal-bundle-section {
+            scroll-margin-top: calc(var(--header-h) + 16px);
+            padding: clamp(14px, 2.5vw, 18px) 0 0;
             border-top: 1px solid var(--border);
         }
 
-        .legal-document:first-of-type {
+        .legal-bundle-section:first-child {
             border-top: none;
             padding-top: 0;
         }
 
-        .legal-document-header {
-            text-align: center;
-            margin-bottom: clamp(24px, 5vw, 32px);
-        }
-
-        .legal-section-list {
-            display: grid;
-            gap: clamp(18px, 3vw, 24px);
-        }
-
-        .legal-section-item {
-            scroll-margin-top: 24px;
-            padding: clamp(16px, 3vw, 22px) clamp(18px, 3.5vw, 24px);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            background: rgba(16, 24, 39, 0.55);
-        }
-
-        .legal-section-item h3 {
+        .legal-bundle-section h3 {
             margin: 0 0 12px;
             font-size: clamp(1rem, 2.6vw, 1.12rem);
             font-weight: 700;
@@ -69,8 +71,8 @@
             line-height: 1.35;
         }
 
-        .legal-section-item .legal-accordion-body {
-            margin: 0;
+        .legal-bundle-section .legal-accordion-body {
+            padding: 0;
         }
 
         .legal-bundle-status {
@@ -83,29 +85,102 @@
             color: #f87171;
         }
 
-        a.legal-toc-link,
-        #legalDocNav a {
+        .legal-back-top-wrap {
+            display: none;
+            text-align: center;
+            margin-top: clamp(8px, 2vw, 16px);
+            padding-bottom: 8px;
+        }
+
+        .legal-back-top-wrap .site-back-top-btn {
+            cursor: pointer;
+        }
+
+        a.legal-toc-link {
             text-decoration: none;
+        }
+
+        @media (min-width: 641px) {
+            .legal-back-top-wrap {
+                display: block;
+            }
+
+            body[data-nav-active="legal"] .site-back-top {
+                display: none;
+            }
         }
     </style>
 </head>
-<body class="legal-bundle-page">
+<body class="legal-bundle-page" data-nav-root="../../../" data-nav-active="legal">
+    <script src="../../../js/site-bg.js"></script>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="header-brand">
+                <a href="../../../index.html" class="logo-link">
+                    <img src="../../../assets/logo/logo-nav.png" alt="" class="logo-icon" width="56" height="56">
+                    <span class="logo-text">Weidler <span>Studio</span></span>
+                </a>
+            </div>
+            <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+                <a href="../../../index.html"><span class="nav-link-text" data-translate>Accueil</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../../../services/index.html"><span class="nav-link-text" data-translate>Services</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../../../projects/index.html"><span class="nav-link-text" data-translate>Projets</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../../../soumission/index.html"><span class="nav-link-text" data-translate>Soumission</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../../../about/index.html"><span class="nav-link-text" data-translate>À propos</span></a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="../../../contact/index.html"><span class="nav-link-text" data-translate>Contact</span></a>
+            </nav>
+            <script src="../../../js/site-nav.js?v=3"></script>
+            <span class="lang-status" id="langStatus" data-translate>Traduction…</span>
+            <nav class="lang-switcher" id="langFlags" aria-label="Choisir la langue">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="de">DE</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="es">ES</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="it">IT</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="zh-CN">ZH</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="ja">JA</button>
+                <span class="lang-sep" aria-hidden="true">|</span>
+                <button type="button" class="lang-btn" data-lang="pt">PT</button>
+            </nav>
+            <script src="../../../js/lang-ui.js"></script>
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
     <main>
         <header class="legal-header legal-bundle-intro">
             <h1 class="legal-header-product">Crible+</h1>
             <p>Documents juridiques — Weidler Studio</p>
+            <p class="legal-bundle-updated" id="legalBundleUpdated">Dernière mise à jour : 26 juin 2026</p>
         </header>
 
-        <nav class="legal-doc-nav" id="legalDocNav" aria-label="Navigation entre les documents juridiques">
-            <a href="#privacy">Politique de confidentialité</a>
-            <a href="#terms">Conditions d'utilisation</a>
-            <a href="#legal-notice">Mentions légales</a>
-        </nav>
-
         <p class="legal-bundle-status" id="legalBundleStatus">Chargement des documents…</p>
-        <div id="legalDocuments" hidden></div>
+        <div class="legal-accordion" id="legalDocuments" hidden aria-label="Documents juridiques Crible+"></div>
+
+        <p class="legal-back-top-wrap">
+            <button type="button" class="site-back-top-btn" id="legalBackTopInline" aria-label="Remonter en haut">↑ Haut</button>
+        </p>
     </main>
 
+    <footer class="site-footer" data-translate>&copy; 2026 Weidler Studio. Tous droits réservés.</footer>
+
+    <script src="../../../js/nav.js"></script>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script src="../../../js/portrait-lock.js"></script>
+    <script src="../../../js/back-to-top.js"></script>
+    <script src="../../../js/i18n.js"></script>
     <script>
         (function () {
             var DOCUMENTS = [
@@ -114,8 +189,14 @@
                 { id: "legal-notice", path: "legal-notice/fr.json" }
             ];
 
+            var CHEVRON =
+                '<svg class="legal-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+                    '<path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>' +
+                "</svg>";
+
             var statusEl = document.getElementById("legalBundleStatus");
             var containerEl = document.getElementById("legalDocuments");
+            var inlineTopBtn = document.getElementById("legalBackTopInline");
 
             function escapeHtml(text) {
                 return String(text)
@@ -132,58 +213,139 @@
                     && data.sections.length > 0;
             }
 
+            function prefersReducedMotion() {
+                return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            }
+
+            function openAccordionItem(item, button) {
+                if (!item || !button) return;
+                containerEl.querySelectorAll(".legal-accordion-item.is-open").forEach(function (openItem) {
+                    if (openItem === item) return;
+                    openItem.classList.remove("is-open");
+                    var openBtn = openItem.querySelector(".legal-accordion-trigger");
+                    if (openBtn) openBtn.setAttribute("aria-expanded", "false");
+                });
+                item.classList.add("is-open");
+                button.setAttribute("aria-expanded", "true");
+            }
+
+            function toggleAccordionItem(item, button) {
+                if (!item || !button) return;
+                if (item.classList.contains("is-open")) {
+                    item.classList.remove("is-open");
+                    button.setAttribute("aria-expanded", "false");
+                } else {
+                    openAccordionItem(item, button);
+                }
+            }
+
+            function resolveDocIdFromHash(hash) {
+                if (!hash) return "";
+                if (hash === "legal-notice" || hash.indexOf("legal-notice") === 0) return "legal-notice";
+                if (hash === "terms" || hash.indexOf("terms") === 0) return "terms";
+                if (hash === "privacy" || hash.indexOf("privacy") === 0) return "privacy";
+                return "";
+            }
+
+            function openDocById(docId, scroll) {
+                if (!docId) return;
+                var item = document.getElementById(docId);
+                var button = document.getElementById("legal-trigger-" + docId);
+                if (!item || !button) return;
+
+                openAccordionItem(item, button);
+
+                if (!scroll) return;
+                window.requestAnimationFrame(function () {
+                    item.scrollIntoView({
+                        behavior: prefersReducedMotion() ? "auto" : "smooth",
+                        block: "start"
+                    });
+                    button.focus({ preventScroll: true });
+                });
+            }
+
             function renderDocument(data) {
                 var docId = data.documentType;
+                var panelId = "legal-panel-" + docId;
+                var triggerId = "legal-trigger-" + docId;
+
                 var tocItems = data.sections.map(function (section) {
                     return (
-                        '<li>' +
+                        "<li>" +
                             '<a class="legal-toc-link" href="#' + escapeHtml(docId + "-" + section.id) + '">' +
                                 escapeHtml(section.title) +
-                            '</a>' +
-                        '</li>'
+                            "</a>" +
+                        "</li>"
                     );
                 }).join("");
 
                 var sectionsHtml = data.sections.map(function (section) {
                     return (
-                        '<article class="legal-section-item" id="' + escapeHtml(docId + "-" + section.id) + '">' +
-                            '<h3>' + escapeHtml(section.title) + '</h3>' +
-                            '<div class="legal-accordion-body">' + section.body + '</div>' +
-                        '</article>'
+                        '<section class="legal-bundle-section" id="' + escapeHtml(docId + "-" + section.id) + '">' +
+                            "<h3>" + escapeHtml(section.title) + "</h3>" +
+                            '<div class="legal-accordion-body">' + section.body + "</div>" +
+                        "</section>"
                     );
                 }).join("");
 
                 return (
-                    '<section class="legal-document" id="' + escapeHtml(docId) + '">' +
-                        '<header class="legal-document-header">' +
-                            '<h2 class="legal-header-doc">' + escapeHtml(data.documentTitle) + '</h2>' +
-                            '<div class="legal-header-meta">' +
-                                '<span>Version ' + escapeHtml(data.version) + '</span>' +
-                                '<span>' + escapeHtml(data.updated) + '</span>' +
-                            '</div>' +
-                        '</header>' +
-                        '<nav class="legal-toc" aria-label="Sommaire — ' + escapeHtml(data.documentTitle) + '">' +
-                            '<p class="legal-toc-title">Sommaire</p>' +
-                            '<ul class="legal-toc-list">' + tocItems + '</ul>' +
-                        '</nav>' +
-                        '<div class="legal-section-list">' + sectionsHtml + '</div>' +
-                    '</section>'
+                    '<article class="legal-accordion-item" id="' + escapeHtml(docId) + '">' +
+                        '<h2 class="legal-accordion-heading">' +
+                            '<button type="button" class="legal-accordion-trigger" id="' + triggerId + '" aria-expanded="false" aria-controls="' + panelId + '">' +
+                                "<span>" + escapeHtml(data.documentTitle) + "</span>" +
+                                CHEVRON +
+                            "</button>" +
+                        "</h2>" +
+                        '<div class="legal-accordion-panel" id="' + panelId + '" role="region" aria-labelledby="' + triggerId + '">' +
+                            '<div class="legal-accordion-panel-inner">' +
+                                '<div class="legal-accordion-body">' +
+                                    '<nav class="legal-toc" aria-label="Sommaire — ' + escapeHtml(data.documentTitle) + '">' +
+                                        '<p class="legal-toc-title">Sommaire</p>' +
+                                        '<ul class="legal-toc-list">' + tocItems + "</ul>" +
+                                    "</nav>" +
+                                    '<div class="legal-bundle-sections">' + sectionsHtml + "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                    "</article>"
                 );
             }
 
-            function setActiveNav() {
-                var hash = (location.hash || "").replace(/^#/, "");
-                var activeDoc = hash.split("-")[0];
+            function bindAccordion() {
+                containerEl.querySelectorAll(".legal-accordion-trigger").forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        var item = button.closest(".legal-accordion-item");
+                        toggleAccordionItem(item, button);
+                        if (item && item.id && history.replaceState) {
+                            history.replaceState(null, "", "#" + item.id);
+                        }
+                    });
+                });
 
-                document.querySelectorAll("#legalDocNav a").forEach(function (link) {
-                    var target = (link.getAttribute("href") || "").replace(/^#/, "");
-                    var isActive = target === activeDoc;
-                    link.classList.toggle("active", isActive);
-                    if (isActive) {
-                        link.setAttribute("aria-current", "location");
-                    } else {
-                        link.removeAttribute("aria-current");
-                    }
+                containerEl.querySelectorAll("a.legal-toc-link").forEach(function (link) {
+                    link.addEventListener("click", function (event) {
+                        var href = link.getAttribute("href") || "";
+                        var hash = href.replace(/^#/, "");
+                        var docId = resolveDocIdFromHash(hash);
+                        if (!docId) return;
+                        event.preventDefault();
+                        if (history.replaceState) {
+                            history.replaceState(null, "", "#" + hash);
+                        } else {
+                            location.hash = hash;
+                        }
+                        openDocById(docId, false);
+                        var target = document.getElementById(hash);
+                        if (target) {
+                            window.requestAnimationFrame(function () {
+                                target.scrollIntoView({
+                                    behavior: prefersReducedMotion() ? "auto" : "smooth",
+                                    block: "start"
+                                });
+                            });
+                        }
+                    });
                 });
             }
 
@@ -210,10 +372,27 @@
                 containerEl.innerHTML = rendered.join("");
                 statusEl.hidden = true;
                 containerEl.hidden = false;
-                setActiveNav();
+                bindAccordion();
+
+                var initialDoc = resolveDocIdFromHash((location.hash || "").replace(/^#/, ""));
+                if (initialDoc) {
+                    openDocById(initialDoc, true);
+                }
             }
 
-            window.addEventListener("hashchange", setActiveNav);
+            if (inlineTopBtn) {
+                inlineTopBtn.addEventListener("click", function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: prefersReducedMotion() ? "auto" : "smooth"
+                    });
+                });
+            }
+
+            window.addEventListener("hashchange", function () {
+                var docId = resolveDocIdFromHash((location.hash || "").replace(/^#/, ""));
+                if (docId) openDocById(docId, true);
+            });
 
             loadDocuments().catch(function () {
                 statusEl.textContent = "Contenu juridique temporairement indisponible.";

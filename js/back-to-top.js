@@ -5,7 +5,8 @@
         projects: true,
         submission: true,
         about: true,
-        contact: true
+        contact: true,
+        legal: true
     };
 
     var SHOW_AFTER = 320;
