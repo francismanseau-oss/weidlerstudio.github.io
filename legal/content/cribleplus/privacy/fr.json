@@ -8,8 +8,8 @@
   "sections": [
     {
       "id": "who-we-are",
-      "title": "Qui sommes-nous ?",
-      "body": "<p><strong>Weidler Studio</strong> est l'éditeur de <strong>Crible+</strong>, une application mobile de jeu de cribbage pour Android. Notre objectif est de proposer une expérience de jeu hors ligne, fluide et respectueuse de la vie privée.</p><p>Cette politique décrit la manière dont Crible+ traite les informations lorsque vous utilisez l'application.</p>"
+      "title": "Qui suis-je ?",
+      "body": "<p><strong>Weidler Studio</strong> est le nom sous lequel je développe <strong>Crible+</strong>, une application mobile de jeu de cribbage pour Android. Mon objectif est de proposer une expérience de jeu hors ligne, fluide et respectueuse de la vie privée.</p><p>Cette politique décrit la manière dont Crible+ traite les informations lorsque vous utilisez l'application.</p>"
     },
     {
       "id": "personal-data",
@@ -28,7 +28,7 @@
     },
     {
       "id": "analytics",
-      "title": "Pourquoi utilisons-nous Google Analytics ?",
+      "title": "Pourquoi utiliser Google Analytics ?",
       "body": "<p>Crible+ utilise <strong>Google Analytics (GA4)</strong> afin de recueillir des statistiques anonymes sur l'utilisation de l'application, par exemple :</p><ul><li>ouvertures de l'application ;</li><li>parties jouées ;</li><li>modes de jeu utilisés ;</li><li>records personnels ;</li><li>médailles obtenues.</li></ul><p>Ces informations servent uniquement à améliorer l'expérience de jeu, équilibrer les niveaux de difficulté et corriger d'éventuels problèmes.</p><p>Aucune information permettant d'identifier personnellement un utilisateur n'est volontairement collectée par Crible+.</p>"
     },
     {
@@ -54,16 +54,16 @@
     {
       "id": "children",
       "title": "Les enfants peuvent-ils utiliser Crible+ ?",
-      "body": "<p>Crible+ est un jeu destiné au grand public et <strong>n'est pas spécifiquement conçu pour les enfants de moins de 13 ans</strong>.</p><p>Nous encourageons les parents et tuteurs à superviser l'utilisation des applications sur les appareils des jeunes utilisateurs.</p>"
+      "body": "<p>Crible+ est un jeu destiné au grand public et <strong>n'est pas spécifiquement conçu pour les enfants de moins de 13 ans</strong>.</p><p>J'encourage les parents et tuteurs à superviser l'utilisation des applications sur les appareils des jeunes utilisateurs.</p>"
     },
     {
       "id": "policy-changes",
       "title": "Cette politique peut-elle évoluer ?",
-      "body": "<p>Oui. Weidler Studio se réserve le droit de mettre à jour cette politique de confidentialité.</p><p>En cas de modification importante, la version et la date de mise à jour seront actualisées sur cette page. Une nouvelle version pourra également vous être présentée dans l'application.</p><p>Nous vous invitons à consulter cette page périodiquement.</p>"
+      "body": "<p>Oui. Weidler Studio se réserve le droit de mettre à jour cette politique de confidentialité.</p><p>En cas de modification importante, la version et la date de mise à jour seront actualisées sur cette page. Une nouvelle version pourra également vous être présentée dans l'application.</p><p>Je vous invite à consulter cette page périodiquement.</p>"
     },
     {
       "id": "contact",
-      "title": "Comment nous contacter ?",
+      "title": "Comment me contacter ?",
       "body": "<p>Pour toute question relative à cette politique ou à la confidentialité dans Crible+ :</p><p><strong>Weidler Studio</strong><br>Courriel : <a href=\"mailto:contact@weidlerstudio.com\">contact@weidlerstudio.com</a><br>Site web : <a href=\"https://weidlerstudio.com\" rel=\"noopener noreferrer\">weidlerstudio.com</a></p>"
     }
   ]

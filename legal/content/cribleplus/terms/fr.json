@@ -44,7 +44,7 @@
     {
       "id": "availability",
       "title": "Disponibilité du service",
-      "body": "<p>Weidler Studio s'efforce de maintenir Crible+ accessible et fonctionnelle. Toutefois, l'application peut être indisponible temporairement pour maintenance, mise à jour ou pour des raisons indépendantes de notre volonté.</p><p>Les fonctionnalités hors ligne restent disponibles lorsque l'application est installée sur votre appareil.</p>"
+      "body": "<p>Weidler Studio s'efforce de maintenir Crible+ accessible et fonctionnelle. Toutefois, l'application peut être indisponible temporairement pour maintenance, mise à jour ou pour des raisons indépendantes de ma volonté.</p><p>Les fonctionnalités hors ligne restent disponibles lorsque l'application est installée sur votre appareil.</p>"
     },
     {
       "id": "as-is",
@@ -63,7 +63,7 @@
     },
     {
       "id": "contact",
-      "title": "Comment nous contacter",
+      "title": "Comment me contacter",
       "body": "<p>Pour toute question relative aux présentes conditions :</p><p><strong>Weidler Studio</strong><br>Canada<br>Courriel : <a href=\"mailto:contact@weidlerstudio.com\">contact@weidlerstudio.com</a></p><p>© 2026 Weidler Studio</p>"
     }
   ]
